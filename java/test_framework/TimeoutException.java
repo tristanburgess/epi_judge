@@ -1,12 +1,10 @@
 
-package epi.test_framework;
+package test_framework;
 
 public class TimeoutException extends Exception {
   private TestTimer timer;
 
-  TimeoutException(long timeoutSeconds) {
-    timer = new TestTimer(timeoutSeconds);
-  }
+  TimeoutException(long durationMs) { timer = new TestTimer(durationMs); }
 
   TestTimer getTimer() { return timer; }
 }

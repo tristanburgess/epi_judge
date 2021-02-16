@@ -1,8 +1,7 @@
 #include <memory>
-
-#include "list_node.h"
-#include "test_framework/generic_test.h"
-#include "test_framework/timed_executor.h"
+#include "../generic_types/list_node.h"
+#include "generic_test.h"
+#include "timed_executor.h"
 using std::make_shared;
 using std::shared_ptr;
 
@@ -12,6 +11,7 @@ void InsertAfter(const shared_ptr<ListNode<int>>& node,
   // TODO - you fill in here.
   return;
 }
+
 shared_ptr<ListNode<int>> InsertListWrapper(TimedExecutor& executor,
                                             const shared_ptr<ListNode<int>>& l,
                                             int node_idx, int new_node_data) {
@@ -31,6 +31,6 @@ int main(int argc, char* argv[]) {
   std::vector<std::string> args{argv + 1, argv + argc};
   std::vector<std::string> param_names{"executor", "l", "node_idx",
                                        "new_node_data"};
-  return GenericTestMain(args, "insert_in_list.cc", "insert_in_list.tsv",
+  return GenericTestMain(args, "insert_in_list.cc", "../test_data/epi/insert_in_list.tsv",
                          &InsertListWrapper, DefaultComparator{}, param_names);
 }

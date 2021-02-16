@@ -1,3 +1,4 @@
+
 import collections
 import math
 import random
@@ -77,8 +78,8 @@ def check_sequence_is_uniformly_random(seq, n, false_negative_tolerance):
 
 
 def binomial_coefficient(n, k):
-    return 0 if n < k else math.factorial(n) // (math.factorial(k) *
-                                                 math.factorial(n - k))
+    return 0 if n < k else math.factorial(n) // (
+        math.factorial(k) * math.factorial(n - k))
 
 
 # Get the mth combination in lexicographical order from A (n elements) chosen k at a time.

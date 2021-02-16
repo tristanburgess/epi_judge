@@ -1,11 +1,14 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
-import epi.test_framework.TestFailure;
-import epi.test_framework.TimedExecutor;
+
+import generic_types.ListNode;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
+import test_framework.TestFailure;
+import test_framework.TimedExecutor;
 
 import java.util.HashSet;
 import java.util.Set;
+
 public class DoListsOverlap {
 
   public static ListNode<Integer> overlappingLists(ListNode<Integer> l0,

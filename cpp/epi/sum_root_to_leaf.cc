@@ -1,5 +1,5 @@
 #include "binary_tree_node.h"
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 
 int SumRootToLeaf(const unique_ptr<BinaryTreeNode<int>>& tree) {
   // TODO - you fill in here.

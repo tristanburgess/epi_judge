@@ -1,24 +1,31 @@
 #include <string>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/test_failure.h"
+#include "generic_test.h"
+#include "test_failure.h"
 using std::string;
 
 string IntToString(int x) {
   // TODO - you fill in here.
   return "0";
 }
+
 int StringToInt(const string& s) {
   // TODO - you fill in here.
   return 0;
 }
+
 void Wrapper(int x, const string& s) {
-  if (stoi(IntToString(x)) != x) {
-    throw TestFailure("Int to string conversion failed");
+  string xs = IntToString(x);
+  if (xs != s) {
+    std::ostringstream ss;
+    ss << "\nInt to string conversion failed\n" << "Expected: " << s << " - Acutal: " << xs << "\n";
+    throw TestFailure(ss.str());
   }
 
-  if (StringToInt(s) != x) {
-    throw TestFailure("String to int conversion failed");
+  int sx = StringToInt(s);
+  if (sx != x) {
+    std::ostringstream ss;
+    ss << "\nString to int conversion failed\n" << "Expected: " << x << " - Acutal: " << sx << "\n";
+    throw TestFailure(ss.str());
   }
 }
 
@@ -26,6 +33,6 @@ int main(int argc, char* argv[]) {
   std::vector<std::string> args{argv + 1, argv + argc};
   std::vector<std::string> param_names{"x", "s"};
   return GenericTestMain(args, "string_integer_interconversion.cc",
-                         "string_integer_interconversion.tsv", &Wrapper,
+                         "../test_data/epi/string_integer_interconversion.tsv", &Wrapper,
                          DefaultComparator{}, param_names);
 }

@@ -11,8 +11,6 @@
 #include "test_result.h"
 #include "test_timer.h"
 
-namespace test_framework {
-namespace test_utils_console {
 struct EscapeNewline {
   const std::string& str;
 
@@ -44,26 +42,22 @@ void ClearLineIfTty() {
 
 void PrintTestResult(const TestResult& test_result) {
   switch (test_result) {
-    case TestResult::PASSED:
-      PrintStdOutColored(ConsoleColor::FG_GREEN, "PASSED");
+    case PASSED:
+      PrintStdOutColored(console_color::ConsoleColor::FG_GREEN, "PASSED");
       break;
-    case TestResult::FAILED:
-      PrintStdOutColored(ConsoleColor::FG_RED, "FAILED");
+    case FAILED:
+      PrintStdOutColored(console_color::ConsoleColor::FG_RED, "FAILED");
       break;
-    case TestResult::TIMEOUT:
-      PrintStdOutColored(ConsoleColor::FG_BLUE, "TIMEOUT");
+    case TIMEOUT:
+      PrintStdOutColored(console_color::ConsoleColor::FG_BLUE, "TIMEOUT");
       break;
-    case TestResult::UNKNOWN_EXCEPTION:
-      PrintStdOutColored(ConsoleColor::FG_RED, "UNHANDLED EXCEPTION");
+    case UNKNOWN_EXCEPTION:
+      PrintStdOutColored(console_color::ConsoleColor::FG_RED, "UNHANDLED EXCEPTION");
       break;
     default:
       throw std::runtime_error("Unknown TestResult");
   }
 }
-
-std::string GenSpaces(size_t count) { return std::string(count, ' '); }
-
-}  // namespace test_utils_console
 
 void PrintTestInfo(const TestResult& test_result, int test_nr,
                    int total_tests, const std::string& diagnostic,
@@ -71,16 +65,16 @@ void PrintTestInfo(const TestResult& test_result, int test_nr,
   static bool caret_at_line_start = true;
 
   if (!caret_at_line_start) {
-    test_utils_console::ClearLineIfTty();
+    ClearLineIfTty();
   }
 
   auto total_tests_str = std::to_string(total_tests);
   std::cout << "Test ";
-  test_utils_console::PrintTestResult(test_result);
+  PrintTestResult(test_result);
   std::cout << " (" << std::setw(static_cast<int>(total_tests_str.size()))
             << test_nr << '/' << total_tests_str << ")";
 
-  if (timer.GetMicroseconds().count()) {
+  if (timer.HasValidResult()) {
     std::cout << " [" << DurationToString(timer.GetMicroseconds()) << "]";
   }
 
@@ -91,6 +85,8 @@ void PrintTestInfo(const TestResult& test_result, int test_nr,
     caret_at_line_start = true;
   }
 }
+
+std::string GenSpaces(size_t count) { return std::string(count, ' '); }
 
 void PrintFailedTest(const std::vector<std::string>& param_names,
                      const std::vector<std::string>& arguments,
@@ -103,35 +99,24 @@ void PrintFailedTest(const std::vector<std::string>& param_names,
     }
   }
 
-  PrintStdOutColored(ConsoleColor::FG_YELLOW, "Arguments");
+  PrintStdOutColored(console_color::ConsoleColor::FG_YELLOW, "Arguments");
   std::cout << std::endl;
 
   for (unsigned int i = 0; i < arguments.size(); ++i) {
     std::cout << '\t';
-    PrintStdOutColored(ConsoleColor::FG_YELLOW, param_names[i]);
-    std::cout << ": "
-              << test_utils_console::GenSpaces(max_col_size -
-                                               param_names[i].size())
-              << test_utils_console::EscapeNewline{arguments[i]} << std::endl;
+    PrintStdOutColored(console_color::ConsoleColor::FG_YELLOW, param_names[i]);
+    std::cout << ": " << GenSpaces(max_col_size - param_names[i].size())
+              << EscapeNewline{arguments[i]} << std::endl;
   }
 
   auto properties = test_failure.GetProperties();
-  if (!properties.empty()) {
-    PrintStdOutColored(ConsoleColor::FG_YELLOW, "\nFailure info\n");
-    for (auto& prop : properties) {
-      std::cout << '\t';
-      PrintStdOutColored(ConsoleColor::FG_YELLOW, prop.Name());
-      std::cout << ": "
-                << test_utils_console::GenSpaces(max_col_size -
-                                                 prop.Name().size())
-                << prop.Value() << std::endl;
-    }
-  }
-}
+  PrintStdOutColored(console_color::ConsoleColor::FG_YELLOW, "\nFailure info\n");
 
-void ShowComplexityNotification() {
-  if (platform::UseTtyOutput()) {
-    std::cout << "Time complexity:\r";
+  for (auto& prop : properties) {
+    std::cout << '\t';
+    PrintStdOutColored(console_color::ConsoleColor::FG_YELLOW, prop.Name());
+    std::cout << ": " << GenSpaces(max_col_size - prop.Name().size())
+              << prop.Value() << std::endl;
   }
 }
 
@@ -140,7 +125,7 @@ void PrintPostRunStats(
     const std::vector<std::chrono::microseconds>& durations) {
   if (!durations.empty()) {
     if (!complexity.empty()) {
-      std::cout << "Time complexity: " << complexity << std::endl;
+      std::cout << "Time complexity:      " << complexity << std::endl;
     }
 
     auto avg_median = AvgAndMedianFromDurations(durations);
@@ -158,4 +143,3 @@ void PrintPostRunStats(
               << std::endl;
   }
 }
-}  // namespace test_framework

@@ -1,6 +1,5 @@
 #include <vector>
-
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 using std::vector;
 vector<int> SortKIncreasingDecreasingArray(const vector<int>& A) {
   // TODO - you fill in here.

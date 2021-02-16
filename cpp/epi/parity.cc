@@ -1,4 +1,6 @@
-#include "test_framework/generic_test.h"
+
+#include "generic_test.h"
+
 short Parity(unsigned long long x) {
   // TODO - you fill in here.
   return 0;
@@ -7,6 +9,6 @@ short Parity(unsigned long long x) {
 int main(int argc, char* argv[]) {
   std::vector<std::string> args{argv + 1, argv + argc};
   std::vector<std::string> param_names{"x"};
-  return GenericTestMain(args, "parity.cc", "parity.tsv", &Parity,
+  return GenericTestMain(args, "parity.cc", "../test_data/epi/parity.tsv", &Parity,
                          DefaultComparator{}, param_names);
 }

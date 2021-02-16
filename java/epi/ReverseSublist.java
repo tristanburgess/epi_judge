@@ -1,6 +1,9 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
+
+import generic_types.ListNode;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
+
 public class ReverseSublist {
   @EpiTest(testDataFile = "reverse_sublist.tsv")
 

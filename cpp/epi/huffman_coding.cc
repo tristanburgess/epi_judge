@@ -1,8 +1,7 @@
 #include <string>
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/serialization_traits.h"
+#include "generic_test.h"
+#include "serialization_traits.h"
 using std::string;
 using std::vector;
 namespace huffman {
@@ -16,10 +15,9 @@ double HuffmanEncoding(vector<CharWithFrequency>* symbols) {
   return 0.0;
 }
 }  // namespace huffman
-namespace test_framework {
 template <>
-struct SerializationTrait<huffman::CharWithFrequency>
-    : UserSerTrait<huffman::CharWithFrequency, std::string, double> {
+struct SerializationTraits<huffman::CharWithFrequency>
+    : UserSerTraits<huffman::CharWithFrequency, std::string, double> {
   static huffman::CharWithFrequency FromTuple(
       const std::tuple<std::string, double>& values) {
     if (std::get<0>(values).size() != 1) {
@@ -30,7 +28,6 @@ struct SerializationTrait<huffman::CharWithFrequency>
                                       std::get<1>(values)};
   }
 };
-}  // namespace test_framework
 
 double HuffmanEncodingWrapper(vector<huffman::CharWithFrequency> symbols) {
   return huffman::HuffmanEncoding(&symbols);

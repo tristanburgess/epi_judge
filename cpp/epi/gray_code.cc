@@ -1,9 +1,9 @@
 #include <algorithm>
+#include <string>
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/test_failure.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "test_failure.h"
+#include "timed_executor.h"
 using std::vector;
 
 vector<int> GrayCode(int num_bits) {
@@ -24,7 +24,7 @@ void GrayCodeWrapper(TimedExecutor& executor, int num_bits) {
                       std::to_string(expected_size) + ", got " +
                       std::to_string(result.size()));
   }
-  for (int i = 1; i < result.size(); i++)
+  for (size_t i = 1; i < result.size(); i++)
     if (!DiffersByOneBit(result[i - 1], result[i])) {
       if (result[i - 1] == result[i]) {
         throw TestFailure("Two adjacent entries are equal");

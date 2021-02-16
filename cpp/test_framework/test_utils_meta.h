@@ -10,8 +10,6 @@
 #include <type_traits>
 #include <vector>
 
-namespace test_framework {
-
 /**
  * Some forward declarations
  */
@@ -49,39 +47,6 @@ using remove_ref_cv_t = std::remove_cv_t<std::remove_reference_t<T>>;
 template <typename T>
 using is_pure_type = std::is_same<T, remove_ref_cv_t<T>>;
 
-namespace meta {
-template <int Idx, typename T>
-struct NthTypeParameter;
-
-template <int Idx, template <class...> class T, typename... Args>
-struct NthTypeParameter<Idx, T<Args...>> {
-  using type = std::tuple_element_t<Idx, std::tuple<Args...>>;
-};
-
-template <typename T, int... Idx>
-struct TemplateTypeImpl;
-
-template <typename T>
-struct TemplateTypeImpl<T> {
-  using type = T;
-};
-
-template <typename T, int Idx, int... Tail>
-struct TemplateTypeImpl<T, Idx, Tail...> {
-  using nth_type_in_this_level = typename NthTypeParameter<Idx, T>::type;
-  using type =
-      typename TemplateTypeImpl<nth_type_in_this_level, Tail...>::type;
-};
-}  // namespace meta
-
-/**
- * Meta function, that retrieves type parameter of a template type by its
- * index
- */
-template <typename T, int... Idx>
-using template_param_by_index_t =
-    typename meta::TemplateTypeImpl<T, Idx...>::type;
-
 /**
  * @see firstFalseArg(bool, Bools...)
  * Default case for recursion.
@@ -105,7 +70,6 @@ constexpr int FirstFalseArg(bool b, Bools... tail) {
 }
 
 struct DefaultComparator;
-struct UnorderedComparator;
 
 class OnScopeExit {
  public:
@@ -116,47 +80,16 @@ class OnScopeExit {
   std::function<void()> command_;
 };
 
-template <typename T>
-void CompleteSort(T& x);
-
-namespace meta {
-template <typename T>
-struct CompleteSortImpl {
-  static void Sort(const T& x) {}
-};
-
-template <typename T>
-struct CompleteSortImpl<std::vector<T>> {
-  static void Sort(std::vector<T>& v) {
-    for (auto& x : v) {
-      CompleteSort(x);
-    }
-    std::sort(std::begin(v), std::end(v));
-  }
-};
-}  // namespace meta
-
-/**
- * Multi-dimensional container sort.
- * If T is vector of vector of ... of vector,
- * then the argument is lexicographically sorted on all levels,
- * starting from the bottom.
- */
-template <typename T>
-void CompleteSort(T& x) {
-  meta::CompleteSortImpl<remove_ref_cv_t<T>>::Sort(x);
-}
-
 /**
  * Simple function reflexion. It is used to deduce argument types and return
  * type of the function.
  * @param Function - the type of the function to be reflected.
  */
 template <typename Function>
-struct FunctionalTrait;
+struct FunctionalTraits;
 
 template <typename ReturnT, typename... ArgsT>
-struct FunctionalTrait<ReturnT (*)(ArgsT...)> {
+struct FunctionalTraits<ReturnT (*)(ArgsT...)> {
   using return_t = ReturnT;
   using arg_tuple_t = std::tuple<ArgsT...>;
 
@@ -171,7 +104,7 @@ struct FunctionalTrait<ReturnT (*)(ArgsT...)> {
  * Hook for function wrappers with custom timing.
  */
 template <typename ReturnT, typename... ArgsT>
-struct FunctionalTrait<ReturnT (*)(TimedExecutor&, ArgsT...)> {
+struct FunctionalTraits<ReturnT (*)(TimedExecutor&, ArgsT...)> {
   using return_t = ReturnT;
   using arg_tuple_t = std::tuple<ArgsT...>;
 
@@ -186,40 +119,33 @@ struct FunctionalTrait<ReturnT (*)(TimedExecutor&, ArgsT...)> {
  * Hook for deprecated hook.
  */
 template <typename ReturnT, typename... ArgsT>
-struct FunctionalTrait<ReturnT (*)(TestTimer&, ArgsT...)> {
+struct FunctionalTraits<ReturnT (*)(TestTimer&, ArgsT...)> {
   static_assert(sizeof...(ArgsT) < 0,
                 "This program uses deprecated TestTimer hook");
 };
 
 /**
  * Simple binary predicate reflexion.
- * Has the same functionality as FunctionalTrait.
+ * Has the same functionality as FunctionalTraits.
  * Additionally has aliases for the 1st and the 2nd argument types.
  * @tparam Function - the type of the function to be reflected.
  */
 template <typename Function>
-struct BiPredicateTrait;
+struct BiPredicateTraits;
 
 template <>
-struct BiPredicateTrait<DefaultComparator> {
-  using arg1_t = void;
-  using arg2_t = void;
-};
-
-template <>
-struct BiPredicateTrait<UnorderedComparator> {
+struct BiPredicateTraits<DefaultComparator> {
   using arg1_t = void;
   using arg2_t = void;
 };
 
 template <typename ReturnT, typename Arg1T, typename Arg2T>
-struct BiPredicateTrait<ReturnT (*)(Arg1T, Arg2T)>
-    : FunctionalTrait<ReturnT (*)(Arg1T, Arg2T)> {
+struct BiPredicateTraits<ReturnT (*)(Arg1T, Arg2T)>
+    : FunctionalTraits<ReturnT (*)(Arg1T, Arg2T)> {
   using arg1_t = Arg1T;
   using arg2_t = Arg2T;
 };
 
-namespace meta {
 /**
  * @see Concatenate()
  * Default case for recursion.
@@ -246,7 +172,6 @@ std::string ConcatenateImpl(const std::string& delim, bool first,
 
   return delim + head + ConcatenateImpl(delim, false, tail...);
 }
-}  // namespace meta
 
 /**
  * This function takes a variable number of string argument and
@@ -257,7 +182,7 @@ std::string ConcatenateImpl(const std::string& delim, bool first,
  */
 template <typename... Strings>
 std::string Concatenate(const std::string& delim, const Strings&... strings) {
-  return meta::ConcatenateImpl(delim, true, strings...);
+  return ConcatenateImpl(delim, true, strings...);
 }
 
 /**
@@ -295,6 +220,47 @@ class SubTuple {
 template <typename TupleT, size_t Begin, size_t End>
 using sub_tuple_t = typename SubTuple<TupleT, Begin, End>::type;
 
+template <typename T>
+void CompleteSort(T& x);
+
+template <typename T>
+struct CompleteSortImpl {
+  static void Sort(const T& x) {}
+};
+
+template <typename T>
+struct CompleteSortImpl<std::vector<T>> {
+  static void Sort(std::vector<T>& v) {
+    for (auto& x : v) {
+      CompleteSort(x);
+    }
+    std::sort(std::begin(v), std::end(v));
+  }
+};
+
+/**
+ * Multi-dimensional container sort.
+ * If T is vector of vector of ... of vector,
+ * then the argument is lexicographically sorted on all levels,
+ * starting from the bottom.
+ */
+template <typename T>
+void CompleteSort(T& x) {
+  CompleteSortImpl<remove_ref_cv_t<T>>::Sort(x);
+}
+
+/**
+ * Compares elements of 2 (multi-dimensional) vectors.
+ * Both vectors are sorted (@see CompleteSort()) and
+ * then compared with ==.
+ */
+template <typename T>
+bool UnorderedComparator(T a, T b) {
+  CompleteSort(a);
+  CompleteSort(b);
+  return a == b;
+}
+
 struct VoidPlaceholder {
   friend std::ostream& operator<<(std::ostream& out, VoidPlaceholder x) {
     return out << "void";
@@ -318,7 +284,7 @@ std::vector<T> FlattenVector(std::vector<std::vector<T>>&& vv) {
   return result;
 }
 
-namespace meta {
+namespace detail {
 struct No {};
 /**
  * @see HasEqualOp
@@ -382,13 +348,13 @@ template <typename T>
 struct IsBinaryTreeImpl {
   using type = std::false_type;
 };
-}  // namespace meta
+}  // namespace detail
 
 /**
  * Check if operator== is defined for T and EqualTo types
  */
 template <class T, class EqualTo = T>
-using HasEqualOp = typename meta::HasEqualOpImpl<T, EqualTo>::type;
+using HasEqualOp = typename detail::HasEqualOpImpl<T, EqualTo>::type;
 template <typename T, class EqualTo = T>
 using EqualOpTag = std::conditional_t<HasEqualOp<T, EqualTo>::value,
                                       HasEqualOpTag, HasNoEqualOpTag>;
@@ -397,7 +363,7 @@ using EqualOpTag = std::conditional_t<HasEqualOp<T, EqualTo>::value,
  * Check if operator<< is defined for T and U types
  */
 template <class T, class U>
-using HasLeftShiftOp = typename meta::HasLeftShiftOpImpl<T, U>::type;
+using HasLeftShiftOp = typename detail::HasLeftShiftOpImpl<T, U>::type;
 
 /**
  * Check if operator<< is defined for std::ostream and T
@@ -414,7 +380,7 @@ using OStreamOpTag = std::conditional_t<HasOStreamOp<T>::value,
  * It is assumed these methods return begin/end iterators.
  */
 template <typename T>
-using HasBeginEnd = typename meta::HasBeginEndImpl<T>::type;
+using HasBeginEnd = typename detail::HasBeginEndImpl<T>::type;
 template <typename T>
 using BeginEndTag = std::conditional_t<HasBeginEnd<T>::value, HasBeginEndTag,
                                        HasNoBeginEndTag>;
@@ -424,34 +390,7 @@ using BeginEndTag = std::conditional_t<HasBeginEnd<T>::value, HasBeginEndTag,
  */
 template <typename T>
 using IsBinaryTree =
-    typename meta::IsBinaryTreeImpl<remove_ref_cv_t<T>>::type;
+    typename detail::IsBinaryTreeImpl<remove_ref_cv_t<T>>::type;
 template <typename T>
 using BinaryTreeTag = std::conditional_t<IsBinaryTree<T>::value,
                                          IsBinaryTreeTag, IsNotBinaryTreeTag>;
-
-template <typename T>
-T* GetRawPtr(T* ptr) {
-  return ptr;
-}
-
-template <typename T>
-T* GetRawPtr(std::shared_ptr<T>& ptr) {
-  return ptr.get();
-}
-
-template <typename T>
-const T* GetRawPtr(const std::shared_ptr<T>& ptr) {
-  return ptr.get();
-}
-
-template <typename T>
-T* GetRawPtr(std::unique_ptr<T>& ptr) {
-  return ptr.get();
-}
-
-template <typename T>
-const T* GetRawPtr(const std::unique_ptr<T>& ptr) {
-  return ptr.get();
-}
-
-}  // namespace test_framework

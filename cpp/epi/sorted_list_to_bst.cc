@@ -1,11 +1,10 @@
 #include <iterator>
 #include <memory>
 #include <vector>
-
 #include "doubly_list_node.h"
-#include "test_framework/generic_test.h"
-#include "test_framework/test_failure.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "test_failure.h"
+#include "timed_executor.h"
 using std::make_shared;
 using std::vector;
 

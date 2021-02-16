@@ -2,10 +2,9 @@
 #include <stack>
 #include <string>
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/test_failure.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "test_failure.h"
+#include "timed_executor.h"
 using std::array;
 using std::stack;
 using std::vector;

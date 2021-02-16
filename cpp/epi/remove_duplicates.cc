@@ -2,9 +2,8 @@
 #include <iterator>
 #include <string>
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/serialization_traits.h"
+#include "generic_test.h"
+#include "serialization_traits.h"
 using std::string;
 using std::vector;
 
@@ -20,12 +19,9 @@ void EliminateDuplicate(vector<Name>* names) {
   // TODO - you fill in here.
   return;
 }
-
-namespace test_framework {
 template <>
-struct SerializationTrait<Name> : UserSerTrait<Name, std::string, std::string> {
-};
-}  // namespace test_framework
+struct SerializationTraits<Name>
+    : UserSerTraits<Name, std::string, std::string> {};
 
 std::ostream& operator<<(std::ostream& out, const Name& n) {
   return out << n.first_name;

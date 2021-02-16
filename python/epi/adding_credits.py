@@ -3,23 +3,23 @@ from test_framework.test_failure import TestFailure
 
 
 class ClientsCreditsInfo:
-    def insert(self, client_id: str, c: int) -> None:
+    def insert(self, client_id, c):
         # TODO - you fill in here.
         return
 
-    def remove(self, client_id: str) -> bool:
+    def remove(self, client_id):
         # TODO - you fill in here.
         return True
 
-    def lookup(self, client_id: str) -> int:
+    def lookup(self, client_id):
         # TODO - you fill in here.
         return 0
 
-    def add_all(self, C: int) -> None:
+    def add_all(self, C):
         # TODO - you fill in here.
         return
 
-    def max(self) -> str:
+    def max(self):
         # TODO - you fill in here.
         return ''
 
@@ -43,9 +43,9 @@ def client_credits_info_tester(ops):
                 raise TestFailure('Remove: return value mismatch')
         elif op == 'insert':
             cr.insert(s_arg, i_arg)
-        elif op == 'add_all':
+        elif op == "add_all":
             cr.add_all(i_arg)
-        elif op == 'lookup':
+        elif op == "lookup":
             result = cr.lookup(s_arg)
             if result != i_arg:
                 raise TestFailure('Lookup: return value mismatch')
@@ -53,6 +53,6 @@ def client_credits_info_tester(ops):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main('adding_credits.py',
+        generic_test.generic_test_main("adding_credits.py",
                                        'adding_credits.tsv',
                                        client_credits_info_tester))

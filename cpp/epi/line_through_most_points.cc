@@ -1,7 +1,6 @@
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/serialization_traits.h"
+#include "generic_test.h"
+#include "serialization_traits.h"
 using std::vector;
 
 struct Point {
@@ -11,10 +10,9 @@ int FindLineWithMostPoints(const vector<Point>& points) {
   // TODO - you fill in here.
   return 0;
 }
-namespace test_framework {
 template <>
-struct SerializationTrait<Point> : UserSerTrait<Point, int, int> {};
-}  // namespace test_framework
+struct SerializationTraits<Point> : UserSerTraits<Point, int, int> {};
+
 bool operator==(const Point& lhs, const Point& rhs) {
   return std::tie(lhs.x, lhs.y) == std::tie(rhs.x, rhs.y);
 }

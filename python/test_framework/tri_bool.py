@@ -1,3 +1,4 @@
+
 from enum import Enum, auto
 
 
@@ -9,6 +10,7 @@ class TriBool(Enum):
     def get_or_default(self, default_value):
         if self == self.FALSE:
             return False
-        elif self == self.TRUE:
+        if self == self.TRUE:
             return True
-        return default_value
+        else:
+            return default_value

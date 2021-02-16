@@ -1,10 +1,9 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.EpiUserType;
-import epi.test_framework.GenericTest;
-import epi.test_framework.TestFailure;
-import epi.test_framework.TimedExecutor;
-
+import test_framework.EpiTest;
+import test_framework.EpiUserType;
+import test_framework.GenericTest;
+import test_framework.TestFailure;
+import test_framework.TimedExecutor;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -69,9 +68,9 @@ public class GroupEqualEntries {
     if (!values.equals(newValues)) {
       throw new TestFailure("Entry set changed");
     }
-
-    Set<Integer> ages = new HashSet<>();
     int lastAge = people.get(0).age;
+    Set<Integer> ages = new HashSet<>();
+
     for (Person p : people) {
       if (ages.contains(p.age)) {
         throw new TestFailure("Entries are not grouped by age");

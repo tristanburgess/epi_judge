@@ -1,8 +1,11 @@
 package epi;
-import epi.test_framework.BinaryTreeUtils;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
-import epi.test_framework.TimedExecutor;
+
+import generic_types.BstNode;
+import test_framework.BinaryTreeUtils;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
+import test_framework.TimedExecutor;
+
 public class DescendantAndAncestorInBst {
 
   public static boolean

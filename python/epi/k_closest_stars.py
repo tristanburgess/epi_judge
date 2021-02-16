@@ -1,20 +1,19 @@
 import functools
 import math
-from typing import Iterator, List
 
 from test_framework import generic_test
 from test_framework.test_utils import enable_executor_hook
 
 
 class Star:
-    def __init__(self, x: float, y: float, z: float) -> None:
+    def __init__(self, x, y, z):
         self.x, self.y, self.z = x, y, z
 
     @property
-    def distance(self) -> float:
+    def distance(self):
         return math.sqrt(self.x**2 + self.y**2 + self.z**2)
 
-    def __lt__(self, rhs: 'Star') -> bool:
+    def __lt__(self, rhs):
         return self.distance < rhs.distance
 
     def __repr__(self):
@@ -27,7 +26,7 @@ class Star:
         return math.isclose(self.distance, rhs.distance)
 
 
-def find_closest_k_stars(stars: Iterator[Star], k: int) -> List[Star]:
+def find_closest_k_stars(stars, k):
     # TODO - you fill in here.
     return []
 
@@ -43,12 +42,12 @@ def comp(expected_output, output):
 @enable_executor_hook
 def find_closest_k_stars_wrapper(executor, stars, k):
     stars = [Star(*a) for a in stars]
-    return executor.run(functools.partial(find_closest_k_stars, iter(stars),
-                                          k))
+    return executor.run(
+        functools.partial(find_closest_k_stars, iter(stars), k))
 
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main('k_closest_stars.py',
-                                       'k_closest_stars.tsv',
+        generic_test.generic_test_main("k_closest_stars.py",
+                                       "k_closest_stars.tsv",
                                        find_closest_k_stars_wrapper, comp))

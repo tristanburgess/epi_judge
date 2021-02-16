@@ -1,7 +1,6 @@
 #include <string>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/test_failure.h"
+#include "generic_test.h"
+#include "test_failure.h"
 using std::string;
 string Decoding(const string &s) {
   // TODO - you fill in here.

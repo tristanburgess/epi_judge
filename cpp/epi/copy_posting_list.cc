@@ -1,11 +1,10 @@
 #include <map>
 #include <memory>
-
 #include "posting_list_node.h"
-#include "test_framework/generic_test.h"
-#include "test_framework/serialization_traits.h"
-#include "test_framework/test_failure.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "serialization_traits.h"
+#include "test_failure.h"
+#include "timed_executor.h"
 using std::make_shared;
 using std::shared_ptr;
 
@@ -21,11 +20,9 @@ struct SerializedNode {
   int jump_index;
 };
 
-namespace test_framework {
 template <>
-struct SerializationTrait<SerializedNode>
-    : UserSerTrait<SerializedNode, int, int> {};
-}  // namespace test_framework
+struct SerializationTraits<SerializedNode>
+    : UserSerTraits<SerializedNode, int, int> {};
 
 PostingListPtr CreatePostingList(
     const std::vector<SerializedNode>& serialized) {

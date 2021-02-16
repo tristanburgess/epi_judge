@@ -1,11 +1,9 @@
 #include <memory>
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/serialization_traits.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "serialization_traits.h"
+#include "timed_executor.h"
 using std::unique_ptr;
-using test_framework::BinaryTreeSerializationTrait;
 template <typename T>
 struct BinaryTreeNode {
   T data;
@@ -19,11 +17,9 @@ void ConstructRightSibling(BinaryTreeNode<int>* tree) {
   // TODO - you fill in here.
   return;
 }
-namespace test_framework {
 template <>
-struct SerializationTrait<unique_ptr<BinaryTreeNode<int>>>
-    : BinaryTreeSerializationTrait<unique_ptr<BinaryTreeNode<int>>, false> {};
-}  // namespace test_framework
+struct SerializationTraits<unique_ptr<BinaryTreeNode<int>>>
+    : BinaryTreeSerializationTraits<unique_ptr<BinaryTreeNode<int>>, false> {};
 
 std::vector<std::vector<int>> ConstructRightSiblingWrapper(
     TimedExecutor& executor, unique_ptr<BinaryTreeNode<int>>& tree) {

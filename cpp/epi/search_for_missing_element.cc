@@ -1,7 +1,6 @@
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/serialization_traits.h"
+#include "generic_test.h"
+#include "serialization_traits.h"
 using std::vector;
 
 struct DuplicateAndMissing {
@@ -12,12 +11,9 @@ DuplicateAndMissing FindDuplicateMissing(const vector<int>& A) {
   // TODO - you fill in here.
   return {0, 0};
 }
-
-namespace test_framework {
 template <>
-struct SerializationTrait<DuplicateAndMissing>
-    : UserSerTrait<DuplicateAndMissing, int, int> {};
-}  // namespace test_framework
+struct SerializationTraits<DuplicateAndMissing>
+    : UserSerTraits<DuplicateAndMissing, int, int> {};
 
 bool operator==(const DuplicateAndMissing& lhs,
                 const DuplicateAndMissing& rhs) {

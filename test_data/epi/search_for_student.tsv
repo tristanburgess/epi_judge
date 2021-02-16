@@ -1,0 +1,9 @@
+array(tuple(string, float)[student])	tuple(string, float)[student]	int
+[]	["Tristan", 4.00]	-1	TODO
+[["Tristan", 4.00], ["Alex", 3.21]]	["Tristan", 4.00]	0	TODO
+[["Adam", 3.65], ["John", 2.91], ["Tim", 2.65], ["Ajay", 1.77], ["Jake", 1.77], ["Tristan", 1.77], ["Alex", 1.65]]	["Tristan", 4.00]	-1	TODO
+[["Adam", 3.65], ["John", 2.91], ["Tim", 2.65], ["Ajay", 1.77], ["Jake", 1.77], ["Tristan", 1.77], ["Alex", 1.65]]	["Jones", 2.91]	-1	TODO
+[["Adam", 3.65], ["John", 2.91], ["Tim", 2.65], ["Ajay", 1.77], ["Jake", 1.77], ["Tristan", 1.77], ["Alex", 1.65]]	["John", 2.91]	1	TODO
+[["Adam", 3.65], ["John", 2.91], ["Tim", 2.65], ["Ajay", 1.77], ["Jake", 1.77], ["Tristan", 1.77], ["Alex", 1.65]]	["Jake", 1.77]	4	TODO
+[["Adam", 3.65], ["John", 2.91], ["Tim", 2.65], ["Ajay", 1.77], ["Jake", 1.77], ["Tristan", 1.77], ["Alex", 1.65]]	["Tim", 2.65]	2	TODO
+[["Adam", 3.65], ["John", 2.91], ["Tim", 2.65], ["Ajay", 1.77], ["Jake", 1.77], ["Tristan", 1.77], ["Alex", 1.65]]	["Alex", 1.65]	6	TODO

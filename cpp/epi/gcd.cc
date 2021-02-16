@@ -1,4 +1,4 @@
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 
 long long Gcd(long long x, long long y) {
   // TODO - you fill in here.

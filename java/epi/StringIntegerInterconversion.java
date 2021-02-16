@@ -1,12 +1,12 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
-import epi.test_framework.TestFailure;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
+import test_framework.TestFailure;
 public class StringIntegerInterconversion {
 
   public static String intToString(int x) {
     // TODO - you fill in here.
-    return "0";
+    return "";
   }
   public static int stringToInt(String s) {
     // TODO - you fill in here.
@@ -14,7 +14,7 @@ public class StringIntegerInterconversion {
   }
   @EpiTest(testDataFile = "string_integer_interconversion.tsv")
   public static void wrapper(int x, String s) throws TestFailure {
-    if (Integer.parseInt(intToString(x)) != x) {
+    if (!intToString(x).equals(s)) {
       throw new TestFailure("Int to string conversion failed");
     }
     if (stringToInt(s) != x) {

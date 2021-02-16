@@ -1,6 +1,9 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
+
+import generic_types.BstNode;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
+
 public class SearchFirstGreaterValueInBst {
 
   public static BstNode<Integer> findFirstGreaterThanK(BstNode<Integer> tree,

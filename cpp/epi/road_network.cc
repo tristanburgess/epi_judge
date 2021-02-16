@@ -1,8 +1,7 @@
 #include <vector>
-
-#include "test_framework/fmt_print.h"
-#include "test_framework/generic_test.h"
-#include "test_framework/serialization_traits.h"
+#include "fmt_print.h"
+#include "generic_test.h"
+#include "serialization_traits.h"
 using std::vector;
 
 struct HighwaySection {
@@ -14,12 +13,9 @@ HighwaySection FindBestProposals(const vector<HighwaySection>& H,
   // TODO - you fill in here.
   return {0, 0, 0};
 }
-
-namespace test_framework {
 template <>
-struct SerializationTrait<HighwaySection>
-    : UserSerTrait<HighwaySection, int, int, int> {};
-}  // namespace test_framework
+struct SerializationTraits<HighwaySection>
+    : UserSerTraits<HighwaySection, int, int, int> {};
 
 bool operator==(const HighwaySection& lhs, const HighwaySection& rhs) {
   return lhs.x == rhs.x && lhs.y == rhs.y && lhs.distance == rhs.distance;

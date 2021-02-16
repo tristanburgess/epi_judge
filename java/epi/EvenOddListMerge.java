@@ -1,8 +1,11 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
+
+import generic_types.ListNode;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
 
 import java.util.List;
+
 public class EvenOddListMerge {
   @EpiTest(testDataFile = "even_odd_list_merge.tsv")
 

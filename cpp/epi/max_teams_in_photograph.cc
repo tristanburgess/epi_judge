@@ -1,9 +1,8 @@
 #include <stdexcept>
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/serialization_traits.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "serialization_traits.h"
+#include "timed_executor.h"
 using std::vector;
 
 struct GraphVertex {
@@ -21,10 +20,8 @@ struct Edge {
   int to;
 };
 
-namespace test_framework {
 template <>
-struct SerializationTrait<Edge> : UserSerTrait<Edge, int, int> {};
-}  // namespace test_framework
+struct SerializationTraits<Edge> : UserSerTraits<Edge, int, int> {};
 
 int FindLargestNumberTeamsWrapper(TimedExecutor& executor, int k,
                                   const vector<Edge>& edges) {

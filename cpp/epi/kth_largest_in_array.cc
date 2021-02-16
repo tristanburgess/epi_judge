@@ -1,6 +1,5 @@
 #include <vector>
-
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 using std::vector;
 
 // The numbering starts from one, i.e., if A = [3, 1, -1, 2] then

@@ -1,6 +1,5 @@
 import collections
 import functools
-from typing import List
 
 from test_framework import generic_test
 from test_framework.test_failure import TestFailure
@@ -9,7 +8,7 @@ from test_framework.test_utils import enable_executor_hook
 Person = collections.namedtuple('Person', ('age', 'name'))
 
 
-def group_by_age(people: List[Person]) -> None:
+def group_by_age(people):
     # TODO - you fill in here.
     return
 
@@ -33,7 +32,7 @@ def group_by_age_wrapper(executor, people):
         raise TestFailure('Entry set changed')
 
     ages = set()
-    last_age = people[0].age
+    last_age = people[0]
 
     for x in people:
         if x.age in ages:
@@ -45,6 +44,6 @@ def group_by_age_wrapper(executor, people):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main('group_equal_entries.py',
+        generic_test.generic_test_main("group_equal_entries.py",
                                        'group_equal_entries.tsv',
                                        group_by_age_wrapper))

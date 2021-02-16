@@ -1,5 +1,5 @@
 
-package epi.test_framework;
+package test_framework;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -42,7 +42,7 @@ public class TimedExecutor {
         return future.get(timeoutSeconds, TimeUnit.SECONDS);
 
       } catch (java.util.concurrent.TimeoutException e) {
-        throw new epi.test_framework.TimeoutException(timeoutSeconds);
+        throw new test_framework.TimeoutException(timeoutSeconds);
       } catch (InterruptedException e) {
         throw new RuntimeException(e.getMessage());
       } catch (ExecutionException e) {

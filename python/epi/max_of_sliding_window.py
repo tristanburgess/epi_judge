@@ -1,18 +1,16 @@
 import functools
-from typing import List
 
 from test_framework import generic_test
 from test_framework.test_utils import enable_executor_hook
 
 
 class TrafficElement:
-    def __init__(self, time: int, volume: float) -> None:
+    def __init__(self, time, volume):
         self.time = time
         self.volume = volume
 
 
-def calculate_traffic_volumes(A: List[TrafficElement],
-                              w: int) -> List[TrafficElement]:
+def calculate_traffic_volumes(A, w):
     # TODO - you fill in here.
     return []
 
@@ -28,6 +26,6 @@ def calculate_traffic_volumes_wrapper(executor, A, w):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main('max_of_sliding_window.py',
+        generic_test.generic_test_main("max_of_sliding_window.py",
                                        'max_of_sliding_window.tsv',
                                        calculate_traffic_volumes_wrapper))

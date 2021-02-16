@@ -1,13 +1,16 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
-import epi.test_framework.LexicographicalListComparator;
-import epi.test_framework.TimedExecutor;
+
+import generic_types.BinaryTreeNode;
+import test_framework.EpiTest;
+import test_framework.LexicographicalListComparator;
+import test_framework.GenericTest;
+import test_framework.TimedExecutor;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
+
 public class EnumerateTrees {
 
   public static List<BinaryTreeNode<Integer>>

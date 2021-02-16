@@ -1,6 +1,5 @@
 #include <string>
-
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 using std::string;
 
 bool IsMatch(const string &regex, const string &s) {

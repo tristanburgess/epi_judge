@@ -1,6 +1,6 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
 public class IsStringPalindromicPunctuation {
   @EpiTest(testDataFile = "is_string_palindromic_punctuation.tsv")
 

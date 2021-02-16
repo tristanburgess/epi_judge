@@ -1,4 +1,4 @@
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 
 int NumberOfWaysToTop(int top, int maximum_step) {
   // TODO - you fill in here.

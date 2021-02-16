@@ -1,3 +1,4 @@
+
 from concurrent import futures
 
 from test_framework.test_timer import TestTimer
@@ -24,10 +25,9 @@ class TimedExecutor:
             return self._timed_call(func)
         else:
             try:
-                with futures.ThreadPoolExecutor() as executor:
-                    return next(
-                        executor.map(self._timed_call, (func, ),
-                                     timeout=self._timeout_seconds))
+                with futures.ThreadPoolExecutor(max_workers=1) as executor:
+                    future = executor.submit(self._timed_call, func)
+                    return future.result(timeout=self._timeout_seconds)
             except futures.TimeoutError:
                 raise TimeoutException(self._timeout_seconds)
 

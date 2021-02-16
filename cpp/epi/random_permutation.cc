@@ -1,9 +1,8 @@
 #include <functional>
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/random_sequence_checker.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "random_sequence_checker.h"
+#include "timed_executor.h"
 using std::bind;
 using std::vector;
 vector<int> ComputeRandomPermutation(int n) {
@@ -29,7 +28,6 @@ int PermutationIndex(vector<int> perm) {
 }
 
 bool ComputeRandomPermutationRunner(TimedExecutor& executor, int n) {
-  using namespace test_framework;
   vector<vector<int>> results;
 
   executor.Run([&] {

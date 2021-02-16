@@ -1,17 +1,16 @@
 import functools
-from typing import List
 
 from test_framework import generic_test
 from test_framework.test_utils import enable_executor_hook
 
 
 class GraphVertex:
-    def __init__(self) -> None:
+    def __init__(self):
         self.d = -1
-        self.edges: List[GraphVertex] = []
+        self.edges = []
 
 
-def is_any_placement_feasible(graph: List[GraphVertex]) -> bool:
+def is_any_placement_feasible(graph):
     # TODO - you fill in here.
     return True
 
@@ -32,6 +31,6 @@ def is_any_placement_feasible_wrapper(executor, k, edges):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main('is_circuit_wirable.py',
+        generic_test.generic_test_main("is_circuit_wirable.py",
                                        'is_circuit_wirable.tsv',
                                        is_any_placement_feasible_wrapper))

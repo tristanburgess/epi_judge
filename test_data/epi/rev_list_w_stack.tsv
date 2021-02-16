@@ -1,0 +1,5 @@
+linked_list(int)	linked_list(int)
+[]	[]	TODO
+[1]	[1]	TODO
+[1, 2, 3, 4, 5]	[5, 4, 3, 2, 1]	TODO
+[1, 5, 8, -2, 123]	[123, -2, 8, 5, 1]	TODO

@@ -2,11 +2,10 @@
 #include <iterator>
 #include <memory>
 #include <vector>
-
 #include "list_node.h"
-#include "test_framework/generic_test.h"
-#include "test_framework/test_failure.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "test_failure.h"
+#include "timed_executor.h"
 using std::shared_ptr;
 shared_ptr<ListNode<int>> ListPivoting(const shared_ptr<ListNode<int>>& l,
                                        int x) {
@@ -31,24 +30,24 @@ void ListPivotingWrapper(TimedExecutor& executor,
       executor.Run([&] { return ListPivoting(l, x); });
 
   std::vector<int> pivoted = ListToVector(pivoted_list);
-  enum class Mode { kLess, kEq, kGreater } mode = Mode::kLess;
+  enum { kLess, kEq, kGreater } mode = kLess;
   for (auto& i : pivoted) {
     switch (mode) {
-      case Mode::kLess:
+      case kLess:
         if (i == x) {
-          mode = Mode::kEq;
+          mode = kEq;
         } else if (i > x) {
-          mode = Mode::kGreater;
+          mode = kGreater;
         }
         break;
-      case Mode::kEq:
+      case kEq:
         if (i < x) {
           throw TestFailure("List is not pivoted");
         } else if (i > x) {
-          mode = Mode::kGreater;
+          mode = kGreater;
         }
         break;
-      case Mode::kGreater:
+      case kGreater:
         if (i <= x) {
           throw TestFailure("List is not pivoted");
         }

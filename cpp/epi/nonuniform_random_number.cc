@@ -2,10 +2,9 @@
 #include <functional>
 #include <unordered_map>
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/random_sequence_checker.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "random_sequence_checker.h"
+#include "timed_executor.h"
 using std::abs;
 using std::bind;
 using std::unordered_map;

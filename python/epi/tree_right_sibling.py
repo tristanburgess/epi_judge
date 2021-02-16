@@ -12,7 +12,7 @@ class BinaryTreeNode:
         self.next = None  # Populates this field.
 
 
-def construct_right_sibling(tree: BinaryTreeNode) -> None:
+def construct_right_sibling(tree):
     # TODO - you fill in here.
     return
 
@@ -21,14 +21,14 @@ def traverse_next(node):
     while node:
         yield node
         node = node.next
-    return
+    raise StopIteration
 
 
 def traverse_left(node):
     while node:
         yield node
         node = node.left
-    return
+    raise StopIteration
 
 
 def clone_tree(original):
@@ -52,6 +52,6 @@ def construct_right_sibling_wrapper(executor, tree):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main('tree_right_sibling.py',
+        generic_test.generic_test_main("tree_right_sibling.py",
                                        'tree_right_sibling.tsv',
                                        construct_right_sibling_wrapper))

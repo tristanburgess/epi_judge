@@ -1,8 +1,7 @@
 #include <string>
-
-#include "test_framework/fmt_print.h"
-#include "test_framework/generic_test.h"
-#include "test_framework/test_failure.h"
+#include "fmt_print.h"
+#include "generic_test.h"
+#include "test_failure.h"
 using std::string;
 
 class ClientsCreditsInfo {
@@ -38,11 +37,10 @@ std::ostream& operator<<(std::ostream& out, const Operation& op) {
   return out << FmtStr("{}({}, {})", op.op, op.s_arg, op.i_arg);
 }
 
-namespace test_framework {
 template <>
-struct SerializationTrait<Operation>
-    : UserSerTrait<Operation, std::string, std::string, int> {};
-}  // namespace test_framework
+struct SerializationTraits<Operation>
+    : UserSerTraits<Operation, std::string, std::string, int> {};
+
 void ClientsCreditsInfoTester(const std::vector<Operation>& ops) {
   ClientsCreditsInfo cr;
   int op_idx = 0;

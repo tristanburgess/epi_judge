@@ -1,8 +1,11 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
+
+import generic_types.BstNode;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
 
 import java.util.List;
+
 public class BstFromPreorder {
   @EpiTest(testDataFile = "bst_from_preorder.tsv")
 

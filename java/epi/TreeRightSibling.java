@@ -1,32 +1,20 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
-import epi.test_framework.TimedExecutor;
+
+import generic_types.BinaryTree;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
+import test_framework.TimedExecutor;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class TreeRightSibling {
-  public static class BinaryTreeNode<T> extends TreeLike<T, BinaryTreeNode<T>> {
+  public static class BinaryTreeNode<T> {
     public T data;
     public BinaryTreeNode<T> left, right;
     public BinaryTreeNode<T> next = null; // Populates this field.
 
     public BinaryTreeNode(T data) { this.data = data; }
-
-    @Override
-    public T getData() {
-      return data;
-    }
-
-    @Override
-    public BinaryTreeNode<T> getLeft() {
-      return left;
-    }
-
-    @Override
-    public BinaryTreeNode<T> getRight() {
-      return right;
-    }
   }
 
   public static void constructRightSibling(BinaryTreeNode<Integer> tree) {

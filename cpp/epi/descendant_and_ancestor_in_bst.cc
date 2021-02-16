@@ -1,9 +1,8 @@
 #include <memory>
-
 #include "bst_node.h"
-#include "test_framework/binary_tree_utils.h"
-#include "test_framework/generic_test.h"
-#include "test_framework/timed_executor.h"
+#include "binary_tree_utils.h"
+#include "generic_test.h"
+#include "timed_executor.h"
 using std::unique_ptr;
 
 bool PairIncludesAncestorAndDescendantOfM(

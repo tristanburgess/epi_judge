@@ -1,11 +1,14 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
-import epi.test_framework.TestFailure;
-import epi.test_framework.TimedExecutor;
+
+import generic_types.BstNode;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
+import test_framework.TestFailure;
+import test_framework.TimedExecutor;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class BstToSortedList {
   public static BstNode<Integer> bstToDoublyLinkedList(BstNode<Integer> tree) {
     // TODO - you fill in here.

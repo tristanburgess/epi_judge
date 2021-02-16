@@ -1,13 +1,11 @@
 import functools
-from typing import Optional
 
-from bst_node import BstNode
 from test_framework import generic_test
 from test_framework.test_failure import TestFailure
 from test_framework.test_utils import enable_executor_hook
 
 
-def bst_to_doubly_linked_list(tree: BstNode) -> Optional[BstNode]:
+def bst_to_doubly_linked_list(tree):
     # TODO - you fill in here.
     return None
 
@@ -33,6 +31,6 @@ def bst_to_doubly_linked_list_wrapper(executor, tree):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main('bst_to_sorted_list.py',
+        generic_test.generic_test_main("bst_to_sorted_list.py",
                                        'bst_to_sorted_list.tsv',
                                        bst_to_doubly_linked_list_wrapper))

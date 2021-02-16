@@ -1,5 +1,5 @@
 #include "list_node.h"
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 
 shared_ptr<ListNode<int>> AddTwoNumbers(shared_ptr<ListNode<int>> L1,
                                         shared_ptr<ListNode<int>> L2) {

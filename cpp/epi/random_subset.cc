@@ -3,10 +3,9 @@
 #include <iterator>
 #include <numeric>
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/random_sequence_checker.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "random_sequence_checker.h"
+#include "timed_executor.h"
 using std::bind;
 using std::iota;
 using std::vector;
@@ -16,7 +15,6 @@ vector<int> RandomSubset(int n, int k) {
   return {};
 }
 bool RandomSubsetRunner(TimedExecutor& executor, int n, int k) {
-  using namespace test_framework;
   vector<vector<int>> results;
 
   executor.Run([&] {

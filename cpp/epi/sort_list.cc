@@ -1,7 +1,6 @@
 #include <memory>
-
 #include "list_node.h"
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 
 shared_ptr<ListNode<int>> StableSortList(shared_ptr<ListNode<int>> L) {
   // TODO - you fill in here.

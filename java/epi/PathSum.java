@@ -1,6 +1,9 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
+
+import generic_types.BinaryTreeNode;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
+
 public class PathSum {
   @EpiTest(testDataFile = "path_sum.tsv")
 

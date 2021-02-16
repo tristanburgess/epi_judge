@@ -1,7 +1,6 @@
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "timed_executor.h"
 using std::vector;
 
 void RotateArray(int rotate_amount, vector<int>* A) {

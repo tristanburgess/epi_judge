@@ -1,6 +1,5 @@
 #include <vector>
-
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 using std::vector;
 vector<double> GenerateFirstKABSqrt2(int k) {
   // TODO - you fill in here.

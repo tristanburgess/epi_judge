@@ -1,6 +1,6 @@
 #include "list_node.h"
-#include "test_framework/generic_test.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "timed_executor.h"
 
 // Assumes node_to_delete is not tail.
 void DeletionFromList(const shared_ptr<ListNode<int>>& node_to_delete) {

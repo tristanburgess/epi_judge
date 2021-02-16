@@ -1,15 +1,18 @@
 package epi;
-import epi.test_framework.BinaryTreeUtils;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
-import epi.test_framework.TestFailure;
-import epi.test_framework.TimedExecutor;
+
+import generic_types.BstNode;
+import test_framework.BinaryTreeUtils;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
+import test_framework.TestFailure;
+import test_framework.TimedExecutor;
+
 public class LowestCommonAncestorInBst {
 
   // Input nodes are nonempty and the key at s is less than or equal to that at
   // b.
   public static BstNode<Integer>
-  findLca(BstNode<Integer> tree, BstNode<Integer> s, BstNode<Integer> b) {
+  findLCA(BstNode<Integer> tree, BstNode<Integer> s, BstNode<Integer> b) {
     // TODO - you fill in here.
     return null;
   }
@@ -19,7 +22,7 @@ public class LowestCommonAncestorInBst {
     BstNode<Integer> node0 = BinaryTreeUtils.mustFindNode(tree, key0);
     BstNode<Integer> node1 = BinaryTreeUtils.mustFindNode(tree, key1);
 
-    BstNode<Integer> result = executor.run(() -> findLca(tree, node0, node1));
+    BstNode<Integer> result = executor.run(() -> findLCA(tree, node0, node1));
 
     if (result == null) {
       throw new TestFailure("Result can't be null");

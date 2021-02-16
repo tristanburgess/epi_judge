@@ -1,6 +1,5 @@
 #include <vector>
-
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 using std::vector;
 vector<int> MergeSortedArrays(const vector<vector<int>>& sorted_arrays) {
   // TODO - you fill in here.

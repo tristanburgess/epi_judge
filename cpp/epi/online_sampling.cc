@@ -2,10 +2,9 @@
 #include <functional>
 #include <iterator>
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/random_sequence_checker.h"
-#include "test_framework/timed_executor.h"
+#include "generic_test.h"
+#include "random_sequence_checker.h"
+#include "timed_executor.h"
 using std::bind;
 using std::sort;
 using std::vector;
@@ -18,7 +17,6 @@ vector<int> OnlineRandomSample(vector<int>::const_iterator stream_begin,
 }
 bool OnlineRandomSamplingRunner(TimedExecutor& executor, vector<int> stream,
                                 int k) {
-  using namespace test_framework;
   vector<vector<int>> results;
 
   executor.Run([&] {

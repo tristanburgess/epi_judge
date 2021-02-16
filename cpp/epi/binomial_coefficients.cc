@@ -1,4 +1,4 @@
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 
 int ComputeBinomialCoefficient(int n, int k) {
   // TODO - you fill in here.

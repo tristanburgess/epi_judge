@@ -1,6 +1,5 @@
 #include <vector>
-
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 using std::vector;
 
 int FindKthLargestUnknownLength(vector<int>::const_iterator stream_begin,

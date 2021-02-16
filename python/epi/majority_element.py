@@ -1,9 +1,7 @@
-from typing import Iterator
-
 from test_framework import generic_test
 
 
-def majority_search(stream: Iterator[str]) -> str:
+def majority_search(stream):
     # TODO - you fill in here.
     return ''
 
@@ -14,6 +12,6 @@ def majority_search_wrapper(stream):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main('majority_element.py',
+        generic_test.generic_test_main("majority_element.py",
                                        'majority_element.tsv',
                                        majority_search_wrapper))

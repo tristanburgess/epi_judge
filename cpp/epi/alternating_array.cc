@@ -1,10 +1,9 @@
 #include <string>
 #include <vector>
-
-#include "test_framework/fmt_print.h"
-#include "test_framework/generic_test.h"
-#include "test_framework/test_failure.h"
-#include "test_framework/timed_executor.h"
+#include "fmt_print.h"
+#include "generic_test.h"
+#include "test_failure.h"
+#include "timed_executor.h"
 using std::vector;
 void Rearrange(vector<int>* A_ptr) {
   // TODO - you fill in here.

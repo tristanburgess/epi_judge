@@ -1,8 +1,7 @@
 #include <stdexcept>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/serialization_traits.h"
-#include "test_framework/test_failure.h"
+#include "generic_test.h"
+#include "serialization_traits.h"
+#include "test_failure.h"
 using std::length_error;
 
 class Stack {
@@ -29,10 +28,9 @@ struct StackOp {
   int argument;
 };
 
-namespace test_framework {
 template <>
-struct SerializationTrait<StackOp> : UserSerTrait<StackOp, std::string, int> {};
-}  // namespace test_framework
+struct SerializationTraits<StackOp> : UserSerTraits<StackOp, std::string, int> {
+};
 
 void StackTester(const std::vector<StackOp>& ops) {
   try {

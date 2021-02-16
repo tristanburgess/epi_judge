@@ -6,7 +6,7 @@
  * function.
  */
 
-#if _WINDOWS || __MINGW32__ || __CYGWIN__
+#if _WINDOWS || __MINGW32__ || __CYGWIN__ || _WIN32
 #define PLATFORM_WIN
 #endif
 
@@ -24,7 +24,6 @@
 
 #include "tri_bool.h"
 
-namespace test_framework {
 namespace platform {
 
 bool ENABLE_TTY_OUTPUT = false;
@@ -79,4 +78,3 @@ char PathSep() {
 }
 
 }  // namespace platform
-}  // namespace test_framework

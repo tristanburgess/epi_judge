@@ -1,10 +1,13 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.EpiUserType;
-import epi.test_framework.GenericTest;
+
+import generic_types.BstNode;
+import test_framework.EpiTest;
+import test_framework.EpiUserType;
+import test_framework.GenericTest;
 
 import java.util.Collections;
 import java.util.List;
+
 public class RangeLookupInBst {
   @EpiUserType(ctorParams = {int.class, int.class})
 

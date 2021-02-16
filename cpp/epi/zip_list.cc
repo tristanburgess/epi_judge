@@ -1,7 +1,6 @@
 #include <memory>
-
 #include "list_node.h"
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 using std::shared_ptr;
 
 shared_ptr<ListNode<int>> ZippingLinkedList(

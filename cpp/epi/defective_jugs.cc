@@ -1,7 +1,6 @@
 #include <vector>
-
-#include "test_framework/generic_test.h"
-#include "test_framework/serialization_traits.h"
+#include "generic_test.h"
+#include "serialization_traits.h"
 using std::vector;
 
 struct Jug {
@@ -11,11 +10,8 @@ bool CheckFeasible(const vector<Jug>& jugs, int L, int H) {
   // TODO - you fill in here.
   return true;
 }
-
-namespace test_framework {
 template <>
-struct SerializationTrait<Jug> : UserSerTrait<Jug, int, int> {};
-}  // namespace test_framework
+struct SerializationTraits<Jug> : UserSerTraits<Jug, int, int> {};
 
 bool operator==(const Jug& lhs, const Jug& rhs) {
   return lhs.low == rhs.low && lhs.high == rhs.high;

@@ -1,7 +1,7 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
-import epi.test_framework.TestFailure;
+import test_framework.EpiTest;
+import test_framework.GenericTest;
+import test_framework.TestFailure;
 public class RunLengthCompression {
 
   public static String decoding(String s) {

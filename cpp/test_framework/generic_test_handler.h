@@ -8,51 +8,48 @@
 #include <tuple>
 #include <vector>
 
-#include "serialization_traits.h"
-#include "test_config.h"
 #include "test_output.h"
 #include "test_utils.h"
 #include "test_utils_meta.h"
+#include "serialization_traits.h"
 #include "timed_executor.h"
-
-namespace test_framework {
-using json = nlohmann::json;
 
 /**
  * The central class in generic test runner framework.
  * It is responsible for asserting that the function signature matches
- * the one from the test file header and executing tests on the provided
- * function (which includes the deserialization of the provided arguments
- * and the expected value, invocation of the target method with these
- * arguments and comparison of the computed result with the expected value).
+ * the one from the test file header and
+ * executing tests on the provided function (which includes
+ * the deserialization of the provided arguments
+ * and the expected value,
+ * invocation of the target method with these arguments and
+ * comparison of the computed result with the expected value).
  *
- * ParseSignature() and RunTest() throw RuntimeException in case of any
- * error or assertion failure.
- * This exception terminates testing and, consequently, the test program.
- * If tested method throws TestFailure, the current test is marked as
- * failed and the execution goes on.
+ * ParseSignature() and RunTest() throw RuntimeException
+ * in case of any error or assertion failure.
+ * This exception terminates testing and,
+ * consequently, the test program.
+ * If tested method throws TestFailure,
+ * the current test is marked as failed and the execution goes on.
  * In case of any other exception thrown by the tested method,
  * the test program is terminated.
  */
 template <typename Function, typename Comparator>
 class GenericTestHandler {
  private:
-  static constexpr bool has_default_comparator =
-      std::is_same<Comparator, DefaultComparator>::value ||
-      std::is_same<Comparator, UnorderedComparator>::value;
+  using has_default_comparator = std::is_same<Comparator, DefaultComparator>;
 
-  using func_traits = FunctionalTrait<Function>;
+  using func_traits = FunctionalTraits<Function>;
 
   template <size_t I>
   using ith_arg_trait =
-      SerializationTrait<typename func_traits::template ith_arg_t<I>>;
+      SerializationTraits<typename func_traits::template ith_arg_t<I>>;
 
   using arg_index_sequence = std::make_index_sequence<
       std::tuple_size<typename func_traits::arg_tuple_t>::value>;
 
-  using expected_value_t = typename SerializationTrait<std::conditional_t<
-      has_default_comparator, typename func_traits::return_t,
-      typename BiPredicateTrait<Comparator>::arg1_t>>::serialization_type;
+  using expected_value_t = typename SerializationTraits<std::conditional_t<
+      has_default_comparator::value, typename func_traits::return_t,
+      typename BiPredicateTraits<Comparator>::arg1_t>>::serialization_type;
 
   static_assert(std::is_same<expected_value_t, void>::value ==
                     std::is_same<typename func_traits::return_t, void>::value,
@@ -103,7 +100,6 @@ class GenericTestHandler {
    *    matches with the expected value, false otherwise.
    */
   TestOutput RunTest(const std::chrono::seconds& timeout_seconds,
-                     TestConfig::metrics_override_t metrics_override,
                      const std::vector<std::string>& test_args) const {
     auto args_begin = std::cbegin(test_args);
     auto args_end = std::cend(test_args) - (ExpectedIsVoid() ? 0 : 1);
@@ -112,12 +108,6 @@ class GenericTestHandler {
         args_begin, args_end);
 
     auto metrics = CalculateMetrics(args, arg_index_sequence());
-    if (metrics_override != nullptr) {
-      using args_t = decltype(args);
-      metrics = reinterpret_cast<std::vector<int> (*)(
-          const std::vector<int>&, const args_t&)>(metrics_override)(metrics,
-                                                                     args);
-    }
 
     TimedExecutor executor(timeout_seconds);
     auto timer = ParseExpectedAndInvoke(executor, test_args.back(), args);
@@ -154,16 +144,16 @@ class GenericTestHandler {
    * invokes the tested function and compares
    * the computed result with the expected value.
    *
-   * The reason to put it in a separate function is that the implementation
-   * differs in case the return type is void.
+   * The reason to put it in a separate function is that
+   * the implementation differs in case the return type is void.
    * The two versions should be put in different functions and
    * the right overload is chosen with a tag dispatching.
    *
-   * @param serialized_expected - string representation of the expected
-   *    value or unknown string if return type is void.
+   * @param serialized_expected - string representation
+   *    of the expected value or unknown string if return type is void.
    * @param args - deserialized function arguments, passed in a tuple.
    * @return tuple, that contains [result of comparison of expected and
-   *    result, optional<expected>, optional<result>].
+   * result, optional<expected>, optional<result>].
    */
   template <typename ArgTuple>
   TestTimer ParseExpectedAndInvoke(TimedExecutor& executor,
@@ -181,9 +171,8 @@ class GenericTestHandler {
                                        TimedExecutor& executor,
                                        const std::string& serialized_expected,
                                        ArgTuple& args) const {
-    using expected_value_trait = SerializationTrait<expected_value_t>;
-    auto expected =
-        expected_value_trait::Parse(json::parse(serialized_expected));
+    using expected_value_trait = SerializationTraits<expected_value_t>;
+    auto expected = expected_value_trait::Parse(serialized_expected);
 
     auto result = Invoke(executor, args, arg_index_sequence());
 
@@ -231,4 +220,3 @@ class GenericTestHandler {
   Comparator comp_;
   std::vector<std::string> param_names_;
 };
-}  // namespace test_framework

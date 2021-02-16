@@ -1,13 +1,11 @@
 import functools
-from typing import List
 
-from binary_tree_node import BinaryTreeNode
 from test_framework import generic_test
 from test_framework.test_failure import TestFailure
 from test_framework.test_utils import enable_executor_hook
 
 
-def exterior_binary_tree(tree: BinaryTreeNode) -> List[BinaryTreeNode]:
+def exterior_binary_tree(tree):
     # TODO - you fill in here.
     return []
 
@@ -27,5 +25,5 @@ def create_output_list_wrapper(executor, tree):
 
 if __name__ == '__main__':
     exit(
-        generic_test.generic_test_main('tree_exterior.py', 'tree_exterior.tsv',
+        generic_test.generic_test_main("tree_exterior.py", 'tree_exterior.tsv',
                                        create_output_list_wrapper))

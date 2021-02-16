@@ -1,7 +1,6 @@
 package epi;
-import epi.test_framework.EpiTest;
-import epi.test_framework.GenericTest;
-
+import test_framework.EpiTest;
+import test_framework.GenericTest;
 import java.util.List;
 public class MaximumSubarrayInCircularArray {
   @EpiTest(testDataFile = "maximum_subarray_in_circular_array.tsv")

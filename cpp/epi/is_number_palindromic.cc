@@ -1,4 +1,4 @@
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 bool IsPalindromeNumber(int x) {
   // TODO - you fill in here.
   return true;

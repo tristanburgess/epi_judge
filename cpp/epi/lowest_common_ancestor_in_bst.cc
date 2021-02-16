@@ -1,15 +1,14 @@
 #include <memory>
-
 #include "bst_node.h"
-#include "test_framework/binary_tree_utils.h"
-#include "test_framework/generic_test.h"
-#include "test_framework/test_failure.h"
-#include "test_framework/timed_executor.h"
+#include "binary_tree_utils.h"
+#include "generic_test.h"
+#include "test_failure.h"
+#include "timed_executor.h"
 using std::unique_ptr;
 
 // Input nodes are nonempty and the key at s is less than or equal to that at
 // b.
-BstNode<int>* FindLca(const unique_ptr<BstNode<int>>& tree,
+BstNode<int>* FindLCA(const unique_ptr<BstNode<int>>& tree,
                       const unique_ptr<BstNode<int>>& s,
                       const unique_ptr<BstNode<int>>& b) {
   // TODO - you fill in here.
@@ -20,7 +19,7 @@ int LcaWrapper(TimedExecutor& executor,
   const unique_ptr<BstNode<int>>& node0 = MustFindNode(tree, key0);
   const unique_ptr<BstNode<int>>& node1 = MustFindNode(tree, key1);
 
-  auto result = executor.Run([&] { return FindLca(tree, node0, node1); });
+  auto result = executor.Run([&] { return FindLCA(tree, node0, node1); });
 
   if (!result) {
     throw TestFailure("Result can not be nullptr");

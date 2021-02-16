@@ -1,38 +1,38 @@
 
-package epi.test_framework;
+package test_framework;
 
 public class ConsoleColor {
   public enum Color { FG_RED, FG_GREEN, FG_BLUE, FG_YELLOW, FG_DEFAULT }
 
   private static int getColorCodeWin(Color color) {
     switch (color) {
-    case FG_RED:
-      return 4 | 8;
-    case FG_GREEN:
-      return 2 | 8;
-    case FG_BLUE:
-      return 1 | 8;
-    case FG_YELLOW:
-      return 6 | 8;
-    case FG_DEFAULT:
-    default:
-      return 7;
+      case FG_RED:
+        return 4 | 8;
+      case FG_GREEN:
+        return 2 | 8;
+      case FG_BLUE:
+        return 1 | 8;
+      case FG_YELLOW:
+        return 6 | 8;
+      case FG_DEFAULT:
+      default:
+        return 7;
     }
   }
 
   private static String getColorCodeUnix(Color color) {
     switch (color) {
-    case FG_RED:
-      return "\033[31m";
-    case FG_GREEN:
-      return "\033[32m";
-    case FG_BLUE:
-      return "\033[34m";
-    case FG_YELLOW:
-      return "\033[33m";
-    case FG_DEFAULT:
-    default:
-      return "\033[39m";
+      case FG_RED:
+        return "\033[31m";
+      case FG_GREEN:
+        return "\033[32m";
+      case FG_BLUE:
+        return "\033[34m";
+      case FG_YELLOW:
+        return "\033[33m";
+      case FG_DEFAULT:
+      default:
+        return "\033[39m";
     }
   }
 

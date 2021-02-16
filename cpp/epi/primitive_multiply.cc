@@ -1,4 +1,4 @@
-#include "test_framework/generic_test.h"
+#include "generic_test.h"
 unsigned long long Multiply(unsigned long long x, unsigned long long y) {
   // TODO - you fill in here.
   return 0;
