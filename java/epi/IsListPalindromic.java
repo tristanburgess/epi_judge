@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class IsListPalindromic {
-  @EpiTest(testDataFile = "is_list_palindromic.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_list_palindromic.tsv")
 
   public static boolean isLinkedListAPalindrome(ListNode<Integer> L) {
     // TODO - you fill in here.

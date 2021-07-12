@@ -9,7 +9,7 @@ public class MatrixConnectedRegions {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "painting.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/painting.tsv")
   public static List<List<Integer>> flipColorWrapper(TimedExecutor executor,
                                                      int x, int y,
                                                      List<List<Integer>> image)

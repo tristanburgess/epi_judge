@@ -46,7 +46,7 @@ public class NonuniformRandomNumber {
     return true;
   }
 
-  @EpiTest(testDataFile = "nonuniform_random_number.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/nonuniform_random_number.tsv")
   public static void nonuniformRandomNumberGenerationWrapper(
       TimedExecutor executor, List<Integer> values, List<Double> probabilities)
       throws Exception {

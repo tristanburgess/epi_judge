@@ -45,7 +45,7 @@ public class SearchForMissingElement {
     }
   }
 
-  @EpiTest(testDataFile = "find_missing_and_duplicate.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/find_missing_and_duplicate.tsv")
 
   public static DuplicateAndMissing findDuplicateMissing(List<Integer> A) {
     // TODO - you fill in here.

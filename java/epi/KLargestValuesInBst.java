@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.function.BiPredicate;
 
 public class KLargestValuesInBst {
-  @EpiTest(testDataFile = "k_largest_values_in_bst.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/k_largest_values_in_bst.tsv")
 
   public static List<Integer> findKLargestInBst(BstNode<Integer> tree, int k) {
     // TODO - you fill in here.

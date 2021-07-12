@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class RegularExpression {
-  @EpiTest(testDataFile = "regular_expression.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/regular_expression.tsv")
 
   public static boolean isMatch(String regex, String s) {
     // TODO - you fill in here.

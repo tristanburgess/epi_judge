@@ -12,7 +12,7 @@ public class StringIntegerInterconversion {
     // TODO - you fill in here.
     return 0;
   }
-  @EpiTest(testDataFile = "string_integer_interconversion.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/string_integer_interconversion.tsv")
   public static void wrapper(int x, String s) throws TestFailure {
     if (!intToString(x).equals(s)) {
       throw new TestFailure("Int to string conversion failed");

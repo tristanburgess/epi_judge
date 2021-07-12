@@ -31,7 +31,7 @@ class Team {
   private List<Player> players;
 }
 public class IsArrayDominated {
-  @EpiTest(testDataFile = "is_array_dominated.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_array_dominated.tsv")
   public static void
   validPlacementExistsWrapper(TimedExecutor executor, List<Integer> team0,
                               List<Integer> team1, boolean expected01,

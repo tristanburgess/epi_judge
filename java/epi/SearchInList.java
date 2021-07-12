@@ -10,7 +10,7 @@ public class SearchInList {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "search_in_list.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/search_in_list.tsv")
   public static int searchListWrapper(ListNode<Integer> L, int key) {
     ListNode<Integer> result = searchList(L, key);
     return result != null ? result.data : -1;

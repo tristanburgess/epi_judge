@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class MaxWaterTrappable {
-  @EpiTest(testDataFile = "max_water_trappable.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/max_water_trappable.tsv")
 
   public static int calculateTrappingWater(List<Integer> heights) {
     // TODO - you fill in here.

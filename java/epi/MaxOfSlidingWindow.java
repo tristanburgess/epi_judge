@@ -39,7 +39,7 @@ public class MaxOfSlidingWindow {
     }
   }
 
-  @EpiTest(testDataFile = "max_of_sliding_window.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/max_of_sliding_window.tsv")
 
   public static List<TrafficElement>
   computeTrafficVolumes(List<TrafficElement> A, int w) {

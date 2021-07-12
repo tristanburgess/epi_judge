@@ -32,7 +32,7 @@ public class LruCache {
     }
   }
 
-  @EpiTest(testDataFile = "lru_cache.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/lru_cache.tsv")
   public static void runTest(List<Op> commands) throws TestFailure {
     if (commands.isEmpty() || !commands.get(0).code.equals("LruCache")) {
       throw new RuntimeException("Expected LruCache as first command");

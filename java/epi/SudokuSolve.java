@@ -13,7 +13,7 @@ public class SudokuSolve {
     // TODO - you fill in here.
     return true;
   }
-  @EpiTest(testDataFile = "sudoku_solve.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/sudoku_solve.tsv")
   public static void solveSudokuWrapper(TimedExecutor executor,
                                         List<List<Integer>> partialAssignment)
       throws Exception {

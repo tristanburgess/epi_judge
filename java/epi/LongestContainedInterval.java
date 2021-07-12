@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class LongestContainedInterval {
-  @EpiTest(testDataFile = "longest_contained_interval.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/longest_contained_interval.tsv")
 
   public static int longestContainedRange(List<Integer> A) {
     // TODO - you fill in here.

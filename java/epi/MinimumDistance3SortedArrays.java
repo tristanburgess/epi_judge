@@ -23,7 +23,7 @@ public class MinimumDistance3SortedArrays {
     }
   }
 
-  @EpiTest(testDataFile = "minimum_distance_3_sorted_arrays.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/minimum_distance_3_sorted_arrays.tsv")
 
   public static int
   findMinDistanceSortedArrays(List<List<Integer>> sortedArrays) {

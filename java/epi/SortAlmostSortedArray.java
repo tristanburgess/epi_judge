@@ -10,7 +10,7 @@ public class SortAlmostSortedArray {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "sort_almost_sorted_array.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/sort_almost_sorted_array.tsv")
   public static List<Integer>
   sortApproximatelySortedDataWrapper(List<Integer> sequence, int k) {
     return sortApproximatelySortedData(sequence.iterator(), k);

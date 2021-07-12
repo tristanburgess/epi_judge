@@ -116,7 +116,7 @@ public class CopyPostingList {
     }
   }
 
-  @EpiTest(testDataFile = "copy_posting_list.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/copy_posting_list.tsv")
   public static void copyPostingsListWrapper(TimedExecutor executor,
                                              List<SerializedNode> l)
       throws Exception {

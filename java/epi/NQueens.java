@@ -6,7 +6,7 @@ import test_framework.GenericTest;
 import java.util.List;
 import java.util.function.BiPredicate;
 public class NQueens {
-  @EpiTest(testDataFile = "n_queens.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/n_queens.tsv")
 
   public static List<List<Integer>> nQueens(int n) {
     // TODO - you fill in here.

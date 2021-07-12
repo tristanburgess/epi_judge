@@ -45,7 +45,7 @@ public class OnlineSampling {
         sequence, totalPossibleOutcomes, 0.01);
   }
 
-  @EpiTest(testDataFile = "online_sampling.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/online_sampling.tsv")
   public static void onlineRandomSampleWrapper(TimedExecutor executor,
                                                List<Integer> stream, int k)
       throws Exception {

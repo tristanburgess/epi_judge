@@ -38,7 +38,7 @@ public class IntervalAdd {
     }
   }
 
-  @EpiTest(testDataFile = "interval_add.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/interval_add.tsv")
 
   public static List<Interval> addInterval(List<Interval> disjointIntervals,
                                            Interval newInterval) {

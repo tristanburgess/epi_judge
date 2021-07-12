@@ -8,7 +8,7 @@ public class MatrixRotation {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "matrix_rotation.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/matrix_rotation.tsv")
   public static List<List<Integer>>
   rotateMatrixWrapper(List<List<Integer>> squareMatrix) {
     rotateMatrix(squareMatrix);

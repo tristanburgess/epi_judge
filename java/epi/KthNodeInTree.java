@@ -37,7 +37,7 @@ public class KthNodeInTree {
     return new BinaryTreeNode<>(original.data, left, right, 1 + lSize + rSize);
   }
 
-  @EpiTest(testDataFile = "kth_node_in_tree.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/kth_node_in_tree.tsv")
   public static int findKthNodeBinaryTreeWrapper(TimedExecutor executor,
                                                  BinaryTree<Integer> tree,
                                                  int k) throws Exception {

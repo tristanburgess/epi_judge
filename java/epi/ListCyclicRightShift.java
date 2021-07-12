@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class ListCyclicRightShift{
-  @EpiTest(testDataFile = "list_cyclic_right_shift.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/list_cyclic_right_shift.tsv")
 
   public static ListNode<Integer> cyclicallyRightShiftList(ListNode<Integer> L,
                                                            int k) {

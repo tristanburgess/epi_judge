@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiPredicate;
 public class Permutations {
-  @EpiTest(testDataFile = "permutations.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/permutations.tsv")
 
   public static List<List<Integer>> permutations(List<Integer> A) {
     // TODO - you fill in here.

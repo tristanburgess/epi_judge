@@ -8,7 +8,7 @@ public class MatrixEnclosedRegions {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "matrix_enclosed_regions.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/matrix_enclosed_regions.tsv")
   public static List<List<Character>>
   fillSurroundedRegionsWrapper(List<List<Character>> board) {
     fillSurroundedRegions(board);

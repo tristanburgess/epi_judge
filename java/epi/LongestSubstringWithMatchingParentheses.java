@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class LongestSubstringWithMatchingParentheses {
-  @EpiTest(testDataFile = "longest_substring_with_matching_parentheses.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/longest_substring_with_matching_parentheses.tsv")
 
   public static int longestMatchingParentheses(String s) {
     // TODO - you fill in here.

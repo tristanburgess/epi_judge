@@ -52,7 +52,7 @@ public class RandomPermutation {
         sequence, factorial(n), 0.01);
   }
 
-  @EpiTest(testDataFile = "random_permutation.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/random_permutation.tsv")
   public static void computeRandomPermutationWrapper(TimedExecutor executor,
                                                      int n) throws Exception {
     RandomSequenceChecker.runFuncWithRetries(

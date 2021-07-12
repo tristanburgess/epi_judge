@@ -33,7 +33,7 @@ public class SortedListToBst {
     compareVectorAndTree(tree.next, it);
   }
 
-  @EpiTest(testDataFile = "sorted_list_to_bst.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/sorted_list_to_bst.tsv")
   public static void buildBSTFromSortedListWrapper(TimedExecutor executor,
                                                    List<Integer> l)
       throws Exception {

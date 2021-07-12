@@ -6,7 +6,7 @@ import test_framework.GenericTest;
 
 public class IsTreeBalanced {
 
-  @EpiTest(testDataFile = "is_tree_balanced.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_tree_balanced.tsv")
 
   public static boolean isBalanced(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.

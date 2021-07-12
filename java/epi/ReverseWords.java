@@ -8,7 +8,7 @@ public class ReverseWords {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "reverse_words.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/reverse_words.tsv")
   public static String reverseWordsWrapper(TimedExecutor executor, String s)
       throws Exception {
     char[] sCopy = s.toCharArray();

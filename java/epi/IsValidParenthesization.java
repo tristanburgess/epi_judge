@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class IsValidParenthesization {
-  @EpiTest(testDataFile = "is_valid_parenthesization.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_valid_parenthesization.tsv")
 
   public static boolean isWellFormed(String s) {
     // TODO - you fill in here.

@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class SnakeString {
-  @EpiTest(testDataFile = "snake_string.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/snake_string.tsv")
 
   public static String snakeString(String s) {
     // TODO - you fill in here.

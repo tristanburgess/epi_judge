@@ -7,7 +7,7 @@ public class ApplyPermutation {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "apply_permutation.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/apply_permutation.tsv")
   public static List<Integer> applyPermutationWrapper(List<Integer> perm,
                                                       List<Integer> A) {
     applyPermutation(perm, A);

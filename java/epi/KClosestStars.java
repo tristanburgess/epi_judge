@@ -37,7 +37,7 @@ public class KClosestStars {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
-  @EpiTest(testDataFile = "k_closest_stars.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/k_closest_stars.tsv")
   public static List<Star> findClosestKStarsWrapper(List<Star> stars, int k) {
     return findClosestKStars(stars.iterator(), k);
   }

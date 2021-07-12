@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class SortedListsMerge {
-  @EpiTest(testDataFile = "sorted_lists_merge.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/sorted_lists_merge.tsv")
   //@include
   public static ListNode<Integer> mergeTwoSortedLists(ListNode<Integer> L1,
                                                       ListNode<Integer> L2) {

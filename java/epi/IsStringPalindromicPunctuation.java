@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class IsStringPalindromicPunctuation {
-  @EpiTest(testDataFile = "is_string_palindromic_punctuation.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_string_palindromic_punctuation.tsv")
 
   public static boolean isPalindrome(String s) {
     // TODO - you fill in here.

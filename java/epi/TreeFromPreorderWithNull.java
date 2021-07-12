@@ -14,7 +14,7 @@ public class TreeFromPreorderWithNull {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "tree_from_preorder_with_null.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/tree_from_preorder_with_null.tsv")
   public static BinaryTreeNode<Integer>
   reconstructPreorderWrapper(TimedExecutor executor, List<String> strings)
       throws Exception {

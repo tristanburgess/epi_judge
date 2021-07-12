@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class BuyAndSellStockKTimes {
-  @EpiTest(testDataFile = "buy_and_sell_stock_k_times.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/buy_and_sell_stock_k_times.tsv")
 
   public static double buyAndSellStockKTimes(List<Double> prices, int k) {
     // TODO - you fill in here.

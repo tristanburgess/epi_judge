@@ -35,7 +35,7 @@ public class TaskPairing {
     }
   }
 
-  @EpiTest(testDataFile = "task_pairing.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/task_pairing.tsv")
 
   public static List<PairedTasks>
   optimumTaskAssignment(List<Integer> taskDurations) {

@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class SubstringMatch {
-  @EpiTest(testDataFile = "substring_match.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/substring_match.tsv")
 
   // Returns the index of the first character of the substring if found, -1
   // otherwise.

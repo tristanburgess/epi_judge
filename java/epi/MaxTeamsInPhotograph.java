@@ -28,7 +28,7 @@ public class MaxTeamsInPhotograph {
     }
   }
 
-  @EpiTest(testDataFile = "max_teams_in_photograph.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/max_teams_in_photograph.tsv")
   public static int findLargestNumberTeamsWrapper(TimedExecutor executor, int k,
                                                   List<Edge> edges)
       throws Exception {

@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class SpiralOrderingSegments {
-  @EpiTest(testDataFile = "spiral_ordering_segments.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/spiral_ordering_segments.tsv")
 
   public static List<Integer>
   matrixInSpiralOrder(List<List<Integer>> squareMatrix) {

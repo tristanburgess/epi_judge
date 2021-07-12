@@ -25,7 +25,7 @@ public class PivotList {
     return v;
   }
 
-  @EpiTest(testDataFile = "pivot_list.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/pivot_list.tsv")
   public static void listPivotingWrapper(TimedExecutor executor,
                                          ListNode<Integer> l, int x)
       throws Exception {

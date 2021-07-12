@@ -53,7 +53,7 @@ public class AlternatingArray {
     }
   }
 
-  @EpiTest(testDataFile = "alternating_array.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/alternating_array.tsv")
   public static void rearrangeWrapper(TimedExecutor executor, List<Integer> A)
       throws Exception {
     List<Integer> result = new ArrayList<>(A);

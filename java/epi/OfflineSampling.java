@@ -41,7 +41,7 @@ public class OfflineSampling {
         sequence, totalPossibleOutcomes, 0.01);
   }
 
-  @EpiTest(testDataFile = "offline_sampling.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/offline_sampling.tsv")
   public static void randomSamplingWrapper(TimedExecutor executor, int k,
                                            List<Integer> A) throws Exception {
     RandomSequenceChecker.runFuncWithRetries(

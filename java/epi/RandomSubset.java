@@ -42,7 +42,7 @@ public class RandomSubset {
         sequence, totalPossibleOutcomes, 0.01);
   }
 
-  @EpiTest(testDataFile = "random_subset.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/random_subset.tsv")
   public static void randomSubsetWrapper(TimedExecutor executor, int n, int k)
       throws Exception {
     RandomSequenceChecker.runFuncWithRetries(

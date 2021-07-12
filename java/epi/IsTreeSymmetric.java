@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class IsTreeSymmetric {
-  @EpiTest(testDataFile = "is_tree_symmetric.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_tree_symmetric.tsv")
 
   public static boolean isSymmetric(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.

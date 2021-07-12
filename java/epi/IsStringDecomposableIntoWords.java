@@ -13,7 +13,7 @@ public class IsStringDecomposableIntoWords {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
-  @EpiTest(testDataFile = "is_string_decomposable_into_words.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_string_decomposable_into_words.tsv")
   public static void decomposeIntoDictionaryWordsWrapper(TimedExecutor executor,
                                                          String domain,
                                                          Set<String> dictionary,

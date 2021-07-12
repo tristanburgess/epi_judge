@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class PickingUpCoins {
-  @EpiTest(testDataFile = "picking_up_coins.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/picking_up_coins.tsv")
 
   public static int pickUpCoins(List<Integer> coins) {
     // TODO - you fill in here.

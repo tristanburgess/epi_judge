@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class IsStringPermutableToPalindrome {
-  @EpiTest(testDataFile = "is_string_permutable_to_palindrome.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_string_permutable_to_palindrome.tsv")
 
   public static boolean canFormPalindrome(String s) {
     // TODO - you fill in here.

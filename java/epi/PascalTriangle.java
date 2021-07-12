@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class PascalTriangle {
-  @EpiTest(testDataFile = "pascal_triangle.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/pascal_triangle.tsv")
 
   public static List<List<Integer>> generatePascalTriangle(int numRows) {
     // TODO - you fill in here.

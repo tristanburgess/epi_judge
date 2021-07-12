@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class BinomialCoefficients {
-  @EpiTest(testDataFile = "binomial_coefficients.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/binomial_coefficients.tsv")
 
   public static int computeBinomialCoefficient(int n, int k) {
     // TODO - you fill in here.

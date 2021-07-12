@@ -7,7 +7,7 @@ import test_framework.GenericTest;
 import java.util.List;
 
 public class TreeInorder {
-  @EpiTest(testDataFile = "tree_inorder.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/tree_inorder.tsv")
 
   public static List<Integer> inorderTraversal(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.

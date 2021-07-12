@@ -36,7 +36,7 @@ public class UniformRandomNumber {
         sequence, upperBound - lowerBound + 1, 0.01);
   }
 
-  @EpiTest(testDataFile = "uniform_random_number.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/uniform_random_number.tsv")
   public static void uniformRandomWrapper(TimedExecutor executor,
                                           int lowerBound, int upperBound)
       throws Exception {

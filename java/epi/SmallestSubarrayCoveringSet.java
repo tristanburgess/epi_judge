@@ -24,7 +24,7 @@ public class SmallestSubarrayCoveringSet {
     // TODO - you fill in here.
     return new Subarray(0, 0);
   }
-  @EpiTest(testDataFile = "smallest_subarray_covering_set.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/smallest_subarray_covering_set.tsv")
   public static int findSmallestSubarrayCoveringSetWrapper(
       TimedExecutor executor, List<String> paragraph, Set<String> keywords)
       throws Exception {

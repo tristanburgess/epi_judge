@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class RemoveDuplicatesFromSortedList {
-  @EpiTest(testDataFile = "remove_duplicates_from_sorted_list.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/remove_duplicates_from_sorted_list.tsv")
 
   public static ListNode<Integer> removeDuplicates(ListNode<Integer> L) {
     // TODO - you fill in here.

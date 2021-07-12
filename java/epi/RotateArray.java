@@ -10,7 +10,7 @@ public class RotateArray {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "rotate_array.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/rotate_array.tsv")
   public static List<Integer>
   rotateArrayWrapper(TimedExecutor executor, List<Integer> A, int rotateAmount)
       throws Exception {

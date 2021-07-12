@@ -30,7 +30,7 @@ public class QueueWithMax {
     }
   }
 
-  @EpiTest(testDataFile = "queue_with_max.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/queue_with_max.tsv")
   public static void queueTest(List<QueueOp> ops) throws TestFailure {
     try {
       QueueWithMax q = new QueueWithMax();

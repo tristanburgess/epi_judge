@@ -10,7 +10,7 @@ public class ReplaceAndRemove {
     // TODO - you fill in here.
     return 0;
   }
-  @EpiTest(testDataFile = "replace_and_remove.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/replace_and_remove.tsv")
   public static List<String>
   replaceAndRemoveWrapper(TimedExecutor executor, Integer size, List<String> s)
       throws Exception {

@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class SpreadsheetEncoding {
-  @EpiTest(testDataFile = "spreadsheet_encoding.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/spreadsheet_encoding.tsv")
 
   public static int ssDecodeColID(final String col) {
     // TODO - you fill in here.

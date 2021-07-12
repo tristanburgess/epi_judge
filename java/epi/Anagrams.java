@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiPredicate;
 public class Anagrams {
-  @EpiTest(testDataFile = "anagrams.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/anagrams.tsv")
 
   public static List<List<String>> findAnagrams(List<String> dictionary) {
     // TODO - you fill in here.

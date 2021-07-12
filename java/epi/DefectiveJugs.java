@@ -17,7 +17,7 @@ public class DefectiveJugs {
     }
   }
 
-  @EpiTest(testDataFile = "defective_jugs.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/defective_jugs.tsv")
 
   public static boolean checkFeasible(List<Jug> jugs, int L, int H) {
     // TODO - you fill in here.

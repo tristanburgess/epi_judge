@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class AbsentValueArray {
 
-  @EpiTest(testDataFile = "absent_value_array.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/absent_value_array.tsv")
   public static int findMissingElement(Iterable<Integer> stream) {
     // TODO - you fill in here.
     return 0;

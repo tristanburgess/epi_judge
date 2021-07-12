@@ -77,7 +77,7 @@ public class GraphClone {
     }
   }
 
-  @EpiTest(testDataFile = "graph_clone.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/graph_clone.tsv")
   public static void cloneGraphTest(int k, List<Edge> edges)
       throws TestFailure {
     if (k <= 0) {

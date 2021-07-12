@@ -95,7 +95,7 @@ public class IntervalsUnion {
     }
   }
 
-  @EpiTest(testDataFile = "intervals_union.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/intervals_union.tsv")
   public static List<FlatInterval>
   unionIntervalWrapper(TimedExecutor executor, List<FlatInterval> intervals)
       throws Exception {

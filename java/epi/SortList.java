@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class SortList {
-  @EpiTest(testDataFile = "sort_list.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/sort_list.tsv")
 
   public static ListNode<Integer> stableSortList(ListNode<Integer> L) {
     // TODO - you fill in here.

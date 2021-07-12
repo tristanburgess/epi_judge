@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class SumRootToLeaf {
-  @EpiTest(testDataFile = "sum_root_to_leaf.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/sum_root_to_leaf.tsv")
 
   public static int sumRootToLeaf(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.

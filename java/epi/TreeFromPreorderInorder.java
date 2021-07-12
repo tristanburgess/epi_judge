@@ -7,7 +7,7 @@ import test_framework.GenericTest;
 import java.util.List;
 
 public class TreeFromPreorderInorder {
-  @EpiTest(testDataFile = "tree_from_preorder_inorder.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/tree_from_preorder_inorder.tsv")
 
   public static BinaryTreeNode<Integer>
   binaryTreeFromPreorderInorder(List<Integer> preorder, List<Integer> inorder) {

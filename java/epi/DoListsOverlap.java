@@ -16,7 +16,7 @@ public class DoListsOverlap {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "do_lists_overlap.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/do_lists_overlap.tsv")
   public static void
   overlappingListsWrapper(TimedExecutor executor, ListNode<Integer> l0,
                           ListNode<Integer> l1, ListNode<Integer> common,

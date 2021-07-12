@@ -20,7 +20,7 @@ public class RangeLookupInBst {
     }
   }
 
-  @EpiTest(testDataFile = "range_lookup_in_bst.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/range_lookup_in_bst.tsv")
 
   public static List<Integer> rangeLookupInBst(BstNode<Integer> tree,
                                                Interval interval) {

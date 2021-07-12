@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class RealSquareRoot {
-  @EpiTest(testDataFile = "real_square_root.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/real_square_root.tsv")
 
   public static double squareRoot(double x) {
     // TODO - you fill in here.

@@ -27,7 +27,7 @@ public class IsCircuitWirable {
     }
   }
 
-  @EpiTest(testDataFile = "is_circuit_wirable.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_circuit_wirable.tsv")
   public static boolean isAnyPlacementFeasibleWrapper(TimedExecutor executor,
                                                       int k, List<Edge> edges)
       throws Exception {

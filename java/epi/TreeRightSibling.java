@@ -32,7 +32,7 @@ public class TreeRightSibling {
     return cloned;
   }
 
-  @EpiTest(testDataFile = "tree_right_sibling.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/tree_right_sibling.tsv")
   public static List<List<Integer>>
   constructRightSiblingWrapper(TimedExecutor executor, BinaryTree<Integer> tree)
       throws Exception {

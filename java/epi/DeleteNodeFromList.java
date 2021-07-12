@@ -12,7 +12,7 @@ public class DeleteNodeFromList {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "delete_node_from_list.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/delete_node_from_list.tsv")
   public static ListNode<Integer> deleteListWrapper(TimedExecutor executor,
                                                     ListNode<Integer> head,
                                                     int nodeToDeleteIdx)

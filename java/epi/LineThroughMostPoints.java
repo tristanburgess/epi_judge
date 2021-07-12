@@ -15,7 +15,7 @@ public class LineThroughMostPoints {
     }
   }
 
-  @EpiTest(testDataFile = "line_through_most_points.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/line_through_most_points.tsv")
 
   public static int findLineWithMostPoints(List<Point> points) {
     // TODO - you fill in here.

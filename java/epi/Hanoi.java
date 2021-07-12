@@ -16,7 +16,7 @@ public class Hanoi {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
-  @EpiTest(testDataFile = "hanoi.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/hanoi.tsv")
   public static void computeTowerHanoiWrapper(TimedExecutor executor,
                                               int numRings) throws Exception {
     List<Deque<Integer>> pegs = new ArrayList<>();

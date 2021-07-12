@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class ReverseSublist {
-  @EpiTest(testDataFile = "reverse_sublist.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/reverse_sublist.tsv")
 
   public static ListNode<Integer> reverseSublist(ListNode<Integer> L, int start,
                                                  int finish) {

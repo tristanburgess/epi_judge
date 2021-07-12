@@ -15,7 +15,7 @@ public class DescendantAndAncestorInBst {
     // TODO - you fill in here.
     return true;
   }
-  @EpiTest(testDataFile = "descendant_and_ancestor_in_bst.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/descendant_and_ancestor_in_bst.tsv")
   public static boolean pairIncludesAncestorAndDescendantOfMWrapper(
       TimedExecutor executor, BstNode<Integer> tree, int possibleAncOrDesc0,
       int possibleAncOrDesc1, int middle) throws Exception {

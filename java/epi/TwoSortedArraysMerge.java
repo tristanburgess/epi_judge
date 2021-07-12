@@ -9,7 +9,7 @@ public class TwoSortedArraysMerge {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "two_sorted_arrays_merge.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/two_sorted_arrays_merge.tsv")
   public static List<Integer>
   mergeTwoSortedArraysWrapper(List<Integer> A, int m, List<Integer> B, int n) {
     mergeTwoSortedArrays(A, m, B, n);

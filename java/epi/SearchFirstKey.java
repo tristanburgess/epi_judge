@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class SearchFirstKey {
-  @EpiTest(testDataFile = "search_first_key.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/search_first_key.tsv")
 
   public static int searchFirstOfK(List<Integer> A, int k) {
     // TODO - you fill in here.

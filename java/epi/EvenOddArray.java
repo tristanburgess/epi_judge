@@ -12,7 +12,7 @@ public class EvenOddArray {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "even_odd_array.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/even_odd_array.tsv")
   public static void evenOddWrapper(TimedExecutor executor, List<Integer> A)
       throws Exception {
     List<Integer> before = new ArrayList<>(A);

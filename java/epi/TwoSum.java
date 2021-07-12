@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class TwoSum {
-  @EpiTest(testDataFile = "two_sum.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/two_sum.tsv")
 
   public static boolean hasTwoSum(List<Integer> A, int t) {
     // TODO - you fill in here.

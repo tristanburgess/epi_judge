@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class NumberOfTraversalsStaircase {
-  @EpiTest(testDataFile = "number_of_traversals_staircase.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/number_of_traversals_staircase.tsv")
 
   public static int numberOfWaysToTop(int top, int maximumStep) {
     // TODO - you fill in here.

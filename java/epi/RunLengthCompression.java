@@ -12,7 +12,7 @@ public class RunLengthCompression {
     // TODO - you fill in here.
     return "";
   }
-  @EpiTest(testDataFile = "run_length_compression.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/run_length_compression.tsv")
   public static void rleTester(String encoded, String decoded)
       throws TestFailure {
     if (!decoding(encoded).equals(decoded)) {

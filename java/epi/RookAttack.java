@@ -9,7 +9,7 @@ public class RookAttack {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "rook_attack.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/rook_attack.tsv")
   public static List<List<Integer>> rookAttackWrapper(List<List<Integer>> A) {
     List<List<Integer>> aCopy = new ArrayList<>(A);
     rookAttack(aCopy);

@@ -7,7 +7,7 @@ import test_framework.GenericTest;
 import java.util.List;
 
 public class TreePreorder {
-  @EpiTest(testDataFile = "tree_preorder.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/tree_preorder.tsv")
 
   public static List<Integer> preorderTraversal(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.

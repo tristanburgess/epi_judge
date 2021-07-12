@@ -54,7 +54,7 @@ public class GroupEqualEntries {
     return m;
   }
 
-  @EpiTest(testDataFile = "group_equal_entries.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/group_equal_entries.tsv")
   public static void groupByAgeWrapper(TimedExecutor executor,
                                        List<Person> people) throws Exception {
     if (people.isEmpty()) {

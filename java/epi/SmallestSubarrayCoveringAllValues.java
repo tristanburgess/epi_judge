@@ -23,7 +23,7 @@ public class SmallestSubarrayCoveringAllValues {
     // TODO - you fill in here.
     return new Subarray(0, 0);
   }
-  @EpiTest(testDataFile = "smallest_subarray_covering_all_values.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/smallest_subarray_covering_all_values.tsv")
   public static int findSmallestSequentiallyCoveringSubsetWrapper(
       TimedExecutor executor, List<String> paragraph, List<String> keywords)
       throws Exception {

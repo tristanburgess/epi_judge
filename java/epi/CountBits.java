@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class CountBits {
-  @EpiTest(testDataFile = "count_bits.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/count_bits.tsv")
 
   public static short countBits(int x) {
     // TODO - you fill in here.

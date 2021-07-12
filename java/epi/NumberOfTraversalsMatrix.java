@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class NumberOfTraversalsMatrix {
-  @EpiTest(testDataFile = "number_of_traversals_matrix.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/number_of_traversals_matrix.tsv")
 
   public static int numberOfWays(int n, int m) {
     // TODO - you fill in here.

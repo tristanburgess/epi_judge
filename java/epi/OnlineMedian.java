@@ -8,7 +8,7 @@ public class OnlineMedian {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "online_median.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/online_median.tsv")
   public static List<Double> onlineMedianWrapper(List<Integer> sequence) {
     return onlineMedian(sequence.iterator());
   }

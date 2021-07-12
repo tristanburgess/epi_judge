@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class IsAnonymousLetterConstructible {
-  @EpiTest(testDataFile = "is_anonymous_letter_constructible.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_anonymous_letter_constructible.tsv")
 
   public static boolean isLetterConstructibleFromMagazine(String letterText,
                                                           String magazineText) {

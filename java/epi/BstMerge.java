@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class BstMerge {
-  @EpiTest(testDataFile = "bst_merge.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/bst_merge.tsv")
 
   public static BstNode<Integer> mergeTwoBsts(BstNode<Integer> A,
                                               BstNode<Integer> B) {

@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class IsNumberPalindromic {
-  @EpiTest(testDataFile = "is_number_palindromic.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_number_palindromic.tsv")
   public static boolean isPalindromeNumber(int x) {
     // TODO - you fill in here.
     return true;

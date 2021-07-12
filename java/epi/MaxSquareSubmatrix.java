@@ -4,7 +4,7 @@ import test_framework.GenericTest;
 import java.util.List;
 public class MaxSquareSubmatrix {
 
-  @EpiTest(testDataFile = "max_square_submatrix.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/max_square_submatrix.tsv")
 
   public static int maxSquareSubmatrix(List<List<Boolean>> A) {
     // TODO - you fill in here.

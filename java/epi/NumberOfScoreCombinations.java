@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class NumberOfScoreCombinations {
-  @EpiTest(testDataFile = "number_of_score_combinations.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/number_of_score_combinations.tsv")
 
   public static int
   numCombinationsForFinalScore(int finalScore,

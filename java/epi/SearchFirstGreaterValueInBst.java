@@ -11,7 +11,7 @@ public class SearchFirstGreaterValueInBst {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "search_first_greater_value_in_bst.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/search_first_greater_value_in_bst.tsv")
   public static int findFirstGreaterThanKWrapper(BstNode<Integer> tree,
                                                  Integer k) {
     BstNode<Integer> result = findFirstGreaterThanK(tree, k);

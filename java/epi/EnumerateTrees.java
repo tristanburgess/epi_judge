@@ -33,7 +33,7 @@ public class EnumerateTrees {
     return result;
   }
 
-  @EpiTest(testDataFile = "enumerate_trees.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/enumerate_trees.tsv")
   public static List<List<Integer>>
   generateAllBinaryTreesWrapper(TimedExecutor executor, int numNodes)
       throws Exception {

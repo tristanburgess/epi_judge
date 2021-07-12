@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class ReverseBits {
-  @EpiTest(testDataFile = "reverse_bits.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/reverse_bits.tsv")
   public static long reverseBits(long x) {
     // TODO - you fill in here.
     return 0;

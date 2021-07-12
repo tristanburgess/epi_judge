@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class KthLargestElementInTwoSortedArrays {
-  @EpiTest(testDataFile = "kth_largest_element_in_two_sorted_arrays.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/kth_largest_element_in_two_sorted_arrays.tsv")
 
   public static int findKthNTwoSortedArrays(List<Integer> A, List<Integer> B,
                                             int k) {

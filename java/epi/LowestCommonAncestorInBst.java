@@ -16,7 +16,7 @@ public class LowestCommonAncestorInBst {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "lowest_common_ancestor_in_bst.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/lowest_common_ancestor_in_bst.tsv")
   public static int lcaWrapper(TimedExecutor executor, BstNode<Integer> tree,
                                Integer key0, Integer key1) throws Exception {
     BstNode<Integer> node0 = BinaryTreeUtils.mustFindNode(tree, key0);

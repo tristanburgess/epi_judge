@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class IsValidSudoku {
-  @EpiTest(testDataFile = "is_valid_sudoku.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_valid_sudoku.tsv")
 
   // Check if a partially filled matrix has any conflicts.
   public static boolean isValidSudoku(List<List<Integer>> partialAssignment) {

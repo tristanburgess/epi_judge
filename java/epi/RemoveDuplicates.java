@@ -49,7 +49,7 @@ public class RemoveDuplicates {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "remove_duplicates.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/remove_duplicates.tsv")
   public static List<Name> eliminateDuplicateWrapper(List<Name> names) {
     eliminateDuplicate(names);
     return names;

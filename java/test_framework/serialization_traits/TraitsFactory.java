@@ -71,6 +71,7 @@ public class TraitsFactory {
     }
 
     if (type instanceof Class) {
+      @SuppressWarnings("unchecked")
       EpiUserType ann =
           (EpiUserType)((Class)type).getAnnotation(EpiUserType.class);
 

@@ -10,7 +10,7 @@ public class SearchEntryEqualToIndex {
     // TODO - you fill in here.
     return 0;
   }
-  @EpiTest(testDataFile = "search_entry_equal_to_index.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/search_entry_equal_to_index.tsv")
   public static void searchEntryEqualToItsIndexWrapper(TimedExecutor executor,
                                                        List<Integer> A)
       throws Exception {

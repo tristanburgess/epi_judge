@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiPredicate;
 public class Combinations {
-  @EpiTest(testDataFile = "combinations.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/combinations.tsv")
 
   public static List<List<Integer>> combinations(int n, int k) {
     // TODO - you fill in here.

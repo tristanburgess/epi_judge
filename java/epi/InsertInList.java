@@ -13,7 +13,7 @@ public class InsertInList {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "insert_in_list.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/insert_in_list.tsv")
   public static ListNode<Integer>
   insertListWrapper(TimedExecutor executor, ListNode<Integer> l, int nodeIdx,
                     int newNodeData) throws Exception {

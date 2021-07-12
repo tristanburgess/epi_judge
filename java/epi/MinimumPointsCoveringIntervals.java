@@ -15,7 +15,7 @@ public class MinimumPointsCoveringIntervals {
     }
   }
 
-  @EpiTest(testDataFile = "minimum_points_covering_intervals.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/minimum_points_covering_intervals.tsv")
 
   public static Integer findMinimumVisits(List<Interval> intervals) {
     // TODO - you fill in here.

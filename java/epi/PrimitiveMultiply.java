@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class PrimitiveMultiply {
-  @EpiTest(testDataFile = "primitive_multiply.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/primitive_multiply.tsv")
   public static long multiply(long x, long y) {
     // TODO - you fill in here.
     return 0;

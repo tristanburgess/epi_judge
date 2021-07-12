@@ -34,7 +34,7 @@ public class RoadNetwork {
     }
   }
 
-  @EpiTest(testDataFile = "road_network.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/road_network.tsv")
 
   public static HighwaySection
   findBestProposals(List<HighwaySection> H, List<HighwaySection> P, int n) {

@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class LargestRectangleUnderSkyline {
-  @EpiTest(testDataFile = "largest_rectangle_under_skyline.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/largest_rectangle_under_skyline.tsv")
 
   public static int calculateLargestRectangle(List<Integer> heights) {
     // TODO - you fill in here.

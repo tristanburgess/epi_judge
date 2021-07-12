@@ -14,7 +14,7 @@ public class Bonus {
     }
   }
 
-  @EpiTest(testDataFile = "bonus.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/bonus.tsv")
 
   public static Integer calculateBonus(List<Integer> productivity) {
     // TODO - you fill in here.

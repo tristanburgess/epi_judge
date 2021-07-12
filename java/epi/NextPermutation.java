@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class NextPermutation {
-  @EpiTest(testDataFile = "next_permutation.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/next_permutation.tsv")
   public static List<Integer> nextPermutation(List<Integer> perm) {
     // TODO - you fill in here.
     return null;

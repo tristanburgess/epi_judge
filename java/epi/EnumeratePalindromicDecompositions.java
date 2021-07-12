@@ -6,7 +6,7 @@ import test_framework.GenericTest;
 import java.util.List;
 import java.util.function.BiPredicate;
 public class EnumeratePalindromicDecompositions {
-  @EpiTest(testDataFile = "enumerate_palindromic_decompositions.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/enumerate_palindromic_decompositions.tsv")
 
   public static List<List<String>> palindromeDecompositions(String input) {
     // TODO - you fill in here.

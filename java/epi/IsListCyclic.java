@@ -12,7 +12,7 @@ public class IsListCyclic {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "is_list_cyclic.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_list_cyclic.tsv")
   public static void HasCycleWrapper(TimedExecutor executor,
                                      ListNode<Integer> head, int cycleIdx)
       throws Exception {

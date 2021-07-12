@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class ZipList {
-  @EpiTest(testDataFile = "zip_list.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/zip_list.tsv")
 
   public static ListNode<Integer> zippingLinkedList(ListNode<Integer> L) {
     // TODO - you fill in here.

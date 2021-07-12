@@ -17,7 +17,7 @@ public class BstFromSortedArray {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "bst_from_sorted_array.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/bst_from_sorted_array.tsv")
   public static int
   buildMinHeightBSTFromSortedArrayWrapper(TimedExecutor executor,
                                           List<Integer> A) throws Exception {

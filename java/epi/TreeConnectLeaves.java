@@ -17,7 +17,7 @@ public class TreeConnectLeaves {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
-  @EpiTest(testDataFile = "tree_connect_leaves.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/tree_connect_leaves.tsv")
   public static List<Integer>
   createListOfLeavesWrapper(TimedExecutor executor,
                             BinaryTreeNode<Integer> tree) throws Exception {

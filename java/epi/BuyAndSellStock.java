@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class BuyAndSellStock {
-  @EpiTest(testDataFile = "buy_and_sell_stock.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/buy_and_sell_stock.tsv")
   public static double computeMaxProfit(List<Double> prices) {
     // TODO - you fill in here.
     return 0.0;

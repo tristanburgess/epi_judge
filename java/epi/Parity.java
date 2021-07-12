@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class Parity {
-  @EpiTest(testDataFile = "parity.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/parity.tsv")
   public static short parity(long x) {
     // TODO - you fill in here.
     return 0;

@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class MinimumWaitingTime {
-  @EpiTest(testDataFile = "minimum_waiting_time.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/minimum_waiting_time.tsv")
 
   public static int minimumTotalWaitingTime(List<Integer> serviceTimes) {
     // TODO - you fill in here.

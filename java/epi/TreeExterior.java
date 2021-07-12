@@ -29,7 +29,7 @@ public class TreeExterior {
     return output;
   }
 
-  @EpiTest(testDataFile = "tree_exterior.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/tree_exterior.tsv")
   public static List<Integer>
   exteriorBinaryTreeWrapper(TimedExecutor executor,
                             BinaryTreeNode<Integer> tree) throws Exception {

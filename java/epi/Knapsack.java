@@ -16,7 +16,7 @@ public class Knapsack {
     }
   }
 
-  @EpiTest(testDataFile = "knapsack.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/knapsack.tsv")
 
   public static int optimumSubjectToCapacity(List<Item> items, int capacity) {
     // TODO - you fill in here.

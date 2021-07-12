@@ -25,7 +25,7 @@ public class CalendarRendering {
     }
   }
 
-  @EpiTest(testDataFile = "calendar_rendering.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/calendar_rendering.tsv")
 
   public static int findMaxSimultaneousEvents(List<Event> A) {
     // TODO - you fill in here.

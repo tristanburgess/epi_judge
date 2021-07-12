@@ -14,7 +14,7 @@ public class LowestCommonAncestorWithParent {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "lowest_common_ancestor.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/lowest_common_ancestor.tsv")
   public static int lcaWrapper(TimedExecutor executor, BinaryTree<Integer> tree,
                                Integer key0, Integer key1) throws Exception {
     BinaryTree<Integer> node0 = BinaryTreeUtils.mustFindNode(tree, key0);

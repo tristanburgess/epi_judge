@@ -28,7 +28,7 @@ public class DeadlockDetection {
     }
   }
 
-  @EpiTest(testDataFile = "deadlock_detection.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/deadlock_detection.tsv")
   public static boolean isDeadlockedWrapper(TimedExecutor executor,
                                             int numNodes, List<Edge> edges)
       throws Exception {

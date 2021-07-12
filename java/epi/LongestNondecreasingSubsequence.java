@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class LongestNondecreasingSubsequence {
-  @EpiTest(testDataFile = "longest_nondecreasing_subsequence.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/longest_nondecreasing_subsequence.tsv")
 
   public static int longestNondecreasingSubsequenceLength(List<Integer> A) {
     // TODO - you fill in here.

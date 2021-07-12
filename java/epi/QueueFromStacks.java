@@ -28,7 +28,7 @@ public class QueueFromStacks {
     }
   }
 
-  @EpiTest(testDataFile = "queue_from_stacks.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/queue_from_stacks.tsv")
   public static void queueTest(List<QueueOp> ops) throws TestFailure {
     try {
       Queue q = new Queue();

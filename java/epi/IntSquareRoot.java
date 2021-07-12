@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class IntSquareRoot {
-  @EpiTest(testDataFile = "int_square_root.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/int_square_root.tsv")
 
   public static int squareRoot(int k) {
     // TODO - you fill in here.

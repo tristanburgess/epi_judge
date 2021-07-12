@@ -14,7 +14,7 @@ public class RefuelingSchedule {
     // TODO - you fill in here.
     return 0;
   }
-  @EpiTest(testDataFile = "refueling_schedule.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/refueling_schedule.tsv")
   public static void findAmpleCityWrapper(TimedExecutor executor,
                                           List<Integer> gallons,
                                           List<Integer> distances)

@@ -18,7 +18,7 @@ public class GrayCode {
     return bitDifference != 0 && (bitDifference & (bitDifference - 1)) == 0;
   }
 
-  @EpiTest(testDataFile = "gray_code.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/gray_code.tsv")
   public static void grayCodeWrapper(TimedExecutor executor, int numBits)
       throws Exception {
     List<Integer> result = executor.run(() -> grayCode(numBits));

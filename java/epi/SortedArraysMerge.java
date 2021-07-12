@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class SortedArraysMerge {
-  @EpiTest(testDataFile = "sorted_arrays_merge.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/sorted_arrays_merge.tsv")
 
   public static List<Integer>
   mergeSortedArrays(List<List<Integer>> sortedArrays) {

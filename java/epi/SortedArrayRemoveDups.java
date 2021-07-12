@@ -9,7 +9,7 @@ public class SortedArrayRemoveDups {
     // TODO - you fill in here.
     return 0;
   }
-  @EpiTest(testDataFile = "sorted_array_remove_dups.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/sorted_array_remove_dups.tsv")
   public static List<Integer> deleteDuplicatesWrapper(TimedExecutor executor,
                                                       List<Integer> A)
       throws Exception {

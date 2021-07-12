@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class Gcd {
-  @EpiTest(testDataFile = "gcd.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/gcd.tsv")
 
   public static long GCD(long x, long y) {
     // TODO - you fill in here.

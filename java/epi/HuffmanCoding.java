@@ -21,7 +21,7 @@ public class HuffmanCoding {
     }
   }
 
-  @EpiTest(testDataFile = "huffman_coding.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/huffman_coding.tsv")
 
   public static Double huffmanEncoding(List<CharWithFrequency> symbols) {
     // TODO - you fill in here.

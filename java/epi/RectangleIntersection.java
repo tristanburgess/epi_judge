@@ -51,7 +51,7 @@ public class RectangleIntersection {
       return "[" + x + ", " + y + ", " + width + ", " + height + "]";
     }
   }
-  @EpiTest(testDataFile = "rectangle_intersection.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/rectangle_intersection.tsv")
   public static Rectangle intersectRectangle(Rectangle R1, Rectangle R2) {
     // TODO - you fill in here.
     return new Rectangle(0, 0, 0, 0);

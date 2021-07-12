@@ -41,7 +41,7 @@ public class DrawingSkyline {
     }
   }
 
-  @EpiTest(testDataFile = "drawing_skyline.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/drawing_skyline.tsv")
 
   public static List<Rectangle> drawingSkylines(List<Rectangle> buildings) {
     // TODO - you fill in here.

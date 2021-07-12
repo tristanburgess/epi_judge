@@ -13,7 +13,7 @@ public class SearchFrequentItems {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "search_frequent_items.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/search_frequent_items.tsv")
   public static List<String> searchFrequentItemsWrapper(int k,
                                                         List<String> stream) {
     return searchFrequentItems(k, stream);

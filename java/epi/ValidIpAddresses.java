@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiPredicate;
 public class ValidIpAddresses {
-  @EpiTest(testDataFile = "valid_ip_addresses.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/valid_ip_addresses.tsv")
 
   public static List<String> getValidIpAddress(String s) {
     // TODO - you fill in here.

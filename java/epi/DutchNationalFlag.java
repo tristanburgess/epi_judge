@@ -12,7 +12,7 @@ public class DutchNationalFlag {
     // TODO - you fill in here.
     return;
   }
-  @EpiTest(testDataFile = "dutch_national_flag.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/dutch_national_flag.tsv")
   public static void dutchFlagPartitionWrapper(TimedExecutor executor,
                                                List<Integer> A, int pivotIdx)
       throws Exception {

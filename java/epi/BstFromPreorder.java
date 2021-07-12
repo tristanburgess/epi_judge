@@ -7,7 +7,7 @@ import test_framework.GenericTest;
 import java.util.List;
 
 public class BstFromPreorder {
-  @EpiTest(testDataFile = "bst_from_preorder.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/bst_from_preorder.tsv")
 
   public static BstNode<Integer>
   rebuildBSTFromPreorder(List<Integer> preorderSequence) {

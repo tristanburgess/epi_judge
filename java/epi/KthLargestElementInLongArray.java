@@ -10,7 +10,7 @@ public class KthLargestElementInLongArray {
     // TODO - you fill in here.
     return 0;
   }
-  @EpiTest(testDataFile = "kth_largest_element_in_long_array.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/kth_largest_element_in_long_array.tsv")
   public static int findKthLargestUnknownLengthWrapper(List<Integer> stream,
                                                        int k) {
     return findKthLargestUnknownLength(stream.iterator(), k);

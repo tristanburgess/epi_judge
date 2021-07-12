@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class SmallestNonconstructibleValue {
-  @EpiTest(testDataFile = "smallest_nonconstructible_value.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/smallest_nonconstructible_value.tsv")
 
   public static int smallestNonconstructibleValue(List<Integer> A) {
     // TODO - you fill in here.

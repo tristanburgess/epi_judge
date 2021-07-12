@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiPredicate;
 public class KLargestInHeap {
-  @EpiTest(testDataFile = "k_largest_in_heap.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/k_largest_in_heap.tsv")
 
   public static List<Integer> kLargestInBinaryHeap(List<Integer> A, int k) {
     // TODO - you fill in here.

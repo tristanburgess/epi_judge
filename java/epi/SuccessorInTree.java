@@ -12,7 +12,7 @@ public class SuccessorInTree {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "successor_in_tree.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/successor_in_tree.tsv")
   public static int findSuccessorWrapper(TimedExecutor executor,
                                          BinaryTree<Integer> tree, int nodeIdx)
       throws Exception {

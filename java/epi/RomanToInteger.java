@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class RomanToInteger {
-  @EpiTest(testDataFile = "roman_to_integer.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/roman_to_integer.tsv")
 
   public static int romanToInteger(String s) {
     // TODO - you fill in here.

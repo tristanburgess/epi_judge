@@ -2,7 +2,7 @@ package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 public class CollatzChecker {
-  @EpiTest(testDataFile = "collatz_checker.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/collatz_checker.tsv")
 
   public static boolean testCollatzConjecture(int n) {
     // TODO - you fill in here.

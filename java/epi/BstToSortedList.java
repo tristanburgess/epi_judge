@@ -14,7 +14,7 @@ public class BstToSortedList {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "bst_to_sorted_list.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/bst_to_sorted_list.tsv")
   public static List<Integer>
   bstToDoublyLinkedListWrapper(TimedExecutor executor, BstNode<Integer> tree)
       throws Exception {

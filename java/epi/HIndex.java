@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class HIndex {
-  @EpiTest(testDataFile = "h_index.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/h_index.tsv")
   public static int hIndex(List<Integer> citations) {
     // TODO - you fill in here.
     return 0;

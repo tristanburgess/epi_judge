@@ -79,7 +79,7 @@ public class AddingCredits {
     }
   }
 
-  @EpiTest(testDataFile = "adding_credits.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/adding_credits.tsv")
   public static void ClientsCreditsInfoTester(List<Operation> ops)
       throws TestFailure {
     ClientsCreditsInfo cr = new ClientsCreditsInfo();

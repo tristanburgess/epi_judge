@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class IntAsListAdd {
-  @EpiTest(testDataFile = "int_as_list_add.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/int_as_list_add.tsv")
 
   public static ListNode<Integer> addTwoNumbers(ListNode<Integer> L1,
                                                 ListNode<Integer> L2) {

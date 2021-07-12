@@ -42,7 +42,7 @@ public class CircularQueue {
     }
   }
 
-  @EpiTest(testDataFile = "circular_queue.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/circular_queue.tsv")
   public static void queueTest(List<QueueOp> ops) throws TestFailure {
     Queue q = new Queue(1);
     int opIdx = 0;

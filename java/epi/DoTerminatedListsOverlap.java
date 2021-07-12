@@ -13,7 +13,7 @@ public class DoTerminatedListsOverlap {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "do_terminated_lists_overlap.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/do_terminated_lists_overlap.tsv")
   public static void
   overlappingNoCycleListsWrapper(TimedExecutor executor, ListNode<Integer> l0,
                                  ListNode<Integer> l1, ListNode<Integer> common)

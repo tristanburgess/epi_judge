@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiPredicate;
 public class PhoneNumberMnemonic {
-  @EpiTest(testDataFile = "phone_number_mnemonic.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/phone_number_mnemonic.tsv")
 
   public static List<String> phoneMnemonic(String phoneNumber) {
     // TODO - you fill in here.

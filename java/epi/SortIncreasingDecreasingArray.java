@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class SortIncreasingDecreasingArray {
-  @EpiTest(testDataFile = "sort_increasing_decreasing_array.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/sort_increasing_decreasing_array.tsv")
 
   public static List<Integer> sortKIncreasingDecreasingArray(List<Integer> A) {
     // TODO - you fill in here.

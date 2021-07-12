@@ -5,7 +5,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class IsTreeABst {
-  @EpiTest(testDataFile = "is_tree_a_bst.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/is_tree_a_bst.tsv")
 
   public static boolean isBinaryTreeBST(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.

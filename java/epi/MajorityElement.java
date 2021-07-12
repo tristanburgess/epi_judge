@@ -9,7 +9,7 @@ public class MajorityElement {
     // TODO - you fill in here.
     return "";
   }
-  @EpiTest(testDataFile = "majority_element.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/majority_element.tsv")
   public static String majoritySearchWrapper(List<String> stream) {
     return majoritySearch(stream.iterator());
   }

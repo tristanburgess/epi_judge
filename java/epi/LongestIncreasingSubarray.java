@@ -19,7 +19,7 @@ public class LongestIncreasingSubarray {
     // TODO - you fill in here.
     return new Subarray(0, 0);
   }
-  @EpiTest(testDataFile = "longest_increasing_subarray.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/longest_increasing_subarray.tsv")
   public static int findLongestIncreasingSubarrayWrapper(List<Integer> A) {
     Subarray result = findLongestIncreasingSubarray(A);
     return result.end - result.start + 1;

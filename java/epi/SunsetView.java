@@ -9,7 +9,7 @@ public class SunsetView {
     // TODO - you fill in here.
     return null;
   }
-  @EpiTest(testDataFile = "sunset_view.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/sunset_view.tsv")
   public static List<Integer>
   examineBuildingsWithSunsetWrapper(List<Integer> sequence) {
     return examineBuildingsWithSunset(sequence.iterator());

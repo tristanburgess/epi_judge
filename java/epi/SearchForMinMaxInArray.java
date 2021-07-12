@@ -42,7 +42,7 @@ public class SearchForMinMaxInArray {
     }
   }
 
-  @EpiTest(testDataFile = "search_for_min_max_in_array.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/search_for_min_max_in_array.tsv")
 
   public static MinMax findMinMax(List<Integer> A) {
     // TODO - you fill in here.

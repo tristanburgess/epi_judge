@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class MaxProductAllButOne {
-  @EpiTest(testDataFile = "max_product_all_but_one.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/max_product_all_but_one.tsv")
 
   public static int findBiggestProductNMinusOneProduct(List<Integer> A) {
     // TODO - you fill in here.

@@ -54,7 +54,7 @@ public class SearchMaze {
         cur.x == prev.x && cur.y == prev.y - 1;
   }
 
-  @EpiTest(testDataFile = "search_maze.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/search_maze.tsv")
   public static boolean searchMazeWrapper(List<List<Integer>> maze,
                                           Coordinate s, Coordinate e)
       throws TestFailure {

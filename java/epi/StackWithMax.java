@@ -36,7 +36,7 @@ public class StackWithMax {
     }
   }
 
-  @EpiTest(testDataFile = "stack_with_max.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/stack_with_max.tsv")
   public static void stackTest(List<StackOp> ops) throws TestFailure {
     try {
       Stack s = new Stack();

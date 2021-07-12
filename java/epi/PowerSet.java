@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.BiPredicate;
 public class PowerSet {
-  @EpiTest(testDataFile = "power_set.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/power_set.tsv")
 
   public static List<List<Integer>> generatePowerSet(List<Integer> inputSet) {
     // TODO - you fill in here.

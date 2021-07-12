@@ -3,7 +3,7 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
 public class LongestSubarrayWithDistinctValues {
-  @EpiTest(testDataFile = "longest_subarray_with_distinct_values.tsv")
+  @EpiTest(testDataFile = "../test_data/epi/longest_subarray_with_distinct_values.tsv")
 
   public static int longestSubarrayWithDistinctEntries(List<Integer> A) {
     // TODO - you fill in here.
