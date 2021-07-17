@@ -54,6 +54,7 @@ public class GenericTest {
           testFile, testDataFile, configOverride.get("timeoutSeconds").asInt(),
           configOverride.get("numFailedTestsBeforeStop").asInt(),
           commandlineArgs);
+      config.setTestFuncName(testFunc.getName());
 
       Platform.setOutputOpts(config.ttyMode, config.colorMode);
 
@@ -150,7 +151,7 @@ public class GenericTest {
     System.out.println();
 
     if (!durations.isEmpty() && config.verbose) {
-      TestUtilsConsole.printPostRunStats(testsPassed, totalTests, complexity,
+      TestUtilsConsole.printPostRunStats(config.testFuncName, testsPassed, totalTests, complexity,
                                          durations);
     }
     return result;

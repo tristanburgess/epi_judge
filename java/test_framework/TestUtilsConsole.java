@@ -108,9 +108,10 @@ public class TestUtilsConsole {
     }
   }
 
-  public static void printPostRunStats(int testsPassed, int totalTests,
+  public static void printPostRunStats(String testFuncName, int testsPassed, int totalTests,
                                        String complexity,
                                        List<Long> durations) {
+    System.out.printf("Function name: %s\n", testFuncName);
     if (!durations.isEmpty()) {
       if (!complexity.isEmpty()) {
         System.out.printf("Time complexity: %s\n", complexity);

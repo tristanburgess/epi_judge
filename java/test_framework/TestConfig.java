@@ -8,6 +8,7 @@ public class TestConfig {
   public String testDataDir;
   public String testFile;
   public String testDataFile;
+  public String testFuncName;
   public boolean verbose;
   public boolean analyzeComplexity;
   public TriBool ttyMode;
@@ -27,6 +28,10 @@ public class TestConfig {
     this.updateJs = false;
     this.timeoutSeconds = timeoutSeconds;
     this.numFailedTestsBeforeStop = numFailedTestsBeforeStop;
+  }
+
+  public void setTestFuncName(String funcName) {
+    this.testFuncName = funcName;
   }
 
   private static String getParam(String[] commandlineArgs, int i,
