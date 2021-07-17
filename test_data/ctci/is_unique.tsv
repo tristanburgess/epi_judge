@@ -1,0 +1,9 @@
+string	bool
+asdf	true	TODO
+gefefef	false	TODO
+aa	false	TODO
+abcdefghija	false	TODO
+aAbc	true	TODO
+AAabc	false	TODO
+asdf!@46#$%	true	TODO
+asdf!!#@4$	false	TODO
