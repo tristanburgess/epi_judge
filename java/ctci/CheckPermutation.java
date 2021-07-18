@@ -1,11 +1,14 @@
 package ctci;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 import java.util.Arrays;
 
 /*  MY ANSWERS:
-  Requirements:
+
+  Requirements
+  ------------
     - Is whitespace relevant?
     - Is case sensitivity relevant?
     - What is the character set?
@@ -77,10 +80,7 @@ public class CheckPermutation {
   }
 
   public static void main(String[] args) {
-    System.exit(
-        GenericTest
-            .runFromAnnotations(args, "CheckPermutation.java",
-                                new Object() {}.getClass().getEnclosingClass())
-            .ordinal());
+    System.exit(GenericTest.runFromAnnotations(args, "CheckPermutation.java", new Object() {
+    }.getClass().getEnclosingClass()).ordinal());
   }
 }

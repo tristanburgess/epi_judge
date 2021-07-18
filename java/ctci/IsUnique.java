@@ -1,4 +1,5 @@
 package ctci;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 
@@ -6,6 +7,8 @@ import java.util.Arrays;
 
 /*  MY ANSWERS:
 
+    Requirements
+    ------------
     Assume only extended ASCII characters, 256 possible characters.
     Assume case-sensitive, so that 'a' != 'A'
     Given a string "abcdefga"
@@ -84,7 +87,7 @@ public class IsUnique {
     Arrays.sort(arr);
 
     for (int i = 1; i < arr.length; i++) {
-      if (arr[i] == arr[i-1]) {
+      if (arr[i] == arr[i - 1]) {
         return false;
       }
     }
@@ -93,10 +96,7 @@ public class IsUnique {
   }
 
   public static void main(String[] args) {
-    System.exit(
-        GenericTest
-            .runFromAnnotations(args, "IsUnique.java",
-                                new Object() {}.getClass().getEnclosingClass())
-            .ordinal());
+    System.exit(GenericTest.runFromAnnotations(args, "IsUnique.java", new Object() {
+    }.getClass().getEnclosingClass()).ordinal());
   }
 }
