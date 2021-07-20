@@ -71,7 +71,8 @@ public class TestUtilsConsole {
     return new String(new char[count]).replace('\0', ' ');
   }
 
-  public static void printFailedTest(List<String> paramNames,
+  public static void printFailedTest(String funcName,
+                                     List<String> paramNames,
                                      List<String> arguments,
                                      TestFailure testFailure) {
     int maxColSize = testFailure.getMaxPropertyNameLength();
@@ -98,6 +99,9 @@ public class TestUtilsConsole {
 
     ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_YELLOW,
                                     "\nFailure info\n");
+    ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_YELLOW,
+                                    "\tfunction name");
+    System.out.printf(": %s\n", funcName);
     for (TestFailure.Property prop : properties) {
       System.out.print("\t");
       ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_YELLOW,

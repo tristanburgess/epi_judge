@@ -131,7 +131,7 @@ public class GenericTest {
                                      testExplanation);
           }
 
-          TestUtilsConsole.printFailedTest(handler.paramNames(), testCase,
+          TestUtilsConsole.printFailedTest(config.testFuncName, handler.paramNames(), testCase,
                                            testFailure);
         }
 

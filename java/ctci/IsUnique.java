@@ -5,44 +5,45 @@ import test_framework.GenericTest;
 
 import java.util.Arrays;
 
-/*  MY ANSWERS:
+/*  
+MY ANSWERS:
 
-    Requirements
-    ------------
-    Assume only extended ASCII characters, 256 possible characters.
-    Assume case-sensitive, so that 'a' != 'A'
-    Given a string "abcdefga"
+Requirements
+------------
+Assume only extended ASCII characters, 256 possible characters.
+Assume case-sensitive, so that 'a' != 'A'
+Given a string "abcdefga"
 
-    Let k be the number of characters in the string
+Let k be the number of characters in the string
 
-    First, ensure the string is not longer than 256 characters,
-    else there is no possible way all of them are unique, so return false
-    in that case.
+First, ensure the string is not longer than 256 characters,
+else there is no possible way all of them are unique, so return false
+in that case.
 
-    Brute force: O(k^2) time O(1) space
-    -----------------------------------
-    for each character
-        loop over all other characters in the string
-        if a match is found, return false
-    return true
+Brute force: O(k^2) time O(1) space
+-----------------------------------
+for each character
+    loop over all other characters in the string
+    if a match is found, return false
+return true
 
-    Sort string: O(klogk) time O(k) space
-    -------------------------------------
-    create a new string containing sorted string
-    initialize last character seen to ''
-    for each character
-        if current is equal to last character seen return false
-        set last character seen to current
-    return true
+Sort string: O(klogk) time O(k) space
+-------------------------------------
+create a new string containing sorted string
+initialize last character seen to ''
+for each character
+    if current is equal to last character seen return false
+    set last character seen to current
+return true
 
-    Occurrence map: O(k) time O(1) space
-    -----------------------------------
-    build an integer array which can map to all 256 possible ASCII codes.
-    for each character
-        loop up ASCII code in occurrence map
-        if occurence exists return false
-        else set occurence to true
-    return true
+Occurrence map: O(k) time O(1) space
+-----------------------------------
+build an integer array which can map to all 256 possible ASCII codes.
+for each character
+    loop up ASCII code in occurrence map
+    if occurence exists return false
+    else set occurence to true
+return true
 */
 
 public class IsUnique {

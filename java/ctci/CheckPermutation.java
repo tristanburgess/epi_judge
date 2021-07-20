@@ -5,38 +5,39 @@ import test_framework.GenericTest;
 
 import java.util.Arrays;
 
-/*  MY ANSWERS:
+/*  
+MY ANSWERS:
 
-  Requirements
-  ------------
-    - Is whitespace relevant?
-    - Is case sensitivity relevant?
-    - What is the character set?
-  
-  Assume first two are relevant, assume extended ASCII.
+Requirements
+------------
+  - Is whitespace relevant?
+  - Is case sensitivity relevant?
+  - What is the character set?
 
-  Two strings can only be a permutation of each other if
-  they are of equal length.
+Assume first two are relevant, assume extended ASCII.
 
-  Freq Map: O(max(x, y)) time O(x + y) space
- -------------------------------------------
-  Note that if not a permutation and lengths are equal, then there must be some letter
-  in s that is not in t the same number of times, and vice versa.
-  If all letters in s were in t the same number of times, then the only way s and t are
-  not permutations is if t contains at least one additional letter than s, which makes
-  their lengths unequal.
+Two strings can only be a permutation of each other if
+they are of equal length.
 
-  Initialize freq map to int array size 256
-  For each char in s
-    increment the freq map value at the current char index
-  For each char in t
-    decrement the freq map value at the current char index
-    if val less than zero, not a permutation
+Freq Map: O(max(x, y)) time O(x + y) space
+-------------------------------------------
+Note that if not a permutation and lengths are equal, then there must be some letter
+in s that is not in t the same number of times, and vice versa.
+If all letters in s were in t the same number of times, then the only way s and t are
+not permutations is if t contains at least one additional letter than s, which makes
+their lengths unequal.
 
-  Sort: O(xlogx + ylogy) time and O(x + y) space
-  ----------------------------------------------
-  Sort s and t
-  For each character in s, if char at current index in t is not the same, not a permutation
+Initialize freq map to int array size 256
+For each char in s
+  increment the freq map value at the current char index
+For each char in t
+  decrement the freq map value at the current char index
+  if val less than zero, not a permutation
+
+Sort: O(xlogx + ylogy) time and O(x + y) space
+----------------------------------------------
+Sort s and t
+For each character in s, if char at current index in t is not the same, not a permutation
 */
 
 public class CheckPermutation {
