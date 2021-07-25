@@ -37,7 +37,7 @@ public class PalindromePermutation {
 
     for (char c : s.toCharArray()) {
       if (c >= 'A' && c <= 'Z') {
-        c = (char)('a' + (c - 'A'));
+        c = (char) ('a' + (c - 'A'));
       }
       if (c >= 'a' && c <= 'z') {
         alphaFreq ^= 0x1 << (c - 'a');
@@ -56,7 +56,7 @@ public class PalindromePermutation {
 
     for (char c : s.toCharArray()) {
       if (c >= 'A' && c <= 'Z') {
-        c = (char)('a' + (c - 'A'));
+        c = (char) ('a' + (c - 'A'));
       }
       if (c >= 'a' && c <= 'z') {
         alphaFreq[c - 'a']++;

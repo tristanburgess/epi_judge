@@ -31,38 +31,38 @@ import test_framework.GenericTest;
 */
 
 public class StringCompression {
-  @EpiTest(testDataFile = "../test_data/ctci/string_compression.tsv")
-  public static String compress(String s) {
-    if (s.length() == 0) {
-        return s;
-    }
+    @EpiTest(testDataFile = "../test_data/ctci/string_compression.tsv")
+    public static String compress(String s) {
+        if (s.length() == 0) {
+            return s;
+        }
 
-    StringBuilder candidate = new StringBuilder();
-    char lastSeen = s.charAt(0);
-    int countLastSeen = 1;
-    for (int i = 1; i < s.length(); i++) {
-        char cur = s.charAt(i);
-        if (cur == lastSeen) {
-            countLastSeen++;
+        StringBuilder candidate = new StringBuilder();
+        char lastSeen = s.charAt(0);
+        int countLastSeen = 1;
+        for (int i = 1; i < s.length(); i++) {
+            char cur = s.charAt(i);
+            if (cur == lastSeen) {
+                countLastSeen++;
+            } else {
+                candidate.append(lastSeen);
+                candidate.append(countLastSeen);
+                lastSeen = cur;
+                countLastSeen = 1;
+            }
+        }
+        candidate.append(lastSeen);
+        candidate.append(countLastSeen);
+
+        if (candidate.length() < s.length()) {
+            return candidate.toString();
         } else {
-            candidate.append(lastSeen);
-            candidate.append(countLastSeen);
-            lastSeen = cur;
-            countLastSeen = 1;
+            return s;
         }
     }
-    candidate.append(lastSeen);
-    candidate.append(countLastSeen);
 
-    if (candidate.length() < s.length()) {
-        return candidate.toString();
-    } else {
-        return s;
+    public static void main(String[] args) {
+        System.exit(GenericTest.runFromAnnotations(args, "StringCompression.java", new Object() {
+        }.getClass().getEnclosingClass()).ordinal());
     }
-  }
-
-  public static void main(String[] args) {
-    System.exit(GenericTest.runFromAnnotations(args, "StringCompression.java", new Object() {
-    }.getClass().getEnclosingClass()).ordinal());
-  }
 }

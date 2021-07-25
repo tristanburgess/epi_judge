@@ -47,7 +47,7 @@ public class OneAway {
 
     String sm = s.length() > t.length() ? t : s;
     String lg = s.length() > t.length() ? s : t;
- 
+
     boolean edit = false;
     int i = 0;
     int j = 0;
@@ -67,7 +67,7 @@ public class OneAway {
 
       j++;
     }
-  
+
     return true;
   }
 
