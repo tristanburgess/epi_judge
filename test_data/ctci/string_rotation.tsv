@@ -1,0 +1,11 @@
+string	string	bool
+		false	TODO
+a	b	false	TODO
+a	a	true	TODO
+a		false	TODO
+	a	false	TODO
+waterbottle	erbottlewat	true	TODO
+waterbottle	terwabottle	false	TODO
+rbottlewate	ttlewaterbo	true	TODO
+asdfasdf	fasdfasd	true	TODO
+asdfasdf	dasfasdf	false	TODO
