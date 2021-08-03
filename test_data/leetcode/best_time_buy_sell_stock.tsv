@@ -1,0 +1,7 @@
+array(int)	int
+[]	0	TODO
+[1]	0	TODO
+[1,2]	1	TODO
+[5,1,2,3,7]	6	TODO
+[1,5,2,8]	7	TODO
+[2,5,1,8]	7	TODO
