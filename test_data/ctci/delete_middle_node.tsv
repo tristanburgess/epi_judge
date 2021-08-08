@@ -1,0 +1,6 @@
+linked_list(string)	int	linked_list(string)
+[]	0	[]	TODO
+["a","b","c"]	1	["a","c"]	TODO
+["a","b","c","d"]	1	["a","c","d"]	TODO
+["a","b","c","d"]	2	["a","b","d"]	TODO
+["a","b","c","d","e","f"]	2	["a","b","d","e","f"]	TODO
