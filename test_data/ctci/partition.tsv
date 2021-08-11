@@ -1,0 +1,4 @@
+linked_list(int)	int	linked_list(int)
+[1,2]	1	[1,2]	TODO
+[2,1]	2	[1,2]	TODO
+[3,5,8,5,10,2,1]	5	[1,2,3,5,8,5,10]	TODO
