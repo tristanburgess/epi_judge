@@ -5,8 +5,6 @@ import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import test_framework.TestFailure;
 
-import java.util.ArrayList;
-import java.util.EmptyStackException;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Stack;
