@@ -5,6 +5,8 @@
 using std::stack;
 using std::vector;
 
+// Whiteboard: https://1drv.ms/u/s!AvHgsMnKfyusiIEt4YGZzeWJTaBV1w
+
 vector<int> DailyTempsBF(const vector<int>& temperatures) {
   vector<int> answer;
 
@@ -40,12 +42,14 @@ vector<int> DailyTemps(const vector<int>& temperatures) {
 int main(int argc, char* argv[]) {
   std::vector<std::string> args{argv + 1, argv + argc};
   std::vector<std::string> param_names{"temperatures"};
-  int r = GenericTestMain(args, "daily_temperatures.cc", "../test_data/leetcode/daily_temperatures.tsv",
-                  &DailyTempsBF, DefaultComparator{}, param_names);
+  int r = GenericTestMain(args, "daily_temperatures.cc",
+                          "../test_data/leetcode/daily_temperatures.tsv",
+                          &DailyTempsBF, DefaultComparator{}, param_names);
   if (r != 0) {
     return r;
   }
-  r = GenericTestMain(args, "daily_temperatures.cc", "../test_data/leetcode/daily_temperatures.tsv",
-                  &DailyTemps, DefaultComparator{}, param_names);
+  r = GenericTestMain(args, "daily_temperatures.cc",
+                      "../test_data/leetcode/daily_temperatures.tsv",
+                      &DailyTemps, DefaultComparator{}, param_names);
   return r;
 }
