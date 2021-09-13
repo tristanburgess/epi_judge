@@ -1,0 +1,5 @@
+array(tuple(string[op], int[elem]))	void
+[["Stack", 0], ["empty", 1]]	TODO
+[["Stack", 0], ["push", 42], ["sort", 42]]	TODO
+[["Stack", 0], ["push", 42], ["push", 16], ["push", 43], ["sort", 16]]	TODO
+[["Stack", 0], ["push", 42], ["push", 16], ["push", 41],["push", 5], ["push", 43], ["sort", 5]]	TODO
