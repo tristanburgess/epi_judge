@@ -1,0 +1,3 @@
+array(tuple(string[op], string[name], string[type]))	void
+[["AnimalShelter", "", ""], ["push", "fido", "dog"], ["push", "star", "cat"], ["push", "fifi", "dog"], ["pop", "fifi", "dog"]]	TODO
+[["AnimalShelter", "", ""], ["push", "fido", "dog"], ["push", "star", "cat"], ["push", "fifi", "dog"], ["pop", "fifi", "dog"], ["push", "helen", "cat"], ["pop", "helen", "cat"] ]	TODO
