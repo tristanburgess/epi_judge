@@ -1,13 +1,27 @@
 #include <set>
 #include <vector>
+
 #include "generic_test.h"
 #include "test_failure.h"
 #include "timed_executor.h"
+using std::swap;
 using std::vector;
 
+// Whiteboard: https://1drv.ms/u/s!AvHgsMnKfyusiIE62croc5SJEGoR-Q
+
 void EvenOdd(vector<int>* A_ptr) {
-  // TODO - you fill in here.
-  return;
+  vector<int>& A = *A_ptr;
+  int i = 0;
+  int j = A.size() - 1;
+  while (i < j) {
+    if (A[j] % 2 == 1) {
+      j--;
+    } else if (A[i] % 2 == 1) {
+      swap(A[i], A[j--]);
+    } else {
+      i++;
+    }
+  }
 }
 
 void EvenOddWrapper(TimedExecutor& executor, vector<int> A) {
@@ -35,6 +49,7 @@ void EvenOddWrapper(TimedExecutor& executor, vector<int> A) {
 int main(int argc, char* argv[]) {
   std::vector<std::string> args{argv + 1, argv + argc};
   std::vector<std::string> param_names{"executor", "A"};
-  return GenericTestMain(args, "even_odd_array.cc", "../test_data/epi/even_odd_array.tsv",
-                         &EvenOddWrapper, DefaultComparator{}, param_names);
+  return GenericTestMain(args, "even_odd_array.cc",
+                         "../test_data/epi/even_odd_array.tsv", &EvenOddWrapper,
+                         DefaultComparator{}, param_names);
 }
