@@ -7,21 +7,9 @@
 using std::swap;
 using std::vector;
 
-// Whiteboard: https://1drv.ms/u/s!AvHgsMnKfyusiIE62croc5SJEGoR-Q
-
 void EvenOdd(vector<int>* A_ptr) {
-  vector<int>& A = *A_ptr;
-  int i = 0;
-  int j = A.size() - 1;
-  while (i < j) {
-    if (A[j] % 2 == 1) {
-      j--;
-    } else if (A[i] % 2 == 1) {
-      swap(A[i], A[j--]);
-    } else {
-      i++;
-    }
-  }
+  // TODO - you fill in here.
+  return;
 }
 
 void EvenOddWrapper(TimedExecutor& executor, vector<int> A) {

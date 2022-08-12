@@ -4,20 +4,9 @@
 #include "generic_test.h"
 using std::unique_ptr;
 
-// Whiteboard: https://1drv.ms/u/s!AvHgsMnKfyusiIE-PJX6teIrNjxZeg
-
 BstNode<int>* SearchBST(const unique_ptr<BstNode<int>>& tree, int key) {
-  if (tree == nullptr) {
-    return nullptr;
-  }
-
-  if (key < tree->data) {
-    return SearchBST(tree->left, key);
-  } else if (key > tree->data) {
-    return SearchBST(tree->right, key);
-  } else {
-    return tree.get();
-  }
+  // TODO - you fill in here.
+  return nullptr;
 }
 
 int SearchBSTWrapper(const unique_ptr<BstNode<int>>& tree, int key) {

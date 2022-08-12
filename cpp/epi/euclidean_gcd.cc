@@ -1,13 +1,8 @@
 #include "../test_framework/generic_test.h"
 
-// Whiteboard: https://1drv.ms/u/s!AvHgsMnKfyusiIE_HeVtU98cFvo0PQ
-
 long long gcd(long long x, long long y) {
-  if (y == 0) {
-    return x;
-  } else {
-    return gcd(y, x % y);
-  }
+  // TODO - you fill in here.
+  return 0;
 }
 
 int main(int argc, char* argv[]) {

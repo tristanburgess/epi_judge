@@ -8,46 +8,9 @@ using std::swap;
 using std::vector;
 typedef enum { kRed, kWhite, kBlue } Color;
 
-// O(n) time
-// O(1) space
 void DutchFlagPartition(int pivot_index, vector<Color>* A_ptr) {
-  vector<Color>& A = *A_ptr;
-  Color pivot = A[pivot_index];
-  int lo = 0;
-  int mid = 0;
-  int hi = A.size() - 1;
-
-  while (mid <= hi) {
-    if (A[mid] < pivot) {
-      swap(A[lo++], A[mid++]);
-    } else if (A[mid] == pivot) {
-      mid++;
-    } else {
-      swap(A[mid], A[hi--]);
-    }
-  }
-}
-
-
-// O(n) time
-// O(1) space
-void DutchFlagPartitionBF(int pivot_index, vector<Color>* A_ptr) {
-  vector<Color>& A = *A_ptr;
-  Color pivot = A[pivot_index];
-
-  int lo = 0;
-  for (int i = 0; i < A.size(); i++) {
-    if (A[i] < pivot) {
-      swap(A[lo++], A[i]);
-    }
-  }
-
-  int hi = A.size() - 1;
-  for (int i = A.size() - 1; i >= 0 && A[i] >= pivot; i--) {
-    if (A[i] > pivot) {
-      swap(A[i], A[hi--]);
-    }
-  }
+  // TODO - you fill in here.
+  return;
 }
 
 void DutchFlagPartitionWrapper(TimedExecutor& executor, const vector<int>& A,

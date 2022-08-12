@@ -5,11 +5,10 @@
 #include "timed_executor.h"
 using std::shared_ptr;
 
-// Whiteboard: https://1drv.ms/u/s!AvHgsMnKfyusiIE8afx1m6KfCEAR0g
-
 // Delete the node past this one. Assume node is not a tail.
 void DeleteAfter(const shared_ptr<ListNode<int>>& node) {
-  node->next = node->next->next;
+  // TODO - you fill in here.
+  return;
 }
 
 shared_ptr<ListNode<int>> DeleteFromListWrapper(

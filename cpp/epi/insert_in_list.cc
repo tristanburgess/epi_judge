@@ -6,13 +6,10 @@
 using std::make_shared;
 using std::shared_ptr;
 
-// Whiteboard: https://1drv.ms/u/s!AvHgsMnKfyusiIE8afx1m6KfCEAR0g
-
-// Insert new_node after node.
 void InsertAfter(const shared_ptr<ListNode<int>>& node,
                  const shared_ptr<ListNode<int>>& new_node) {
-                   new_node->next = node->next;
-                   node->next = new_node;
+  // TODO - you fill in here.
+  return;
 }
 
 shared_ptr<ListNode<int>> InsertListWrapper(TimedExecutor& executor,

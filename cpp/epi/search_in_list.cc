@@ -4,16 +4,8 @@
 #include "generic_test.h"
 using std::shared_ptr;
 
-// Whiteboard: https://1drv.ms/u/s!AvHgsMnKfyusiIE8afx1m6KfCEAR0g
-
 shared_ptr<ListNode<int>> SearchList(shared_ptr<ListNode<int>> L, int key) {
-  shared_ptr<ListNode<int>> cur = L;
-  while (cur != nullptr) {
-    if (cur->data == key) {
-      return cur;
-    }
-    cur = cur->next;
-  }
+  // TODO - you fill in here.
   return nullptr;
 }
 

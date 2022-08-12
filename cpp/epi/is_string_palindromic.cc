@@ -3,19 +3,9 @@
 #include "../test_framework/generic_test.h"
 using std::string;
 
-// Whiteboard: https://1drv.ms/u/s!AvHgsMnKfyusiIE7sf4wKNIBnu_B9w
-
 bool IsPalindromic(const string& s) {
-  int i = 0;
-  int j = s.size() - 1;
-  while (i < j) {
-    if (s[i] != s[j]) {
-      return false;
-    }
-    i++;
-    j--;
-  }
-  return true;
+  // TODO - you fill in here.
+  return false;
 }
 
 int main(int argc, char* argv[]) {
