@@ -1,14 +1,34 @@
 #include "generic_test.h"
 
 short CountBits(unsigned int x) {
-  // TODO - you fill in here.
-  return 0;
+  short c = 0;
+
+  while (x != 0) {
+    ++c;
+    x &= (x - 1);
+  }
+
+  return c;
 }
+
+short CountBitsCached(unsigned int x) {
+  short a[256];
+  for (unsigned int i = 0; i < 256; ++i) {
+    a[i] = CountBits(i);
+  }
+
+  return a[(x >> 24) & 0xFF] +
+          a[(x >> 16) & 0xFF] +
+          a[(x >> 8) & 0xFF] +
+          a[x & 0xFF];
+}
+
+
 
 int main(int argc, char* argv[]) {
   std::vector<std::string> args{argv + 1, argv + argc};
   std::vector<std::string> param_names{"x"};
 
   return GenericTestMain(args, "count_bits.cc", "../test_data/epi/count_bits.tsv",
-                      &CountBits, DefaultComparator{}, param_names);
+                      &CountBitsCached, DefaultComparator{}, param_names);
 }

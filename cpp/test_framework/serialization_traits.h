@@ -280,7 +280,7 @@ struct SerializationTraits<float, void> {
 
   static std::vector<int> GetMetrics(const serialization_type& x) {
     return {static_cast<int>(std::min<serialization_type>(
-        std::abs(x), std::numeric_limits<int>::max()))};
+        std::abs(x), static_cast<float>(std::numeric_limits<int>::max() - 1) + 1.0))};
   }
 
   static bool Equal(serialization_type a, serialization_type b) {
