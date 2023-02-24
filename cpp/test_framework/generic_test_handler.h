@@ -63,8 +63,9 @@ class GenericTestHandler {
 
  public:
   GenericTestHandler(Function func, Comparator comp,
+                     const std::string& func_name,
                      const std::vector<std::string>& param_names)
-      : func_(func), comp_(comp), param_names_(param_names) {
+      : func_(func), comp_(comp), func_name_(func_name), param_names_(param_names) {
     if (func_traits::HasExecutorHook()) {
       param_names_.erase(
           param_names_.begin());  // Remove "executor" parameter
@@ -117,6 +118,8 @@ class GenericTestHandler {
   static constexpr bool ExpectedIsVoid() {
     return std::is_same<expected_tag, ExpectedIsVoidTag>::value;
   }
+
+  const std::string& FuncName() const { return func_name_; }
 
   const std::vector<std::string>& ParamNames() const { return param_names_; }
 
@@ -218,5 +221,6 @@ class GenericTestHandler {
 
   Function func_;
   Comparator comp_;
+  std::string func_name_;
   std::vector<std::string> param_names_;
 };

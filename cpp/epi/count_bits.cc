@@ -26,9 +26,10 @@ short CountBitsCached(unsigned int x) {
 
 
 int main(int argc, char* argv[]) {
+  std::string func_name = "CountBits";
   std::vector<std::string> args{argv + 1, argv + argc};
   std::vector<std::string> param_names{"x"};
 
-  return GenericTestMain(args, "count_bits.cc", "../test_data/epi/count_bits.tsv",
-                      &CountBitsCached, DefaultComparator{}, param_names);
+  GenericTestMain(args, "count_bits.cc", "../test_data/epi/count_bits.tsv",
+                      &CountBits, DefaultComparator{}, func_name, param_names);
 }

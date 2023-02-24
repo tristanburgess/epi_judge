@@ -29,6 +29,7 @@ TestResult GenericTestMain(const std::vector<std::string>& commandline_args,
                            const std::string& test_file,
                            const std::string& test_data_file,
                            Function test_func, Comparator comparator,
+                           const std::string& func_name,
                            const std::vector<std::string>& param_names) {
   std::ifstream config_data(GetFilePathInJudgeDir("config.json"));
   std::stringstream buffer;
@@ -51,7 +52,7 @@ TestResult GenericTestMain(const std::vector<std::string>& commandline_args,
     platform::SetOutputOpts(config.tty_mode, config.color_mode);
 
     GenericTestHandler<Function, Comparator> test_handler(
-        test_func, comparator, param_names);
+        test_func, comparator, func_name, param_names);
     return RunTests(test_handler, config);
   } catch (std::runtime_error& e) {
     std::cerr << std::endl << "Critical error: " << e.what() << std::endl;
@@ -116,6 +117,8 @@ TestResult RunTests(GenericTestHandler<Function, Comparator>& handler,
   std::vector<std::vector<int>> metrics;
   std::vector<std::chrono::microseconds> durations;
   TestResult result = FAILED;
+
+  std::cout << "Testing Function:\t" << handler.FuncName() << '\n';
 
   for (auto test_case : std::vector<std::vector<std::string>>{
            test_data.begin() + 1, test_data.end()}) {
