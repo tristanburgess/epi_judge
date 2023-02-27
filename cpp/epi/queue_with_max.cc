@@ -1,23 +1,38 @@
+#include <algorithm>
+#include <list>
 #include <stdexcept>
 #include "generic_test.h"
 #include "serialization_traits.h"
 #include "test_failure.h"
+using std::list;
 using std::length_error;
+using std::max_element;
 
-class QueueWithMax {
+class QueueWithMaxNaive {
  public:
   void Enqueue(int x) {
-    // TODO - you fill in here.
-    return;
+    elems_.emplace_back(x);
   }
+
   int Dequeue() {
-    // TODO - you fill in here.
-    return 0;
+    if (elems_.empty()) {
+      throw length_error("empty queue");
+    }
+    const int x = elems_.front();
+    elems_.pop_front();
+    return x;
   }
+
   int Max() const {
-    // TODO - you fill in here.
-    return 0;
+    if (elems_.empty()) {
+      throw length_error("empty queue");
+    }
+    return *max_element(elems_.begin(), elems_.end());
   }
+
+ private:
+  list<int> elems_;
+
 };
 
 struct QueueOp {
@@ -45,7 +60,7 @@ struct SerializationTraits<QueueOp> : UserSerTraits<QueueOp, std::string, int> {
 
 void QueueTester(const std::vector<QueueOp>& ops) {
   try {
-    QueueWithMax q;
+    QueueWithMaxNaive q;
     for (auto& x : ops) {
       switch (x.op) {
         case QueueOp::kConstruct:
@@ -77,7 +92,9 @@ void QueueTester(const std::vector<QueueOp>& ops) {
 
 int main(int argc, char* argv[]) {
   std::vector<std::string> args{argv + 1, argv + argc};
+  std::string func_name = "QueueWithMaxNaive";
   std::vector<std::string> param_names{"ops"};
+
   return GenericTestMain(args, "queue_with_max.cc", "../test_data/epi/queue_with_max.tsv",
-                         &QueueTester, DefaultComparator{}, param_names);
+                         &QueueTester, DefaultComparator{}, func_name, param_names);
 }
