@@ -7,8 +7,7 @@ using std::shared_ptr;
 
 // Delete the node past this one. Assume node is not a tail.
 void DeleteAfter(const shared_ptr<ListNode<int>>& node) {
-  // TODO - you fill in here.
-  return;
+  node->next = node->next->next;
 }
 
 shared_ptr<ListNode<int>> DeleteFromListWrapper(
@@ -28,8 +27,10 @@ shared_ptr<ListNode<int>> DeleteFromListWrapper(
 
 int main(int argc, char* argv[]) {
   std::vector<std::string> args{argv + 1, argv + argc};
+  std::string func_name = "DeleteAfter";
   std::vector<std::string> param_names{"executor", "head", "node_idx"};
+
   return GenericTestMain(
       args, "delete_from_list.cc", "../test_data/epi/delete_from_list.tsv",
-      &DeleteFromListWrapper, DefaultComparator{}, param_names);
+      &DeleteFromListWrapper, DefaultComparator{}, func_name, param_names);
 }

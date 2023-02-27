@@ -8,8 +8,8 @@ using std::shared_ptr;
 
 void InsertAfter(const shared_ptr<ListNode<int>>& node,
                  const shared_ptr<ListNode<int>>& new_node) {
-  // TODO - you fill in here.
-  return;
+  new_node->next = node->next;
+  node->next = new_node;
 }
 
 shared_ptr<ListNode<int>> InsertListWrapper(TimedExecutor& executor,
@@ -29,9 +29,11 @@ shared_ptr<ListNode<int>> InsertListWrapper(TimedExecutor& executor,
 
 int main(int argc, char* argv[]) {
   std::vector<std::string> args{argv + 1, argv + argc};
+  std::string func_name = "InsertAfter";
   std::vector<std::string> param_names{"executor", "l", "node_idx",
                                        "new_node_data"};
+
   return GenericTestMain(args, "insert_in_list.cc",
                          "../test_data/epi/insert_in_list.tsv",
-                         &InsertListWrapper, DefaultComparator{}, param_names);
+                         &InsertListWrapper, DefaultComparator{}, func_name, param_names);
 }
