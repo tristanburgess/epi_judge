@@ -5,8 +5,17 @@
 using std::unique_ptr;
 
 BstNode<int>* SearchBST(const unique_ptr<BstNode<int>>& tree, int key) {
-  // TODO - you fill in here.
-  return nullptr;
+  if (tree == nullptr) {
+    return nullptr;
+  }
+
+  if (tree->data == key) {
+    return tree.get();
+  } else if (tree->data > key) {
+    return SearchBST(tree->left, key);
+  } else {
+    return SearchBST(tree->right, key);
+  }
 }
 
 int SearchBSTWrapper(const unique_ptr<BstNode<int>>& tree, int key) {
@@ -16,8 +25,10 @@ int SearchBSTWrapper(const unique_ptr<BstNode<int>>& tree, int key) {
 
 int main(int argc, char* argv[]) {
   std::vector<std::string> args{argv + 1, argv + argc};
+  std::string func_name = "SearchBST";
   std::vector<std::string> param_names{"tree", "key"};
+
   return GenericTestMain(args, "search_in_bst.cc",
                          "../test_data/epi/search_in_bst.tsv",
-                         &SearchBSTWrapper, DefaultComparator{}, param_names);
+                         &SearchBSTWrapper, DefaultComparator{}, func_name, param_names);
 }
