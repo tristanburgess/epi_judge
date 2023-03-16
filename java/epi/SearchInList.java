@@ -7,9 +7,13 @@ import test_framework.GenericTest;
 public class SearchInList {
 
   public static ListNode<Integer> searchList(ListNode<Integer> L, int key) {
-    // TODO - you fill in here.
-    return null;
+    while (L != null && L.data != key) {
+      L = L.next;
+    }
+
+    return L;
   }
+
   @EpiTest(testDataFile = "../test_data/epi/search_in_list.tsv")
   public static int searchListWrapper(ListNode<Integer> L, int key) {
     ListNode<Integer> result = searchList(L, key);

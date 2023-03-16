@@ -6,12 +6,60 @@ import test_framework.TimedExecutor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 public class EvenOddArray {
 
-  public static void evenOdd(List<Integer> A) {
-    // TODO - you fill in here.
-    return;
+  public static void evenOddNaive(List<Integer> A) {
+    List<Integer> res = new ArrayList<Integer>(Collections.nCopies(A.size(), 0));
+    int resIdx = 0;
+    for (int i = 0; i < A.size(); i++) {
+      if (A.get(i) % 2 == 0) {
+        res.set(resIdx++, A.get(i));
+      }
+    }
+
+    for (int i = 0; i < A.size(); i++) {
+      if (A.get(i) % 2 != 0) {
+        res.set(resIdx++, A.get(i));
+      }
+    }
+
+    for (int i = 0; i < A.size(); i++) {
+      A.set(i, res.get(i));
+    }
   }
+
+  public static void evenOddTwoPtr(List<Integer> A) {
+    List<Integer> res = new ArrayList<Integer>(Collections.nCopies(A.size(), 0));
+    int resBegin = 0;
+    int resEnd = A.size() - 1;
+  
+    for (int i = 0; i < A.size(); i++) {
+      if (A.get(i) % 2 == 0) {
+        res.set(resBegin++, A.get(i));
+      } else {
+        res.set(resEnd--, A.get(i));
+      }
+    }
+
+    for (int i = 0; i < A.size(); i++) {
+      A.set(i, res.get(i));
+    }
+  }
+
+  public static void evenOdd(List<Integer> A) {
+    int aBegin = 0;
+    int aEnd = A.size() - 1;
+  
+    while(aBegin < aEnd) {
+      if (A.get(aBegin) % 2 == 0) {
+        aBegin++;
+      } else {
+        Collections.swap(A, aBegin, aEnd--);
+      }
+    }
+  }
+
   @EpiTest(testDataFile = "../test_data/epi/even_odd_array.tsv")
   public static void evenOddWrapper(TimedExecutor executor, List<Integer> A)
       throws Exception {

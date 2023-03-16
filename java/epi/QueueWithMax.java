@@ -3,22 +3,33 @@ import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import test_framework.TestFailure;
+
+import java.util.Collections;
+import java.util.Deque;
 import java.util.List;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
+// Naive bootcamp impl
 public class QueueWithMax {
+  private Deque<Integer> dq;
+
+  public QueueWithMax() {
+    dq = new LinkedList<Integer>();
+  }
+
   public void enqueue(Integer x) {
-    // TODO - you fill in here.
-    return;
+    dq.addLast(x);
   }
-  public Integer dequeue() {
-    // TODO - you fill in here.
-    return 0;
+
+  public Integer dequeue() throws NoSuchElementException {
+    return dq.removeFirst();
   }
-  public Integer max() {
-    // TODO - you fill in here.
-    return 0;
+
+  public Integer max() throws NoSuchElementException {
+    return Collections.max(dq);
   }
+
   @EpiUserType(ctorParams = {String.class, int.class})
   public static class QueueOp {
     public String op;

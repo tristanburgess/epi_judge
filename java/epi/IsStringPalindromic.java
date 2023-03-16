@@ -1,11 +1,22 @@
 package epi;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
-public class IsStringPalindromic {
-  @EpiTest(testDataFile = "../test_data/epi/is_string_palindromic.tsv")
 
+public class IsStringPalindromic {
+
+  @EpiTest(testDataFile = "../test_data/epi/is_string_palindromic.tsv")
   public static boolean isPalindromic(String s) {
-    // TODO - you fill in here.
+    int begin = 0;
+    int end = s.length() - 1;
+
+    while (begin < end) {
+      if (s.charAt(begin) != s.charAt(end)) {
+        return false;
+      }
+      begin++;
+      end--;
+    }
+    
     return true;
   }
 
