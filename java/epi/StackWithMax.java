@@ -3,28 +3,50 @@ import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import test_framework.TestFailure;
+
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
+
 public class StackWithMax {
 
   public static class Stack {
+    private Deque<Integer> elems;
+    private Deque<Integer> max;
+  
+    public Stack() {
+      elems = new LinkedList<Integer>();
+      max = new LinkedList<Integer>();
+    }
+  
     public boolean empty() {
-      // TODO - you fill in here.
-      return true;
+      return elems.isEmpty();
     }
+  
     public Integer max() {
-      // TODO - you fill in here.
-      return 0;
+      return max.peekFirst();
     }
-    public Integer pop() {
-      // TODO - you fill in here.
-      return 0;
+  
+    public Integer pop() throws NoSuchElementException {
+      Integer x = elems.removeFirst();
+
+      if (!max.isEmpty() && max.peekFirst() == x) {
+        max.removeFirst();
+      }
+    
+      return x;
     }
+  
     public void push(Integer x) {
-      // TODO - you fill in here.
-      return;
+      elems.addFirst(x);
+
+      if (max.isEmpty() || max.peekFirst() <= x) {
+        max.addFirst(x);
+      }
     }
   }
+
   @EpiUserType(ctorParams = {String.class, int.class})
   public static class StackOp {
     public String op;
