@@ -46,6 +46,7 @@ public class IsTreeBalanced {
 
     return 1 + Math.max(height(tree.left), height(tree.right));
   }
+
   @EpiTest(testDataFile = "../test_data/epi/is_tree_balanced.tsv")
   public static boolean isBalancedNaive(BinaryTreeNode<Integer> tree) {
     if (tree == null) {
