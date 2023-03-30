@@ -1,0 +1,10 @@
+package lowest_common_ancestor_in_bst
+
+import (
+	"go-epi-judge/data_structures/tree"
+)
+
+func FindLCA(t *tree.BSTNode, s *tree.BSTNode, b *tree.BSTNode) *tree.BSTNode {
+	// TODO - Add your code here
+	return nil
+}

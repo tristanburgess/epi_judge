@@ -1,0 +1,10 @@
+package sorted_lists_merge
+
+import (
+	"go-epi-judge/data_structures/list"
+)
+
+func MergeTwoSortedLists(l1 *list.Node, l2 *list.Node) *list.Node {
+	// TODO - Add your code here
+	return nil
+}
