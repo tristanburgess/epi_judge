@@ -5,11 +5,27 @@ import test_framework.EpiTest;
 import test_framework.GenericTest;
 
 public class IsTreeSymmetric {
-  @EpiTest(testDataFile = "../test_data/epi/is_tree_symmetric.tsv")
 
+  private static boolean symHelper(BinaryTreeNode<Integer> l, BinaryTreeNode<Integer> r) {
+    if (l == null && r == null) {
+      return true;
+    }
+
+    return (
+      l != null && r != null && 
+        l.data == r.data && 
+        symHelper(l.left, r.right) && 
+        symHelper(l.right, r.left)
+    );
+  }
+
+  @EpiTest(testDataFile = "../test_data/epi/is_tree_symmetric.tsv")
   public static boolean isSymmetric(BinaryTreeNode<Integer> tree) {
-    // TODO - you fill in here.
-    return true;
+    if (tree == null) {
+      return true;
+    }
+
+    return symHelper(tree.left, tree.right);
   }
 
   public static void main(String[] args) {
