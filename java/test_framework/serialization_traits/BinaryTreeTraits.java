@@ -9,9 +9,7 @@ import test_framework.minimal_json.Json;
 import test_framework.minimal_json.JsonArray;
 import test_framework.minimal_json.JsonValue;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,7 +19,7 @@ public class BinaryTreeTraits extends SerializationTraits {
   private SerializationTraits innerTypeTraits;
 
   public BinaryTreeTraits(Class<?> nodeType,
-                          SerializationTraits innerTypeTraits) {
+      SerializationTraits innerTypeTraits) {
     this.nodeType = nodeType;
     this.innerTypeTraits = innerTypeTraits;
   }
@@ -51,20 +49,20 @@ public class BinaryTreeTraits extends SerializationTraits {
     } else {
       throw new RuntimeException(
           String.format("Binary Tree parser: %s class is not supported",
-                        nodeType.toString()));
+              nodeType.toString()));
     }
   }
 
   @Override
   public List<String> getMetricNames(String argName) {
     return Arrays.asList(String.format("size(%s)", argName),
-                         String.format("height(%s)", argName));
+        String.format("height(%s)", argName));
   }
 
   @Override
   public List<Integer> getMetrics(Object x) {
     return Arrays.asList(BinaryTreeUtils.binaryTreeSize(x),
-                         BinaryTreeUtils.binaryTreeHeight(x));
+        BinaryTreeUtils.binaryTreeHeight(x));
   }
 
   private Object buildBinaryTreeNode(JsonArray data) {
@@ -114,11 +112,13 @@ public class BinaryTreeTraits extends SerializationTraits {
       if (node != null) {
         if (!candidateChildren.isEmpty()) {
           node.left = candidateChildren.removeFirst();
-          if (node.left != null) node.left.parent = node;
+          if (node.left != null)
+            node.left.parent = node;
         }
         if (!candidateChildren.isEmpty()) {
           node.right = candidateChildren.removeFirst();
-          if (node.right != null) node.right.parent = node;
+          if (node.right != null)
+            node.right.parent = node;
         }
       }
     }

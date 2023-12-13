@@ -2,7 +2,9 @@
 package test_framework;
 
 public class ConsoleColor {
-  public enum Color { FG_RED, FG_GREEN, FG_BLUE, FG_YELLOW, FG_DEFAULT }
+  public enum Color {
+    FG_RED, FG_GREEN, FG_BLUE, FG_YELLOW, FG_DEFAULT
+  }
 
   private static int getColorCodeWin(Color color) {
     switch (color) {
@@ -44,8 +46,7 @@ public class ConsoleColor {
 
     if (Platform.runningOnWin()) {
       System.out.flush();
-      int oldTextAttr =
-          Platform.winSetConsoleTextAttribute(getColorCodeWin(color));
+      int oldTextAttr = Platform.winSetConsoleTextAttribute(getColorCodeWin(color));
 
       System.out.print(value);
 
@@ -53,8 +54,8 @@ public class ConsoleColor {
       Platform.winSetConsoleTextAttribute(oldTextAttr);
     } else {
       System.out.printf("%s%s%s", getColorCodeUnix(color),
-                        String.valueOf(value),
-                        getColorCodeUnix(Color.FG_DEFAULT));
+          String.valueOf(value),
+          getColorCodeUnix(Color.FG_DEFAULT));
     }
   }
 }

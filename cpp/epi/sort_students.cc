@@ -36,25 +36,15 @@ std::ostream& operator<<(std::ostream& out, const Student& student) {
   return PrintTo(out, std::make_tuple(student.name, student.gpa));
 }
 
-vector<Student> SortStudentsByGPA(const vector<Student>& students) {
-  vector<Student> out(students);
-  sort(out.begin(), out.end(), [](const Student& a, const Student& b) {
-    return a.gpa < b.gpa;
-  });
-  return out;
-}
-
-vector<Student> SortStudentsByName(const vector<Student>& students) {
-  vector<Student> out(students);
-  sort(out.begin(), out.end());
-  return out;
+vector<Student> SortStudents(const vector<Student>& students) {
+  return {};
 }
 
 int main(int argc, char* argv[]) {
   std::vector<std::string> args{argv + 1, argv + argc};
-  std::string func_name = "SortStudentsByGPA";
+  std::string func_name = "SortStudents";
   std::vector<std::string> param_names{"students"};
 
   return GenericTestMain(args, "sort_students.cc", "../test_data/epi/sort_students.tsv",
-                         &SortStudentsByGPA, DefaultComparator{}, func_name, param_names);
+                         &SortStudents, DefaultComparator{}, func_name, param_names);
 }

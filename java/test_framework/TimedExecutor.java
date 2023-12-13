@@ -33,8 +33,9 @@ public class TimedExecutor {
     } else {
       try {
         final ExecutorService executor = Executors.newSingleThreadExecutor();
-        final Future<ReturnType> future =
-            executor.submit(() -> { return timedCall(func); });
+        final Future<ReturnType> future = executor.submit(() -> {
+          return timedCall(func);
+        });
 
         // This does not cancel the already-scheduled task.
         executor.shutdown();
@@ -48,7 +49,7 @@ public class TimedExecutor {
       } catch (ExecutionException e) {
         Throwable cause = e.getCause();
         if (cause instanceof Exception) {
-          throw(Exception) e.getCause();
+          throw (Exception) e.getCause();
         } else {
           throw new Exception(cause);
         }
@@ -77,5 +78,7 @@ public class TimedExecutor {
     });
   }
 
-  public TestTimer getTimer() { return timer; }
+  public TestTimer getTimer() {
+    return timer;
+  }
 }

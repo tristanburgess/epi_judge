@@ -1,23 +1,26 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import test_framework.TestFailure;
 import test_framework.TimedExecutor;
 import java.util.List;
+
 public class RefuelingSchedule {
   private static final int MPG = 20;
 
   // gallons[i] is the amount of gas in city i, and distances[i] is the distance
   // city i to the next city.
   public static int findAmpleCity(List<Integer> gallons,
-                                  List<Integer> distances) {
+      List<Integer> distances) {
     // TODO - you fill in here.
     return 0;
   }
+
   @EpiTest(testDataFile = "../test_data/epi/refueling_schedule.tsv")
   public static void findAmpleCityWrapper(TimedExecutor executor,
-                                          List<Integer> gallons,
-                                          List<Integer> distances)
+      List<Integer> gallons,
+      List<Integer> distances)
       throws Exception {
     int result = executor.run(() -> findAmpleCity(gallons, distances));
     final int numCities = gallons.size();
@@ -35,7 +38,8 @@ public class RefuelingSchedule {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "RefuelingSchedule.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -13,11 +13,11 @@ import java.util.Stack;
 
 public class EnumerateTrees {
 
-  public static List<BinaryTreeNode<Integer>>
-  generateAllBinaryTrees(int numNodes) {
+  public static List<BinaryTreeNode<Integer>> generateAllBinaryTrees(int numNodes) {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
+
   public static List<Integer> serializeStructure(BinaryTreeNode<Integer> tree) {
     List<Integer> result = new ArrayList<>();
     Stack<BinaryTreeNode<Integer>> stack = new Stack<>();
@@ -34,11 +34,9 @@ public class EnumerateTrees {
   }
 
   @EpiTest(testDataFile = "../test_data/epi/enumerate_trees.tsv")
-  public static List<List<Integer>>
-  generateAllBinaryTreesWrapper(TimedExecutor executor, int numNodes)
+  public static List<List<Integer>> generateAllBinaryTreesWrapper(TimedExecutor executor, int numNodes)
       throws Exception {
-    List<BinaryTreeNode<Integer>> result =
-        executor.run(() -> generateAllBinaryTrees(numNodes));
+    List<BinaryTreeNode<Integer>> result = executor.run(() -> generateAllBinaryTrees(numNodes));
 
     List<List<Integer>> serialized = new ArrayList<>();
     for (BinaryTreeNode<Integer> x : result) {
@@ -52,7 +50,8 @@ public class EnumerateTrees {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "EnumerateTrees.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -1,6 +1,8 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
+
 public class BinomialCoefficients {
   @EpiTest(testDataFile = "../test_data/epi/binomial_coefficients.tsv")
 
@@ -13,7 +15,8 @@ public class BinomialCoefficients {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "BinomialCoefficients.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -4,11 +4,11 @@ import generic_types.ListNode;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 
-public class ListCyclicRightShift{
+public class ListCyclicRightShift {
   @EpiTest(testDataFile = "../test_data/epi/list_cyclic_right_shift.tsv")
 
   public static ListNode<Integer> cyclicallyRightShiftList(ListNode<Integer> L,
-                                                           int k) {
+      int k) {
     // TODO - you fill in here.
     return null;
   }
@@ -17,7 +17,8 @@ public class ListCyclicRightShift{
     System.exit(
         GenericTest
             .runFromAnnotations(args, "ListCyclicRightShift.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

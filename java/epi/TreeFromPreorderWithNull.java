@@ -9,14 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TreeFromPreorderWithNull {
-  public static BinaryTreeNode<Integer>
-  reconstructPreorder(List<Integer> preorder) {
+  public static BinaryTreeNode<Integer> reconstructPreorder(List<Integer> preorder) {
     // TODO - you fill in here.
     return null;
   }
+
   @EpiTest(testDataFile = "../test_data/epi/tree_from_preorder_with_null.tsv")
-  public static BinaryTreeNode<Integer>
-  reconstructPreorderWrapper(TimedExecutor executor, List<String> strings)
+  public static BinaryTreeNode<Integer> reconstructPreorderWrapper(TimedExecutor executor, List<String> strings)
       throws Exception {
     List<Integer> ints = new ArrayList<>();
     for (String s : strings) {
@@ -34,7 +33,8 @@ public class TreeFromPreorderWithNull {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "TreeFromPreorderWithNull.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

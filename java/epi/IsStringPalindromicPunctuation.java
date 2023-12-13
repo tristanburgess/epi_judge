@@ -1,6 +1,8 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
+
 public class IsStringPalindromicPunctuation {
   @EpiTest(testDataFile = "../test_data/epi/is_string_palindromic_punctuation.tsv")
 
@@ -13,7 +15,8 @@ public class IsStringPalindromicPunctuation {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "IsStringPalindromicPunctuation.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

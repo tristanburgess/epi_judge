@@ -5,24 +5,26 @@ import test_framework.BinaryTreeUtils;
 
 import java.util.Objects;
 
-
 public class BinaryTreeNode<T> {
   public T data;
   public BinaryTreeNode<T> left, right;
-  
 
-  public BinaryTreeNode() {}
+  public BinaryTreeNode() {
+  }
 
-  public BinaryTreeNode(T data) { this.data = data; }
+  public BinaryTreeNode(T data) {
+    this.data = data;
+  }
 
   public BinaryTreeNode(T data, BinaryTreeNode<T> left,
-                        BinaryTreeNode<T> right) {
+      BinaryTreeNode<T> right) {
     this.data = data;
     this.left = left;
     this.right = right;
   }
 
-  @Override public boolean equals(Object o) {  // TODO Remove equal override
+  @Override
+  public boolean equals(Object o) { // TODO Remove equal override
     if (this == o) {
       return true;
     }
@@ -30,7 +32,8 @@ public class BinaryTreeNode<T> {
       return false;
     }
 
-    BinaryTreeNode that = (BinaryTreeNode)o;
+    @SuppressWarnings("unchecked")
+    BinaryTreeNode<T> that = (BinaryTreeNode<T>) o;
     if (data != null ? !data.equals(that.data) : that.data != null) {
       return false;
     }
@@ -52,6 +55,5 @@ public class BinaryTreeNode<T> {
   public String toString() {
     return BinaryTreeUtils.binaryTreeToString(this);
   }
-  
-}
 
+}

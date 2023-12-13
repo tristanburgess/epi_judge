@@ -11,23 +11,14 @@ using std::max_element;
 class QueueWithMaxNaive {
  public:
   void Enqueue(int x) {
-    elems_.emplace_back(x);
   }
 
   int Dequeue() {
-    if (elems_.empty()) {
-      throw length_error("empty queue");
-    }
-    const int x = elems_.front();
-    elems_.pop_front();
-    return x;
+    return 0;
   }
 
   int Max() const {
-    if (elems_.empty()) {
-      throw length_error("empty queue");
-    }
-    return *max_element(elems_.begin(), elems_.end());
+    return 0;
   }
 
  private:

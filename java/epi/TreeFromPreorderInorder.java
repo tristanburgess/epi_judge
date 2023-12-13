@@ -9,8 +9,7 @@ import java.util.List;
 public class TreeFromPreorderInorder {
   @EpiTest(testDataFile = "../test_data/epi/tree_from_preorder_inorder.tsv")
 
-  public static BinaryTreeNode<Integer>
-  binaryTreeFromPreorderInorder(List<Integer> preorder, List<Integer> inorder) {
+  public static BinaryTreeNode<Integer> binaryTreeFromPreorderInorder(List<Integer> preorder, List<Integer> inorder) {
     // TODO - you fill in here.
     return null;
   }
@@ -19,7 +18,8 @@ public class TreeFromPreorderInorder {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "TreeFromPreorderInorder.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

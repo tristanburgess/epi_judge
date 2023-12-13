@@ -1,11 +1,12 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
-import java.util.ArrayList;
 import java.util.List;
+
 public class IntervalAdd {
-  @EpiUserType(ctorParams = {int.class, int.class})
+  @EpiUserType(ctorParams = { int.class, int.class })
 
   public static class Interval {
     public int left, right;
@@ -24,7 +25,7 @@ public class IntervalAdd {
         return false;
       }
 
-      Interval interval = (Interval)o;
+      Interval interval = (Interval) o;
 
       if (left != interval.left) {
         return false;
@@ -41,7 +42,7 @@ public class IntervalAdd {
   @EpiTest(testDataFile = "../test_data/epi/interval_add.tsv")
 
   public static List<Interval> addInterval(List<Interval> disjointIntervals,
-                                           Interval newInterval) {
+      Interval newInterval) {
     // TODO - you fill in here.
     return null;
   }
@@ -50,7 +51,8 @@ public class IntervalAdd {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "IntervalAdd.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

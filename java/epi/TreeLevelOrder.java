@@ -9,8 +9,7 @@ import java.util.List;
 public class TreeLevelOrder {
   @EpiTest(testDataFile = "../test_data/epi/tree_level_order.tsv")
 
-  public static List<List<Integer>>
-  binaryTreeDepthOrder(BinaryTreeNode<Integer> tree) {
+  public static List<List<Integer>> binaryTreeDepthOrder(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.
     return null;
   }
@@ -19,7 +18,8 @@ public class TreeLevelOrder {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "TreeLevelOrder.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

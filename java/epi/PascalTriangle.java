@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class PascalTriangle {
   @EpiTest(testDataFile = "../test_data/epi/pascal_triangle.tsv")
 
@@ -14,7 +16,8 @@ public class PascalTriangle {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "PascalTriangle.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

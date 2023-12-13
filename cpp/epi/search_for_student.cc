@@ -33,18 +33,7 @@ std::ostream& operator<<(std::ostream& out, const Student& student) {
 }
 
 int FindStudent(const vector<Student>& students, const Student& key) {
-  std::vector<Student>::const_iterator it = lower_bound(
-    students.begin(), students.end(), key, 
-    [](const Student& a, const Student& b) {
-      return a.gpa > b.gpa || (a.gpa == b.gpa && a.name < b.name);
-    }
-  );
-
-  if (it == students.end() || !(*it == key)) {
-    return -1;
-  }
-
-  return distance(students.begin(), it);
+  return 0;
 }
 
 int main(int argc, char* argv[]) {

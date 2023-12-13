@@ -8,7 +8,7 @@ public class PathSum {
   @EpiTest(testDataFile = "../test_data/epi/path_sum.tsv")
 
   public static boolean hasPathSum(BinaryTreeNode<Integer> tree,
-                                   int remainingWeight) {
+      int remainingWeight) {
     // TODO - you fill in here.
     return true;
   }
@@ -17,7 +17,8 @@ public class PathSum {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "PathSum.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

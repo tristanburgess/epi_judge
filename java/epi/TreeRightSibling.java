@@ -14,15 +14,17 @@ public class TreeRightSibling {
     public BinaryTreeNode<T> left, right;
     public BinaryTreeNode<T> next = null; // Populates this field.
 
-    public BinaryTreeNode(T data) { this.data = data; }
+    public BinaryTreeNode(T data) {
+      this.data = data;
+    }
   }
 
   public static void constructRightSibling(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.
     return;
   }
-  private static BinaryTreeNode<Integer>
-  cloneTree(BinaryTree<Integer> original) {
+
+  private static BinaryTreeNode<Integer> cloneTree(BinaryTree<Integer> original) {
     if (original == null) {
       return null;
     }
@@ -33,8 +35,7 @@ public class TreeRightSibling {
   }
 
   @EpiTest(testDataFile = "../test_data/epi/tree_right_sibling.tsv")
-  public static List<List<Integer>>
-  constructRightSiblingWrapper(TimedExecutor executor, BinaryTree<Integer> tree)
+  public static List<List<Integer>> constructRightSiblingWrapper(TimedExecutor executor, BinaryTree<Integer> tree)
       throws Exception {
     BinaryTreeNode<Integer> cloned = cloneTree(tree);
 
@@ -59,7 +60,8 @@ public class TreeRightSibling {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "TreeRightSibling.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

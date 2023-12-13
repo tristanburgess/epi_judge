@@ -5,17 +5,7 @@
 using std::unique_ptr;
 
 BstNode<int>* SearchBST(const unique_ptr<BstNode<int>>& tree, int key) {
-  if (tree == nullptr) {
-    return nullptr;
-  }
-
-  if (tree->data == key) {
-    return tree.get();
-  } else if (tree->data > key) {
-    return SearchBST(tree->left, key);
-  } else {
-    return SearchBST(tree->right, key);
-  }
+  return nullptr;
 }
 
 int SearchBSTWrapper(const unique_ptr<BstNode<int>>& tree, int key) {

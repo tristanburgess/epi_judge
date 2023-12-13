@@ -8,8 +8,6 @@ using std::shared_ptr;
 
 void InsertAfter(const shared_ptr<ListNode<int>>& node,
                  const shared_ptr<ListNode<int>>& new_node) {
-  new_node->next = node->next;
-  node->next = new_node;
 }
 
 shared_ptr<ListNode<int>> InsertListWrapper(TimedExecutor& executor,

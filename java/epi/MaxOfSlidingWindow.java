@@ -1,11 +1,13 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import java.util.Collections;
 import java.util.List;
+
 public class MaxOfSlidingWindow {
-  @EpiUserType(ctorParams = {int.class, double.class})
+  @EpiUserType(ctorParams = { int.class, double.class })
 
   public static class TrafficElement implements Comparable<TrafficElement> {
     public int time;
@@ -30,7 +32,7 @@ public class MaxOfSlidingWindow {
       if (o == null || getClass() != o.getClass()) {
         return false;
       }
-      return compareTo((TrafficElement)o) == 0;
+      return compareTo((TrafficElement) o) == 0;
     }
 
     @Override
@@ -41,8 +43,7 @@ public class MaxOfSlidingWindow {
 
   @EpiTest(testDataFile = "../test_data/epi/max_of_sliding_window.tsv")
 
-  public static List<TrafficElement>
-  computeTrafficVolumes(List<TrafficElement> A, int w) {
+  public static List<TrafficElement> computeTrafficVolumes(List<TrafficElement> A, int w) {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
@@ -51,7 +52,8 @@ public class MaxOfSlidingWindow {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "MaxOfSlidingWindow.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

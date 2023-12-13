@@ -8,7 +8,7 @@ public class BstMerge {
   @EpiTest(testDataFile = "../test_data/epi/bst_merge.tsv")
 
   public static BstNode<Integer> mergeTwoBsts(BstNode<Integer> A,
-                                              BstNode<Integer> B) {
+      BstNode<Integer> B) {
     // TODO - you fill in here.
     return null;
   }
@@ -17,7 +17,8 @@ public class BstMerge {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "BstMerge.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

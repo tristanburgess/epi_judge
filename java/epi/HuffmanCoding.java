@@ -1,10 +1,12 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class HuffmanCoding {
-  @EpiUserType(ctorParams = {String.class, double.class})
+  @EpiUserType(ctorParams = { String.class, double.class })
 
   public static class CharWithFrequency {
     public char c;
@@ -32,7 +34,8 @@ public class HuffmanCoding {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "HuffmanCoding.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

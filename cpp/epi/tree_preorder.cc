@@ -5,20 +5,8 @@
 using std::unique_ptr;
 using std::vector;
 
-void PreorderTraversalNaiveHelper(vector<int>& data, const unique_ptr<BinaryTreeNode<int>>& tree) {
-  if (tree == nullptr) { 
-    return;
-  }
-
-  data.emplace_back(tree->data);
-  PreorderTraversalNaiveHelper(data, tree->left);
-  PreorderTraversalNaiveHelper(data, tree->right);
-}
-
 vector<int> PreorderTraversalNaive(const unique_ptr<BinaryTreeNode<int>>& tree) {
-  vector<int> data;
-  PreorderTraversalNaiveHelper(data, tree);
-  return data;
+  return {};
 }
 
 int main(int argc, char* argv[]) {

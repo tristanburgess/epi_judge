@@ -12,11 +12,11 @@ import java.util.List;
 
 public class TreeExterior {
 
-  public static List<BinaryTreeNode<Integer>>
-  exteriorBinaryTree(BinaryTreeNode<Integer> tree) {
+  public static List<BinaryTreeNode<Integer>> exteriorBinaryTree(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
+
   private static List<Integer> createOutputList(List<BinaryTreeNode<Integer>> L)
       throws TestFailure {
     if (L.contains(null)) {
@@ -30,11 +30,9 @@ public class TreeExterior {
   }
 
   @EpiTest(testDataFile = "../test_data/epi/tree_exterior.tsv")
-  public static List<Integer>
-  exteriorBinaryTreeWrapper(TimedExecutor executor,
-                            BinaryTreeNode<Integer> tree) throws Exception {
-    List<BinaryTreeNode<Integer>> result =
-        executor.run(() -> exteriorBinaryTree(tree));
+  public static List<Integer> exteriorBinaryTreeWrapper(TimedExecutor executor,
+      BinaryTreeNode<Integer> tree) throws Exception {
+    List<BinaryTreeNode<Integer>> result = executor.run(() -> exteriorBinaryTree(tree));
 
     return createOutputList(result);
   }
@@ -43,7 +41,8 @@ public class TreeExterior {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "TreeExterior.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

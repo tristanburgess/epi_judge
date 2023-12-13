@@ -44,7 +44,7 @@ public class TraitsFactory {
       return new VoidTraits();
     }
     if (type instanceof ParameterizedType) {
-      ParameterizedType pt = (ParameterizedType)type;
+      ParameterizedType pt = (ParameterizedType) type;
       Type ty = pt.getRawType();
       if (ty.equals(List.class)) {
         return new ListTraits(getTraits(getInnerGenericType(pt, 0)));
@@ -57,8 +57,8 @@ public class TraitsFactory {
       }
       if (ty.equals(BinaryTreeNode.class) || ty.equals(BinaryTree.class) ||
           ty.equals(BstNode.class)) {
-        return new BinaryTreeTraits((Class<?>)ty,
-                                    getTraits(getInnerGenericType(pt, 0)));
+        return new BinaryTreeTraits((Class<?>) ty,
+            getTraits(getInnerGenericType(pt, 0)));
       }
       if (ty.equals(ListNode.class)) {
         return new LinkedListTraits(getTraits(getInnerGenericType(pt, 0)));
@@ -72,22 +72,23 @@ public class TraitsFactory {
 
     if (type instanceof Class) {
       @SuppressWarnings("unchecked")
-      EpiUserType ann =
-          (EpiUserType)((Class)type).getAnnotation(EpiUserType.class);
+      EpiUserType ann = (EpiUserType) ((Class<Type>) type).getAnnotation(EpiUserType.class);
 
-      return new UserTypeTraits((Class)type, ann);
+      @SuppressWarnings("unchecked")
+      Class<Type> t = (Class<Type>) type;
+      return new UserTypeTraits(t, ann);
     }
 
     throw new RuntimeException("Unsupported argument type: " +
-                               type.getTypeName());
+        type.getTypeName());
   }
 
   private static Type getInnerGenericType(Type type, int idx) {
     if (type instanceof ParameterizedType) {
-      return ((ParameterizedType)type).getActualTypeArguments()[idx];
+      return ((ParameterizedType) type).getActualTypeArguments()[idx];
     } else {
       throw new RuntimeException(type.getTypeName() +
-                                 " has no generic type arguments");
+          " has no generic type arguments");
     }
   }
 }

@@ -1,15 +1,18 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class DefectiveJugs {
-  @EpiUserType(ctorParams = {int.class, int.class})
+  @EpiUserType(ctorParams = { int.class, int.class })
 
   public static class Jug {
     public int low, high;
 
-    public Jug() {}
+    public Jug() {
+    }
 
     public Jug(int low, int high) {
       this.low = low;
@@ -28,7 +31,8 @@ public class DefectiveJugs {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "DefectiveJugs.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

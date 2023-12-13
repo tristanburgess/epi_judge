@@ -1,4 +1,5 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import test_framework.TestFailure;
@@ -7,12 +8,14 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 public class GrayCode {
 
   public static List<Integer> grayCode(int numBits) {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
+
   private static boolean differsByOneBit(int x, int y) {
     int bitDifference = x ^ y;
     return bitDifference != 0 && (bitDifference & (bitDifference - 1)) == 0;
@@ -26,8 +29,8 @@ public class GrayCode {
     int expectedSize = (1 << numBits);
     if (result.size() != expectedSize) {
       throw new TestFailure("Length mismatch: expected " +
-                            String.valueOf(expectedSize) + ", got " +
-                            String.valueOf(result.size()));
+          String.valueOf(expectedSize) + ", got " +
+          String.valueOf(result.size()));
     }
     for (int i = 1; i < result.size(); i++)
       if (!differsByOneBit(result.get(i - 1), result.get(i))) {
@@ -42,8 +45,8 @@ public class GrayCode {
     Set<Integer> uniq = new HashSet<>(result);
     if (uniq.size() != result.size()) {
       throw new TestFailure("Not all entries are distinct: found " +
-                            String.valueOf(result.size() - uniq.size()) +
-                            " duplicates");
+          String.valueOf(result.size() - uniq.size()) +
+          " duplicates");
     }
   }
 
@@ -51,7 +54,8 @@ public class GrayCode {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "GrayCode.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -1,16 +1,19 @@
 
 package generic_types;
 
-import test_framework.BinaryTreeUtils; 
+import test_framework.BinaryTreeUtils;
 
 public class BinaryTree<T> {
   public T data;
   public BinaryTree<T> left, right;
   public BinaryTree<T> parent;
 
-  public BinaryTree() {}
+  public BinaryTree() {
+  }
 
-  public BinaryTree(T data) { this.data = data; }
+  public BinaryTree(T data) {
+    this.data = data;
+  }
 
   public BinaryTree(T data, BinaryTree<T> left, BinaryTree<T> right) {
     this.data = data;
@@ -19,7 +22,7 @@ public class BinaryTree<T> {
   }
 
   public BinaryTree(T data, BinaryTree<T> left, BinaryTree<T> right,
-                    BinaryTree<T> parent) {
+      BinaryTree<T> parent) {
     this(data, left, right);
     this.parent = parent;
   }

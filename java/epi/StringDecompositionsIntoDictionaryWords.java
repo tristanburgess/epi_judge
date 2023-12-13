@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class StringDecompositionsIntoDictionaryWords {
   @EpiTest(testDataFile = "../test_data/epi/string_decompositions_into_dictionary_words.tsv")
 
@@ -12,9 +14,10 @@ public class StringDecompositionsIntoDictionaryWords {
 
   public static void main(String[] args) {
     System.exit(GenericTest
-                    .runFromAnnotations(
-                        args, "StringDecompositionsIntoDictionaryWords.java",
-                        new Object() {}.getClass().getEnclosingClass())
-                    .ordinal());
+        .runFromAnnotations(
+            args, "StringDecompositionsIntoDictionaryWords.java",
+            new Object() {
+            }.getClass().getEnclosingClass())
+        .ordinal());
   }
 }

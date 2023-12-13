@@ -1,13 +1,16 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import test_framework.TimedExecutor;
+
 public class ReverseWords {
 
   public static void reverseWords(char[] input) {
     // TODO - you fill in here.
     return;
   }
+
   @EpiTest(testDataFile = "../test_data/epi/reverse_words.tsv")
   public static String reverseWordsWrapper(TimedExecutor executor, String s)
       throws Exception {
@@ -22,7 +25,8 @@ public class ReverseWords {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "ReverseWords.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

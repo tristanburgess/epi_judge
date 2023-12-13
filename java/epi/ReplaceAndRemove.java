@@ -1,18 +1,20 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import test_framework.TimedExecutor;
 import java.util.ArrayList;
 import java.util.List;
+
 public class ReplaceAndRemove {
 
   public static int replaceAndRemove(int size, char[] s) {
     // TODO - you fill in here.
     return 0;
   }
+
   @EpiTest(testDataFile = "../test_data/epi/replace_and_remove.tsv")
-  public static List<String>
-  replaceAndRemoveWrapper(TimedExecutor executor, Integer size, List<String> s)
+  public static List<String> replaceAndRemoveWrapper(TimedExecutor executor, Integer size, List<String> s)
       throws Exception {
     char[] sCopy = new char[s.size()];
     for (int i = 0; i < size; ++i) {
@@ -34,7 +36,8 @@ public class ReplaceAndRemove {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "ReplaceAndRemove.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

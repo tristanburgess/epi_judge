@@ -15,7 +15,7 @@ import java.io.Writer;
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- *all
+ * all
  * copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -30,25 +30,27 @@ import java.io.Writer;
 public class JsonWriter {
   private static final int CONTROL_CHARACTERS_END = 0x001f;
 
-  private static final char[] QUOT_CHARS = {'\\', '"'};
-  private static final char[] BS_CHARS = {'\\', '\\'};
-  private static final char[] LF_CHARS = {'\\', 'n'};
-  private static final char[] CR_CHARS = {'\\', 'r'};
-  private static final char[] TAB_CHARS = {'\\', 't'};
+  private static final char[] QUOT_CHARS = { '\\', '"' };
+  private static final char[] BS_CHARS = { '\\', '\\' };
+  private static final char[] LF_CHARS = { '\\', 'n' };
+  private static final char[] CR_CHARS = { '\\', 'r' };
+  private static final char[] TAB_CHARS = { '\\', 't' };
   // In JavaScript, U+2028 and U+2029 characters count as line endings and must
   // be encoded.
   // http://stackoverflow.com/questions/2965293/javascript-parse-error-on-u2028-unicode-character
-  private static final char[] UNICODE_2028_CHARS = {'\\', 'u', '2',
-                                                    '0',  '2', '8'};
-  private static final char[] UNICODE_2029_CHARS = {'\\', 'u', '2',
-                                                    '0',  '2', '9'};
-  private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5',
-                                            '6', '7', '8', '9', 'a', 'b',
-                                            'c', 'd', 'e', 'f'};
+  private static final char[] UNICODE_2028_CHARS = { '\\', 'u', '2',
+      '0', '2', '8' };
+  private static final char[] UNICODE_2029_CHARS = { '\\', 'u', '2',
+      '0', '2', '9' };
+  private static final char[] HEX_DIGITS = { '0', '1', '2', '3', '4', '5',
+      '6', '7', '8', '9', 'a', 'b',
+      'c', 'd', 'e', 'f' };
 
   protected final Writer writer;
 
-  JsonWriter(Writer writer) { this.writer = writer; }
+  JsonWriter(Writer writer) {
+    this.writer = writer;
+  }
 
   protected void writeLiteral(String value) throws IOException {
     writer.write(value);
@@ -64,15 +66,25 @@ public class JsonWriter {
     writer.write('"');
   }
 
-  protected void writeArrayOpen() throws IOException { writer.write('['); }
+  protected void writeArrayOpen() throws IOException {
+    writer.write('[');
+  }
 
-  protected void writeArrayClose() throws IOException { writer.write(']'); }
+  protected void writeArrayClose() throws IOException {
+    writer.write(']');
+  }
 
-  protected void writeArraySeparator() throws IOException { writer.write(','); }
+  protected void writeArraySeparator() throws IOException {
+    writer.write(',');
+  }
 
-  protected void writeObjectOpen() throws IOException { writer.write('{'); }
+  protected void writeObjectOpen() throws IOException {
+    writer.write('{');
+  }
 
-  protected void writeObjectClose() throws IOException { writer.write('}'); }
+  protected void writeObjectClose() throws IOException {
+    writer.write('}');
+  }
 
   protected void writeMemberName(String name) throws IOException {
     writer.write('"');
@@ -133,11 +145,11 @@ public class JsonWriter {
     if (ch == '\t') {
       return TAB_CHARS;
     }
-    return new char[] {'\\',
-                       'u',
-                       '0',
-                       '0',
-                       HEX_DIGITS[ch >> 4 & 0x000f],
-                       HEX_DIGITS[ch & 0x000f]};
+    return new char[] { '\\',
+        'u',
+        '0',
+        '0',
+        HEX_DIGITS[ch >> 4 & 0x000f],
+        HEX_DIGITS[ch & 0x000f] };
   }
 }

@@ -31,11 +31,11 @@ public class TestUtilsConsole {
         break;
       case UNKNOWN_EXCEPTION:
         ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_RED,
-                                        "UNHANDLED EXCEPTION");
+            "UNHANDLED EXCEPTION");
         break;
       case STACK_OVERFLOW:
         ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_RED,
-                                        "STACK OVERFLOW");
+            "STACK OVERFLOW");
         break;
       default:
         throw new RuntimeException("Unknown TestResult");
@@ -43,8 +43,8 @@ public class TestUtilsConsole {
   }
 
   public static void printTestInfo(TestResult testResult, int testNr,
-                                   int totalTests, String diagnostic,
-                                   TestTimer timer) {
+      int totalTests, String diagnostic,
+      TestTimer timer) {
     if (!caretAtLineStart) {
       clearLineIfTty();
     }
@@ -53,11 +53,11 @@ public class TestUtilsConsole {
     System.out.print("Test ");
     printTestResult(testResult);
     System.out.printf(" (%" + String.valueOf(totalTestsStr.length()) + "d/%s)",
-                      testNr, totalTestsStr);
+        testNr, totalTestsStr);
 
     if (timer != null) {
       System.out.printf(" [%s]",
-                        TestTimer.durationToString(timer.getMicroseconds()));
+          TestTimer.durationToString(timer.getMicroseconds()));
     }
     caretAtLineStart = false;
 
@@ -72,9 +72,9 @@ public class TestUtilsConsole {
   }
 
   public static void printFailedTest(String funcName,
-                                     List<String> paramNames,
-                                     List<String> arguments,
-                                     TestFailure testFailure) {
+      List<String> paramNames,
+      List<String> arguments,
+      TestFailure testFailure) {
     int maxColSize = testFailure.getMaxPropertyNameLength();
 
     for (String param : paramNames) {
@@ -84,37 +84,37 @@ public class TestUtilsConsole {
     }
 
     ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_YELLOW,
-                                    "Arguments\n");
+        "Arguments\n");
 
     for (int i = 0; i < arguments.size(); i++) {
       System.out.print("\t");
       ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_YELLOW,
-                                      paramNames.get(i));
+          paramNames.get(i));
       System.out.printf(": %s%s\n",
-                        genSpaces(maxColSize - paramNames.get(i).length()),
-                        escapeNewline(arguments.get(i)));
+          genSpaces(maxColSize - paramNames.get(i).length()),
+          escapeNewline(arguments.get(i)));
     }
 
     List<TestFailure.Property> properties = testFailure.getProperties();
 
     ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_YELLOW,
-                                    "\nFailure info\n");
+        "\nFailure info\n");
     ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_YELLOW,
-                                    "\tfunction name");
+        "\tfunction name");
     System.out.printf(": %s\n", funcName);
     for (TestFailure.Property prop : properties) {
       System.out.print("\t");
       ConsoleColor.printStdOutColored(ConsoleColor.Color.FG_YELLOW,
-                                      prop.name());
+          prop.name());
       System.out.printf(": %s%s\n",
-                        genSpaces(maxColSize - prop.name().length()),
-                        escapeNewline(String.valueOf(prop.value())));
+          genSpaces(maxColSize - prop.name().length()),
+          escapeNewline(String.valueOf(prop.value())));
     }
   }
 
   public static void printPostRunStats(String testFuncName, int testsPassed, int totalTests,
-                                       String complexity,
-                                       List<Long> durations) {
+      String complexity,
+      List<Long> durations) {
     System.out.printf("Function name: %s\n", testFuncName);
     if (!durations.isEmpty()) {
       if (!complexity.isEmpty()) {
@@ -123,13 +123,13 @@ public class TestUtilsConsole {
 
       long[] avgMedian = TestTimer.avgAndMedianFromDuration(durations);
       System.out.printf("Average running time: %s\nMedian running time:  %s\n",
-                        TestTimer.durationToString(avgMedian[0]),
-                        TestTimer.durationToString(avgMedian[1]));
+          TestTimer.durationToString(avgMedian[0]),
+          TestTimer.durationToString(avgMedian[1]));
     }
 
     if (testsPassed < totalTests) {
       System.out.printf("*** You've passed %d/%d tests. ***\n", testsPassed,
-                        totalTests);
+          totalTests);
     } else {
       System.out.println("*** You've passed ALL tests. Congratulations! ***");
     }

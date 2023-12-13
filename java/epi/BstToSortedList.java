@@ -14,9 +14,9 @@ public class BstToSortedList {
     // TODO - you fill in here.
     return null;
   }
+
   @EpiTest(testDataFile = "../test_data/epi/bst_to_sorted_list.tsv")
-  public static List<Integer>
-  bstToDoublyLinkedListWrapper(TimedExecutor executor, BstNode<Integer> tree)
+  public static List<Integer> bstToDoublyLinkedListWrapper(TimedExecutor executor, BstNode<Integer> tree)
       throws Exception {
     BstNode<Integer> list = executor.run(() -> bstToDoublyLinkedList(tree));
 
@@ -37,7 +37,8 @@ public class BstToSortedList {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "BstToSortedList.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

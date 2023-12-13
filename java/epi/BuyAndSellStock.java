@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class BuyAndSellStock {
   @EpiTest(testDataFile = "../test_data/epi/buy_and_sell_stock.tsv")
   public static double computeMaxProfit(List<Double> prices) {
@@ -13,7 +15,8 @@ public class BuyAndSellStock {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "BuyAndSellStock.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

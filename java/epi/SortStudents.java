@@ -1,16 +1,14 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class SortStudents {
 
-  @EpiUserType(ctorParams = {String.class, Float.class})
+  @EpiUserType(ctorParams = { String.class, Float.class })
   public static class Student implements Comparable<Student> {
     public String name;
     public Float gpa;
@@ -44,23 +42,15 @@ public class SortStudents {
 
   @EpiTest(testDataFile = "../test_data/epi/sort_students.tsv")
   public static List<Student> sortStudentsByName(List<Student> students) {
-    List<Student> ans = new ArrayList<>(students);
-
-    Collections.sort(ans, new Comparator<Student>() {
-      @Override
-      public int compare(Student a, Student b) {
-          return a.gpa.compareTo(b.gpa);
-      }
-    });
-
-    return ans;
+    return null;
   }
 
   public static void main(String[] args) {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SortStudents.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

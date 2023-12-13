@@ -1,6 +1,8 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
+
 public class IntSquareRoot {
   @EpiTest(testDataFile = "../test_data/epi/int_square_root.tsv")
 
@@ -13,7 +15,8 @@ public class IntSquareRoot {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "IntSquareRoot.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

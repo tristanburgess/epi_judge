@@ -1,14 +1,17 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.Iterator;
 import java.util.List;
+
 public class MajorityElement {
 
   public static String majoritySearch(Iterator<String> stream) {
     // TODO - you fill in here.
     return "";
   }
+
   @EpiTest(testDataFile = "../test_data/epi/majority_element.tsv")
   public static String majoritySearchWrapper(List<String> stream) {
     return majoritySearch(stream.iterator());
@@ -18,7 +21,8 @@ public class MajorityElement {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "MajorityElement.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

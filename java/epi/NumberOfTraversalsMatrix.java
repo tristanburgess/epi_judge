@@ -1,6 +1,8 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
+
 public class NumberOfTraversalsMatrix {
   @EpiTest(testDataFile = "../test_data/epi/number_of_traversals_matrix.tsv")
 
@@ -13,7 +15,8 @@ public class NumberOfTraversalsMatrix {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "NumberOfTraversalsMatrix.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

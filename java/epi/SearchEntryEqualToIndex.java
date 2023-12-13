@@ -1,4 +1,5 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import test_framework.TestFailure;
@@ -9,26 +10,12 @@ import java.util.List;
 public class SearchEntryEqualToIndex {
 
   public static int searchEntryEqualToItsIndex(List<Integer> A) {
-    int lo = 0;
-    int hi = A.size() - 1;
-    
-    while (lo <= hi) {
-      int mid = lo + (hi - lo) / 2;
-      if (A.get(mid) < mid) {
-        lo = mid + 1;
-      } else if (A.get(mid) > mid) {
-        hi = mid - 1;
-      } else {
-        return mid;
-      }
-    }
-
-    return -1;
+    return 0;
   }
 
   @EpiTest(testDataFile = "../test_data/epi/search_entry_equal_to_index.tsv")
   public static void searchEntryEqualToItsIndexWrapper(TimedExecutor executor,
-                                                       List<Integer> A)
+      List<Integer> A)
       throws Exception {
     int result = executor.run(() -> searchEntryEqualToItsIndex(A));
 
@@ -49,7 +36,8 @@ public class SearchEntryEqualToIndex {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SearchEntryEqualToIndex.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

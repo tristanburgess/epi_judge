@@ -16,7 +16,8 @@ public class IsListPalindromic {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "IsListPalindromic.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

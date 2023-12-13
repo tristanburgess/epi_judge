@@ -18,14 +18,18 @@ public class Member {
    *
    * @return the name of this member, never <code>null</code>
    */
-  public String getName() { return name; }
+  public String getName() {
+    return name;
+  }
 
   /**
    * Returns the value of this member.
    *
    * @return the value of this member, never <code>null</code>
    */
-  public JsonValue getValue() { return value; }
+  public JsonValue getValue() {
+    return value;
+  }
 
   @Override
   public int hashCode() {
@@ -46,9 +50,9 @@ public class Member {
    * </p>
    *
    * @param object
-   *          the object to be compared with this JsonObject
+   *               the object to be compared with this JsonObject
    * @return <tt>true</tt> if the specified object is equal to this JsonObject,
-   * <code>false</code>
+   *         <code>false</code>
    *         otherwise
    */
   @Override
@@ -62,7 +66,7 @@ public class Member {
     if (getClass() != object.getClass()) {
       return false;
     }
-    Member other = (Member)object;
+    Member other = (Member) object;
     return name.equals(other.name) && value.equals(other.value);
   }
 }

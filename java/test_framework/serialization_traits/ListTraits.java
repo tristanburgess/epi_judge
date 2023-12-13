@@ -44,7 +44,9 @@ public class ListTraits extends SerializationTraits {
   @Override
   public List<Integer> getMetrics(Object x) {
     if (x instanceof List) {
-      return Collections.singletonList(((List)x).size());
+      @SuppressWarnings("unchecked")
+      int size = ((List<Integer>) x).size();
+      return Collections.singletonList(size);
     } else {
       throw new RuntimeException("Expected List");
     }
@@ -52,5 +54,7 @@ public class ListTraits extends SerializationTraits {
 
   // TODO Custom parser that throws TestFailure with mismatch info
 
-  public SerializationTraits getInnerTraits() { return innerTypeTraits; }
+  public SerializationTraits getInnerTraits() {
+    return innerTypeTraits;
+  }
 }

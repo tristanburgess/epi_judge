@@ -28,12 +28,12 @@ public class JsonParser {
   private int nestingLevel;
 
   /*
-   * |                      bufferOffset
-   *                        v
-   * [a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t]        < input
-   *                       [l|m|n|o|p|q|r|s|t|?|?]    < buffer
-   *                          ^               ^
-   *                       |  index           fill
+   * | bufferOffset
+   * v
+   * [a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t] < input
+   * [l|m|n|o|p|q|r|s|t|?|?] < buffer
+   * ^ ^
+   * | index fill
    */
 
   /**
@@ -42,14 +42,14 @@ public class JsonParser {
    * this handler.
    *
    * @param handler
-   *          the handler to process parser events
+   *                the handler to process parser events
    */
   @SuppressWarnings("unchecked")
   public JsonParser(JsonHandler<?, ?> handler) {
     if (handler == null) {
       throw new NullPointerException("handler is null");
     }
-    this.handler = (JsonHandler<Object, Object>)handler;
+    this.handler = (JsonHandler<Object, Object>) handler;
     handler.parser = this;
   }
 
@@ -59,16 +59,16 @@ public class JsonParser {
    * with whitespace.
    *
    * @param string
-   *          the input string, must be valid JSON
+   *               the input string, must be valid JSON
    * @throws ParseException
-   *           if the input is not valid JSON
+   *                        if the input is not valid JSON
    */
   public void parse(String string) {
     if (string == null) {
       throw new NullPointerException("string is null");
     }
     int bufferSize = Math.max(MIN_BUFFER_SIZE,
-                              Math.min(DEFAULT_BUFFER_SIZE, string.length()));
+        Math.min(DEFAULT_BUFFER_SIZE, string.length()));
     try {
       parse(new StringReader(string), bufferSize);
     } catch (IOException exception) {
@@ -89,11 +89,11 @@ public class JsonParser {
    * </p>
    *
    * @param reader
-   *          the reader to read the input from
+   *               the reader to read the input from
    * @throws IOException
-   *           if an I/O error occurs in the reader
+   *                        if an I/O error occurs in the reader
    * @throws ParseException
-   *           if the input is not valid JSON
+   *                        if the input is not valid JSON
    */
   public void parse(Reader reader) throws IOException {
     parse(reader, DEFAULT_BUFFER_SIZE);
@@ -111,13 +111,13 @@ public class JsonParser {
    * </p>
    *
    * @param reader
-   *          the reader to read the input from
+   *                   the reader to read the input from
    * @param buffersize
-   *          the size of the input buffer in chars
+   *                   the size of the input buffer in chars
    * @throws IOException
-   *           if an I/O error occurs in the reader
+   *                        if an I/O error occurs in the reader
    * @throws ParseException
-   *           if the input is not valid JSON
+   *                        if the input is not valid JSON
    */
   public void parse(Reader reader, int buffersize) throws IOException {
     if (reader == null) {
@@ -313,7 +313,7 @@ public class JsonParser {
       case '"':
       case '/':
       case '\\':
-        captureBuffer.append((char)current);
+        captureBuffer.append((char) current);
         break;
       case 'b':
         captureBuffer.append('\b');
@@ -337,9 +337,9 @@ public class JsonParser {
           if (!isHexDigit()) {
             throw expected("hexadecimal digit");
           }
-          hexChars[i] = (char)current;
+          hexChars[i] = (char) current;
         }
-        captureBuffer.append((char)Integer.parseInt(new String(hexChars), 16));
+        captureBuffer.append((char) Integer.parseInt(new String(hexChars), 16));
         break;
       default:
         throw expected("valid escape sequence");
@@ -483,12 +483,16 @@ public class JsonParser {
         current == '\r';
   }
 
-  private boolean isDigit() { return current >= '0' && current <= '9'; }
+  private boolean isDigit() {
+    return current >= '0' && current <= '9';
+  }
 
   private boolean isHexDigit() {
     return current >= '0' && current <= '9' ||
         current >= 'a' && current <= 'f' || current >= 'A' && current <= 'F';
   }
 
-  private boolean isEndOfText() { return current == -1; }
+  private boolean isEndOfText() {
+    return current == -1;
+  }
 }

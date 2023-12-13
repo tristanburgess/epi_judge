@@ -12,17 +12,15 @@ import java.util.List;
 
 public class TreeConnectLeaves {
 
-  public static List<BinaryTreeNode<Integer>>
-  createListOfLeaves(BinaryTreeNode<Integer> tree) {
+  public static List<BinaryTreeNode<Integer>> createListOfLeaves(BinaryTreeNode<Integer> tree) {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
+
   @EpiTest(testDataFile = "../test_data/epi/tree_connect_leaves.tsv")
-  public static List<Integer>
-  createListOfLeavesWrapper(TimedExecutor executor,
-                            BinaryTreeNode<Integer> tree) throws Exception {
-    List<BinaryTreeNode<Integer>> result =
-        executor.run(() -> createListOfLeaves(tree));
+  public static List<Integer> createListOfLeavesWrapper(TimedExecutor executor,
+      BinaryTreeNode<Integer> tree) throws Exception {
+    List<BinaryTreeNode<Integer>> result = executor.run(() -> createListOfLeaves(tree));
 
     if (result.stream().anyMatch(x -> x == null || x.data == null)) {
       throw new TestFailure("Result can't contain null");
@@ -39,7 +37,8 @@ public class TreeConnectLeaves {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "TreeConnectLeaves.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

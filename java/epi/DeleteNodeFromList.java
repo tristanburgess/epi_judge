@@ -12,10 +12,11 @@ public class DeleteNodeFromList {
     // TODO - you fill in here.
     return;
   }
+
   @EpiTest(testDataFile = "../test_data/epi/delete_node_from_list.tsv")
   public static ListNode<Integer> deleteListWrapper(TimedExecutor executor,
-                                                    ListNode<Integer> head,
-                                                    int nodeToDeleteIdx)
+      ListNode<Integer> head,
+      int nodeToDeleteIdx)
       throws Exception {
     ListNode<Integer> nodeToDelete = head;
     if (nodeToDelete == null)
@@ -36,7 +37,8 @@ public class DeleteNodeFromList {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "DeleteNodeFromList.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

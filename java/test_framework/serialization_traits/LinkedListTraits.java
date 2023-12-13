@@ -47,7 +47,9 @@ public class LinkedListTraits extends SerializationTraits {
     if (x == null) {
       return Collections.singletonList(0);
     } else if (x instanceof ListNode) {
-      return Collections.singletonList(((ListNode)x).size());
+      @SuppressWarnings("unchecked")
+      int size = ((ListNode<Integer>) x).size();
+      return Collections.singletonList(size);
     } else {
       throw new RuntimeException("Expected ListNode");
     }

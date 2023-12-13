@@ -1,6 +1,8 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
+
 public class SnakeString {
   @EpiTest(testDataFile = "../test_data/epi/snake_string.tsv")
 
@@ -13,7 +15,8 @@ public class SnakeString {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SnakeString.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

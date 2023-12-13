@@ -5,7 +5,7 @@ package test_framework.minimal_json;
  * An unchecked exception to indicate that an input does not qualify as valid
  * JSON.
  */
-@SuppressWarnings("serial")  // use default serial UID
+@SuppressWarnings("serial") // use default serial UID
 public class ParseException extends RuntimeException {
   private final Location location;
 
@@ -19,7 +19,9 @@ public class ParseException extends RuntimeException {
    *
    * @return the error location
    */
-  public Location getLocation() { return location; }
+  public Location getLocation() {
+    return location;
+  }
 
   /**
    * Returns the absolute character index at which the error occurred. The

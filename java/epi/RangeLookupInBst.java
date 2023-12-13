@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class RangeLookupInBst {
-  @EpiUserType(ctorParams = {int.class, int.class})
+  @EpiUserType(ctorParams = { int.class, int.class })
 
   public static class Interval {
     public int left, right;
@@ -23,13 +23,14 @@ public class RangeLookupInBst {
   @EpiTest(testDataFile = "../test_data/epi/range_lookup_in_bst.tsv")
 
   public static List<Integer> rangeLookupInBst(BstNode<Integer> tree,
-                                               Interval interval) {
+      Interval interval) {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
+
   public static void rangeLookupInBstHelper(BstNode<Integer> tree,
-                                            Interval interval,
-                                            List<Integer> result) {
+      Interval interval,
+      List<Integer> result) {
     if (tree == null) {
       return;
     }
@@ -49,7 +50,8 @@ public class RangeLookupInBst {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "RangeLookupInBst.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

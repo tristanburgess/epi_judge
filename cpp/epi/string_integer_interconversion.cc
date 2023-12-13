@@ -4,41 +4,11 @@
 using std::string;
 
 string IntToString(int x) {
-  string s;
-  bool sign = x < 0;
-
-  do {
-    s += (char)(abs(x % 10) + '0');
-    x /= 10;
-  } while (x != 0);
-
-  if (sign) {
-    s += '-';
-  }
-
-  return string(s.rbegin(), s.rend());
+  return "0";
 }
 
 int StringToInt(const string& s) {
-  if (s.size() == 0) {
-    // would probably throw an exception here/return an error
-    return 0;
-  }
-
-  int x = 0;
-  size_t idx = 0;
-
-  if (s[0] == '-') {
-    idx = 1;
-  }
-  for (size_t i = idx; i < s.size(); ++i) {
-    x = x * 10 + (int)(s[i] - '0');
-  }
-  if (s[0] == '-') {
-    x = -x;
-  }
-
-  return x;
+  return 0;
 }
 
 void Wrapper(int x, const string& s) {

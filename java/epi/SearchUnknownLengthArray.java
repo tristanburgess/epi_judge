@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class SearchUnknownLengthArray {
   @EpiTest(testDataFile = "../test_data/epi/search_unknown_length_array.tsv")
 
@@ -14,7 +16,8 @@ public class SearchUnknownLengthArray {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SearchUnknownLengthArray.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

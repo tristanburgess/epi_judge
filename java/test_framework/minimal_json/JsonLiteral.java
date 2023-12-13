@@ -14,7 +14,7 @@ import java.io.IOException;
  * furnished to do so, subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in
- *all
+ * all
  * copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -26,7 +26,7 @@ import java.io.IOException;
  * SOFTWARE.
  ******************************************************************************/
 
-@SuppressWarnings("serial")  // use default serial UID
+@SuppressWarnings("serial") // use default serial UID
 class JsonLiteral extends JsonValue {
   private final String value;
   private final boolean isNull;
@@ -91,7 +91,7 @@ class JsonLiteral extends JsonValue {
     if (getClass() != object.getClass()) {
       return false;
     }
-    JsonLiteral other = (JsonLiteral)object;
+    JsonLiteral other = (JsonLiteral) object;
     return value.equals(other.value);
   }
 }

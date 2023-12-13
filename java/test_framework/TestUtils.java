@@ -20,10 +20,11 @@ public class TestUtils {
       inputData = Files.lines(tsvFile);
     } catch (IOException e) {
       throw new RuntimeException("Test data file not found");
+    } finally {
+      inputData.close();
     }
 
-    List<String> asList =
-        inputData.collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+    List<String> asList = inputData.collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
 
     List<List<String>> result = new ArrayList<>();
     for (String line : asList) {
@@ -73,7 +74,7 @@ public class TestUtils {
    * TestFailure is thrown in case of mismatch.
    */
   public static <T> void assertAllValuesPresent(List<T> reference,
-                                                List<T> result)
+      List<T> result)
       throws TestFailure {
     Map<T, Integer> referenceSet = new HashMap<>();
     for (T x : reference) {
@@ -100,9 +101,8 @@ public class TestUtils {
     });
 
     if (!excessItems.isEmpty() || !missingItems.isEmpty()) {
-      TestFailure e =
-          new TestFailure("Value set changed")
-              .withProperty(TestFailure.PropertyName.RESULT, result);
+      TestFailure e = new TestFailure("Value set changed")
+          .withProperty(TestFailure.PropertyName.RESULT, result);
       if (!excessItems.isEmpty()) {
         e.withProperty(TestFailure.PropertyName.EXCESS_ITEMS, excessItems);
       }
@@ -119,8 +119,7 @@ public class TestUtils {
   public static boolean floatComparison(Float f1, Float f2) {
     float eps = 1E-4f;
     float absEps = 1E-10f;
-    return Math.abs(f1 - f2) <=
-        Math.max(eps * Math.max(Math.abs(f1), Math.abs(f2)), absEps);
+    return Math.abs(f1 - f2) <= Math.max(eps * Math.max(Math.abs(f1), Math.abs(f2)), absEps);
   }
 
   /**
@@ -129,7 +128,6 @@ public class TestUtils {
   public static boolean doubleComparison(Double d1, Double d2) {
     double eps = 1E-6;
     double absEps = 1E-20;
-    return Math.abs(d1 - d2) <=
-        Math.max(eps * Math.max(Math.abs(d1), Math.abs(d2)), absEps);
+    return Math.abs(d1 - d2) <= Math.max(eps * Math.max(Math.abs(d1), Math.abs(d2)), absEps);
   }
 }

@@ -7,11 +7,7 @@ import test_framework.GenericTest;
 public class SearchInList {
 
   public static ListNode<Integer> searchList(ListNode<Integer> L, int key) {
-    while (L != null && L.data != key) {
-      L = L.next;
-    }
-
-    return L;
+    return null;
   }
 
   @EpiTest(testDataFile = "../test_data/epi/search_in_list.tsv")
@@ -24,7 +20,8 @@ public class SearchInList {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SearchInList.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

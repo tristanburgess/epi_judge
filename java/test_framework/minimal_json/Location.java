@@ -47,7 +47,7 @@ class Location {
     if (getClass() != obj.getClass()) {
       return false;
     }
-    Location other = (Location)obj;
+    Location other = (Location) obj;
     return offset == other.offset && column == other.column &&
         line == other.line;
   }

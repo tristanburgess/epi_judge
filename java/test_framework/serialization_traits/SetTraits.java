@@ -38,7 +38,9 @@ public class SetTraits extends SerializationTraits {
   @Override
   public List<Integer> getMetrics(Object x) {
     if (x instanceof Set) {
-      return Collections.singletonList(((Set)x).size());
+      @SuppressWarnings("unchecked")
+      int size = ((Set<Integer>) x).size();
+      return Collections.singletonList(size);
     } else {
       throw new RuntimeException("Expected Set");
     }

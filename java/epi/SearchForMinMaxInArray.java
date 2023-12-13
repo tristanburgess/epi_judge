@@ -1,10 +1,12 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class SearchForMinMaxInArray {
-  @EpiUserType(ctorParams = {Integer.class, Integer.class})
+  @EpiUserType(ctorParams = { Integer.class, Integer.class })
 
   public static class MinMax {
     public Integer smallest;
@@ -13,10 +15,6 @@ public class SearchForMinMaxInArray {
     public MinMax(Integer smallest, Integer largest) {
       this.smallest = smallest;
       this.largest = largest;
-    }
-
-    private static MinMax minMax(Integer a, Integer b) {
-      return Integer.compare(b, a) < 0 ? new MinMax(b, a) : new MinMax(a, b);
     }
 
     @Override
@@ -28,7 +26,7 @@ public class SearchForMinMaxInArray {
         return false;
       }
 
-      MinMax minMax = (MinMax)o;
+      MinMax minMax = (MinMax) o;
 
       if (!smallest.equals(minMax.smallest)) {
         return false;
@@ -43,7 +41,6 @@ public class SearchForMinMaxInArray {
   }
 
   @EpiTest(testDataFile = "../test_data/epi/search_for_min_max_in_array.tsv")
-
   public static MinMax findMinMax(List<Integer> A) {
     // TODO - you fill in here.
     return new MinMax(0, 0);
@@ -53,7 +50,8 @@ public class SearchForMinMaxInArray {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SearchForMinMaxInArray.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

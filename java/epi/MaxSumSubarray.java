@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class MaxSumSubarray {
   @EpiTest(testDataFile = "../test_data/epi/max_sum_subarray.tsv")
 
@@ -14,7 +16,8 @@ public class MaxSumSubarray {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "MaxSumSubarray.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class BuyAndSellStockTwice {
   @EpiTest(testDataFile = "../test_data/epi/buy_and_sell_stock_twice.tsv")
   public static double buyAndSellStockTwice(List<Double> prices) {
@@ -13,7 +15,8 @@ public class BuyAndSellStockTwice {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "BuyAndSellStockTwice.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

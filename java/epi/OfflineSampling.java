@@ -1,4 +1,5 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.RandomSequenceChecker;
 import test_framework.GenericTest;
@@ -6,13 +7,15 @@ import test_framework.TimedExecutor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 public class OfflineSampling {
   public static void randomSampling(int k, List<Integer> A) {
     // TODO - you fill in here.
     return;
   }
+
   private static boolean randomSamplingRunner(TimedExecutor executor, int k,
-                                              List<Integer> A)
+      List<Integer> A)
       throws Exception {
     List<List<Integer>> results = new ArrayList<>();
 
@@ -23,12 +26,10 @@ public class OfflineSampling {
       }
     });
 
-    int totalPossibleOutcomes =
-        RandomSequenceChecker.binomialCoefficient(A.size(), k);
+    int totalPossibleOutcomes = RandomSequenceChecker.binomialCoefficient(A.size(), k);
     Collections.sort(A);
     List<List<Integer>> combinations = new ArrayList<>();
-    for (int i = 0; i < RandomSequenceChecker.binomialCoefficient(A.size(), k);
-         ++i) {
+    for (int i = 0; i < RandomSequenceChecker.binomialCoefficient(A.size(), k); ++i) {
       combinations.add(
           RandomSequenceChecker.computeCombinationIdx(A, A.size(), k, i));
     }
@@ -43,7 +44,7 @@ public class OfflineSampling {
 
   @EpiTest(testDataFile = "../test_data/epi/offline_sampling.tsv")
   public static void randomSamplingWrapper(TimedExecutor executor, int k,
-                                           List<Integer> A) throws Exception {
+      List<Integer> A) throws Exception {
     RandomSequenceChecker.runFuncWithRetries(
         () -> randomSamplingRunner(executor, k, A));
   }
@@ -52,7 +53,8 @@ public class OfflineSampling {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "OfflineSampling.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

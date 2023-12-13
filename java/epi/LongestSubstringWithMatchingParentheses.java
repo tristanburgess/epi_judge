@@ -1,6 +1,8 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
+
 public class LongestSubstringWithMatchingParentheses {
   @EpiTest(testDataFile = "../test_data/epi/longest_substring_with_matching_parentheses.tsv")
 
@@ -11,9 +13,10 @@ public class LongestSubstringWithMatchingParentheses {
 
   public static void main(String[] args) {
     System.exit(GenericTest
-                    .runFromAnnotations(
-                        args, "LongestSubstringWithMatchingParentheses.java",
-                        new Object() {}.getClass().getEnclosingClass())
-                    .ordinal());
+        .runFromAnnotations(
+            args, "LongestSubstringWithMatchingParentheses.java",
+            new Object() {
+            }.getClass().getEnclosingClass())
+        .ordinal());
   }
 }

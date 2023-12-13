@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class MaxProductAllButOne {
   @EpiTest(testDataFile = "../test_data/epi/max_product_all_but_one.tsv")
 
@@ -14,7 +16,8 @@ public class MaxProductAllButOne {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "MaxProductAllButOne.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

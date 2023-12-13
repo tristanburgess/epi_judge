@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class MaximumSubarrayInCircularArray {
   @EpiTest(testDataFile = "../test_data/epi/maximum_subarray_in_circular_array.tsv")
 
@@ -14,7 +16,8 @@ public class MaximumSubarrayInCircularArray {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "MaximumSubarrayInCircularArray.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

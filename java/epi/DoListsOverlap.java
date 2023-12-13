@@ -12,15 +12,15 @@ import java.util.Set;
 public class DoListsOverlap {
 
   public static ListNode<Integer> overlappingLists(ListNode<Integer> l0,
-                                                   ListNode<Integer> l1) {
+      ListNode<Integer> l1) {
     // TODO - you fill in here.
     return null;
   }
+
   @EpiTest(testDataFile = "../test_data/epi/do_lists_overlap.tsv")
-  public static void
-  overlappingListsWrapper(TimedExecutor executor, ListNode<Integer> l0,
-                          ListNode<Integer> l1, ListNode<Integer> common,
-                          int cycle0, int cycle1) throws Exception {
+  public static void overlappingListsWrapper(TimedExecutor executor, ListNode<Integer> l0,
+      ListNode<Integer> l1, ListNode<Integer> common,
+      int cycle0, int cycle1) throws Exception {
     if (common != null) {
       if (l0 == null) {
         l0 = common;
@@ -82,11 +82,10 @@ public class DoListsOverlap {
 
     final ListNode<Integer> finalL0 = l0;
     final ListNode<Integer> finalL1 = l1;
-    ListNode<Integer> result =
-        executor.run(() -> overlappingLists(finalL0, finalL1));
+    ListNode<Integer> result = executor.run(() -> overlappingLists(finalL0, finalL1));
 
     if (!((commonNodes.isEmpty() && result == null) ||
-          (result != null && commonNodes.contains(result.data)))) {
+        (result != null && commonNodes.contains(result.data)))) {
       throw new TestFailure("Invalid result");
     }
   }
@@ -95,7 +94,8 @@ public class DoListsOverlap {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "DoListsOverlap.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

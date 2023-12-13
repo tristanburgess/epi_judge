@@ -1,20 +1,22 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import test_framework.TestFailure;
 import test_framework.TimedExecutor;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 public class CopyPostingList {
 
   public static PostingListNode copyPostingsList(PostingListNode l) {
     // TODO - you fill in here.
     return null;
   }
-  @EpiUserType(ctorParams = {int.class, int.class})
+
+  @EpiUserType(ctorParams = { int.class, int.class })
   public static class SerializedNode {
     public int order;
     public int jumpIndex;
@@ -25,8 +27,7 @@ public class CopyPostingList {
     }
   }
 
-  public static PostingListNode
-  createPostingList(List<SerializedNode> serialized) {
+  public static PostingListNode createPostingList(List<SerializedNode> serialized) {
     Map<Integer, PostingListNode> keyMapping = new HashMap<>();
     PostingListNode head = null;
     for (int i = serialized.size() - 1; i >= 0; i--) {
@@ -47,7 +48,7 @@ public class CopyPostingList {
   }
 
   public static void assertListsEqual(PostingListNode orig,
-                                      PostingListNode copy) throws TestFailure {
+      PostingListNode copy) throws TestFailure {
     Map<PostingListNode, PostingListNode> nodeMapping = new HashMap<>();
     PostingListNode oIt = orig;
     PostingListNode cIt = copy;
@@ -91,7 +92,7 @@ public class CopyPostingList {
             .withProperty(TestFailure.PropertyName.RESULT, copy)
             .withProperty(TestFailure.PropertyName.MISMATCH_INDEX, idx)
             .withProperty(TestFailure.PropertyName.RESULT_ITEM,
-                          new PostingListNode(cIt.order, null, null));
+                new PostingListNode(cIt.order, null, null));
       }
       if (oIt.jump != null) {
         if (nodeMapping.get(oIt.jump) != cIt.jump) {
@@ -118,7 +119,7 @@ public class CopyPostingList {
 
   @EpiTest(testDataFile = "../test_data/epi/copy_posting_list.tsv")
   public static void copyPostingsListWrapper(TimedExecutor executor,
-                                             List<SerializedNode> l)
+      List<SerializedNode> l)
       throws Exception {
     PostingListNode head = createPostingList(l);
 
@@ -131,7 +132,8 @@ public class CopyPostingList {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "CopyPostingList.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

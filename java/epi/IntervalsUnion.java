@@ -1,4 +1,5 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
@@ -6,6 +7,7 @@ import test_framework.TimedExecutor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 public class IntervalsUnion {
 
   public static class Interval {
@@ -22,8 +24,8 @@ public class IntervalsUnion {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
-  @EpiUserType(
-      ctorParams = {int.class, boolean.class, int.class, boolean.class})
+
+  @EpiUserType(ctorParams = { int.class, boolean.class, int.class, boolean.class })
   public static class FlatInterval {
     int leftVal;
     boolean leftIsClosed;
@@ -31,7 +33,7 @@ public class IntervalsUnion {
     boolean rightIsClosed;
 
     public FlatInterval(int leftVal, boolean leftIsClosed, int rightVal,
-                        boolean rightIsClosed) {
+        boolean rightIsClosed) {
       this.leftVal = leftVal;
       this.leftIsClosed = leftIsClosed;
       this.rightVal = rightVal;
@@ -65,7 +67,7 @@ public class IntervalsUnion {
         return false;
       }
 
-      FlatInterval that = (FlatInterval)o;
+      FlatInterval that = (FlatInterval) o;
 
       if (leftVal != that.leftVal) {
         return false;
@@ -96,8 +98,7 @@ public class IntervalsUnion {
   }
 
   @EpiTest(testDataFile = "../test_data/epi/intervals_union.tsv")
-  public static List<FlatInterval>
-  unionIntervalWrapper(TimedExecutor executor, List<FlatInterval> intervals)
+  public static List<FlatInterval> unionIntervalWrapper(TimedExecutor executor, List<FlatInterval> intervals)
       throws Exception {
     List<Interval> casted = new ArrayList<>(intervals.size());
     for (FlatInterval in : intervals) {
@@ -117,7 +118,8 @@ public class IntervalsUnion {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "IntervalsUnion.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -13,7 +13,7 @@ public class KthNodeInTree {
     public int size;
 
     public BinaryTreeNode(T data, BinaryTreeNode<T> left,
-                          BinaryTreeNode<T> right, int size) {
+        BinaryTreeNode<T> right, int size) {
       this.data = data;
       this.left = left;
       this.right = right;
@@ -21,13 +21,12 @@ public class KthNodeInTree {
     }
   }
 
-  public static BinaryTreeNode<Integer>
-  findKthNodeBinaryTree(BinaryTreeNode<Integer> tree, int k) {
+  public static BinaryTreeNode<Integer> findKthNodeBinaryTree(BinaryTreeNode<Integer> tree, int k) {
     // TODO - you fill in here.
     return null;
   }
-  public static BinaryTreeNode<Integer>
-  convertToTreeWithSize(BinaryTree<Integer> original) {
+
+  public static BinaryTreeNode<Integer> convertToTreeWithSize(BinaryTree<Integer> original) {
     if (original == null)
       return null;
     BinaryTreeNode<Integer> left = convertToTreeWithSize(original.left);
@@ -39,12 +38,11 @@ public class KthNodeInTree {
 
   @EpiTest(testDataFile = "../test_data/epi/kth_node_in_tree.tsv")
   public static int findKthNodeBinaryTreeWrapper(TimedExecutor executor,
-                                                 BinaryTree<Integer> tree,
-                                                 int k) throws Exception {
+      BinaryTree<Integer> tree,
+      int k) throws Exception {
     BinaryTreeNode<Integer> converted = convertToTreeWithSize(tree);
 
-    BinaryTreeNode<Integer> result =
-        executor.run(() -> findKthNodeBinaryTree(converted, k));
+    BinaryTreeNode<Integer> result = executor.run(() -> findKthNodeBinaryTree(converted, k));
 
     if (result == null) {
       throw new TestFailure("Result can't be null");
@@ -56,7 +54,8 @@ public class KthNodeInTree {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "KthNodeInTree.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

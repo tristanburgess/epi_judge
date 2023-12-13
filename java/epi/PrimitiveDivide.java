@@ -1,6 +1,8 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
+
 public class PrimitiveDivide {
   @EpiTest(testDataFile = "../test_data/epi/primitive_divide.tsv")
   public static int divide(int x, int y) {
@@ -12,7 +14,8 @@ public class PrimitiveDivide {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "PrimitiveDivide.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

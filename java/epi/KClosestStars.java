@@ -1,4 +1,5 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiTestComparator;
 import test_framework.EpiTestExpectedType;
@@ -8,8 +9,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.BiPredicate;
+
 public class KClosestStars {
-  @EpiUserType(ctorParams = {double.class, double.class, double.class})
+  @EpiUserType(ctorParams = { double.class, double.class, double.class })
 
   public static class Star implements Comparable<Star> {
     private double x, y, z;
@@ -20,7 +22,9 @@ public class KClosestStars {
       this.z = z;
     }
 
-    public double distance() { return Math.sqrt(x * x + y * y + z * z); }
+    public double distance() {
+      return Math.sqrt(x * x + y * y + z * z);
+    }
 
     @Override
     public int compareTo(Star that) {
@@ -37,16 +41,17 @@ public class KClosestStars {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
+
   @EpiTest(testDataFile = "../test_data/epi/k_closest_stars.tsv")
   public static List<Star> findClosestKStarsWrapper(List<Star> stars, int k) {
     return findClosestKStars(stars.iterator(), k);
   }
 
-  @EpiTestExpectedType public static List<Double> expectedType;
+  @EpiTestExpectedType
+  public static List<Double> expectedType;
 
   @EpiTestComparator
-  public static BiPredicate<List<Double>, List<Star>> comp =
-      (expected, result) -> {
+  public static BiPredicate<List<Double>, List<Star>> comp = (expected, result) -> {
     if (expected.size() != result.size()) {
       return false;
     }
@@ -63,7 +68,8 @@ public class KClosestStars {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "KClosestStars.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

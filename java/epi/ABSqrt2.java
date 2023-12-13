@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class ABSqrt2 {
   @EpiTest(testDataFile = "../test_data/epi/a_b_sqrt2.tsv")
 
@@ -14,7 +16,8 @@ public class ABSqrt2 {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "ABSqrt2.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

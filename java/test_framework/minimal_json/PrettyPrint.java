@@ -17,7 +17,9 @@ import java.util.Arrays;
 class PrettyPrint extends WriterConfig {
   private final char[] indentChars;
 
-  protected PrettyPrint(char[] indentChars) { this.indentChars = indentChars; }
+  protected PrettyPrint(char[] indentChars) {
+    this.indentChars = indentChars;
+  }
 
   /**
    * Print every value on a separate line. Use tabs (<code>\t</code>) for
@@ -25,14 +27,16 @@ class PrettyPrint extends WriterConfig {
    *
    * @return A PrettyPrint instance for wrapped mode with tab indentation
    */
-  public static PrettyPrint singleLine() { return new PrettyPrint(null); }
+  public static PrettyPrint singleLine() {
+    return new PrettyPrint(null);
+  }
 
   /**
    * Print every value on a separate line. Use the given number of spaces for
    * indentation.
    *
    * @param number
-   *          the number of spaces to use
+   *               the number of spaces to use
    * @return A PrettyPrint instance for wrapped mode with spaces indentation
    */
   public static PrettyPrint indentWithSpaces(int number) {
@@ -50,7 +54,7 @@ class PrettyPrint extends WriterConfig {
    * @return A PrettyPrint instance for single-line mode
    */
   public static PrettyPrint indentWithTabs() {
-    return new PrettyPrint(new char[] {'\t'});
+    return new PrettyPrint(new char[] { '\t' });
   }
 
   @Override

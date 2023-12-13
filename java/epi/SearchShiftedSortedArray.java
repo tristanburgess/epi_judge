@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class SearchShiftedSortedArray {
   @EpiTest(testDataFile = "../test_data/epi/search_shifted_sorted_array.tsv")
 
@@ -14,7 +16,8 @@ public class SearchShiftedSortedArray {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SearchShiftedSortedArray.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

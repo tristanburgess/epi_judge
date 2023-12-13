@@ -4,8 +4,6 @@ import generic_types.ListNode;
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 
-import java.util.List;
-
 public class EvenOddListMerge {
   @EpiTest(testDataFile = "../test_data/epi/even_odd_list_merge.tsv")
 
@@ -18,7 +16,8 @@ public class EvenOddListMerge {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "EvenOddListMerge.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

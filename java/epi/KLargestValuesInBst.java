@@ -16,9 +16,9 @@ public class KLargestValuesInBst {
     // TODO - you fill in here.
     return null;
   }
+
   @EpiTestComparator
-  public static BiPredicate<List<Integer>, List<Integer>> comp =
-      (expected, result) -> {
+  public static BiPredicate<List<Integer>, List<Integer>> comp = (expected, result) -> {
     if (result == null) {
       return false;
     }
@@ -31,7 +31,8 @@ public class KLargestValuesInBst {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "KLargestValuesInBst.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

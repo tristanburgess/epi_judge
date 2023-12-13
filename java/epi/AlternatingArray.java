@@ -1,4 +1,5 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import test_framework.TestFailure;
@@ -6,11 +7,13 @@ import test_framework.TestUtils;
 import test_framework.TimedExecutor;
 import java.util.ArrayList;
 import java.util.List;
+
 public class AlternatingArray {
   public static void rearrange(List<Integer> A) {
     // TODO - you fill in here.
     return;
   }
+
   private static void checkOrder(List<Integer> A) throws TestFailure {
     for (int i = 0; i < A.size(); ++i) {
       if ((i % 2) != 0) {
@@ -67,7 +70,8 @@ public class AlternatingArray {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "AlternatingArray.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

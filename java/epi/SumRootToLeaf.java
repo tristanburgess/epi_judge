@@ -16,7 +16,8 @@ public class SumRootToLeaf {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SumRootToLeaf.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

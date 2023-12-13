@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class NextPermutation {
   @EpiTest(testDataFile = "../test_data/epi/next_permutation.tsv")
   public static List<Integer> nextPermutation(List<Integer> perm) {
@@ -13,7 +15,8 @@ public class NextPermutation {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "NextPermutation.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

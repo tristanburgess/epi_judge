@@ -1,21 +1,22 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiTestComparator;
 import test_framework.LexicographicalListComparator;
 import test_framework.GenericTest;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.BiPredicate;
-public class Combinations {
-  @EpiTest(testDataFile = "../test_data/epi/combinations.tsv")
 
+public class Combinations {
+
+  @EpiTest(testDataFile = "../test_data/epi/combinations.tsv")
   public static List<List<Integer>> combinations(int n, int k) {
     // TODO - you fill in here.
     return null;
   }
+
   @EpiTestComparator
-  public static BiPredicate<List<List<Integer>>, List<List<Integer>>> comp =
-      (expected, result) -> {
+  public static BiPredicate<List<List<Integer>>, List<List<Integer>>> comp = (expected, result) -> {
     if (result == null) {
       return false;
     }
@@ -28,7 +29,8 @@ public class Combinations {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "Combinations.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

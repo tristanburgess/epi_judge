@@ -1,4 +1,5 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
@@ -6,8 +7,9 @@ import test_framework.TestFailure;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 public class SearchMaze {
-  @EpiUserType(ctorParams = {int.class, int.class})
+  @EpiUserType(ctorParams = { int.class, int.class })
 
   public static class Coordinate {
     public int x, y;
@@ -27,7 +29,7 @@ public class SearchMaze {
         return false;
       }
 
-      Coordinate that = (Coordinate)o;
+      Coordinate that = (Coordinate) o;
       if (x != that.x || y != that.y) {
         return false;
       }
@@ -35,17 +37,20 @@ public class SearchMaze {
     }
   }
 
-  public enum Color { WHITE, BLACK }
+  public enum Color {
+    WHITE, BLACK
+  }
 
   public static List<Coordinate> searchMaze(List<List<Color>> maze,
-                                            Coordinate s, Coordinate e) {
+      Coordinate s, Coordinate e) {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
+
   public static boolean pathElementIsFeasible(List<List<Integer>> maze,
-                                              Coordinate prev, Coordinate cur) {
+      Coordinate prev, Coordinate cur) {
     if (!(0 <= cur.x && cur.x < maze.size() && 0 <= cur.y &&
-          cur.y < maze.get(cur.x).size() && maze.get(cur.x).get(cur.y) == 0)) {
+        cur.y < maze.get(cur.x).size() && maze.get(cur.x).get(cur.y) == 0)) {
       return false;
     }
     return cur.x == prev.x + 1 && cur.y == prev.y ||
@@ -56,7 +61,7 @@ public class SearchMaze {
 
   @EpiTest(testDataFile = "../test_data/epi/search_maze.tsv")
   public static boolean searchMazeWrapper(List<List<Integer>> maze,
-                                          Coordinate s, Coordinate e)
+      Coordinate s, Coordinate e)
       throws TestFailure {
     List<List<Color>> colored = new ArrayList<>();
     for (List<Integer> col : maze) {
@@ -88,7 +93,8 @@ public class SearchMaze {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SearchMaze.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

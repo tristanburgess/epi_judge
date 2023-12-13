@@ -1,10 +1,12 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import test_framework.TimedExecutor;
 import java.util.ArrayList;
 import java.util.List;
+
 public class IsCircuitWirable {
 
   public static class GraphVertex {
@@ -16,7 +18,8 @@ public class IsCircuitWirable {
     // TODO - you fill in here.
     return true;
   }
-  @EpiUserType(ctorParams = {int.class, int.class})
+
+  @EpiUserType(ctorParams = { int.class, int.class })
   public static class Edge {
     public int from;
     public int to;
@@ -29,7 +32,7 @@ public class IsCircuitWirable {
 
   @EpiTest(testDataFile = "../test_data/epi/is_circuit_wirable.tsv")
   public static boolean isAnyPlacementFeasibleWrapper(TimedExecutor executor,
-                                                      int k, List<Edge> edges)
+      int k, List<Edge> edges)
       throws Exception {
     if (k <= 0)
       throw new RuntimeException("Invalid k value");
@@ -49,7 +52,8 @@ public class IsCircuitWirable {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "IsCircuitWirable.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

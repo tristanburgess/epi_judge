@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class PrimeSieve {
   @EpiTest(testDataFile = "../test_data/epi/prime_sieve.tsv")
   // Given n, return all primes up to and including n.
@@ -14,7 +16,8 @@ public class PrimeSieve {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "PrimeSieve.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

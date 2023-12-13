@@ -1,6 +1,8 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
+
 public class RomanToInteger {
   @EpiTest(testDataFile = "../test_data/epi/roman_to_integer.tsv")
 
@@ -13,7 +15,8 @@ public class RomanToInteger {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "RomanToInteger.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

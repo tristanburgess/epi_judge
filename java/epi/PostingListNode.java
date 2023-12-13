@@ -6,7 +6,7 @@ public class PostingListNode {
   public PostingListNode next, jump;
 
   public PostingListNode(int order, PostingListNode next,
-                         PostingListNode jump) {
+      PostingListNode jump) {
     this.order = order;
     this.next = next;
     this.jump = jump;
@@ -15,6 +15,6 @@ public class PostingListNode {
   @Override
   public String toString() {
     return String.format("(%d)%s%s", order, next != null ? "->" : "",
-                         next != null ? next.toString() : "");
+        next != null ? next.toString() : "");
   }
 }

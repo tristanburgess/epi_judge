@@ -18,14 +18,14 @@ public class ShortTraits extends SerializationTraits {
       return Short.parseShort(str);
     } catch (NumberFormatException e) {
       throw new RuntimeException("Short parser: conversion error: " +
-                                 e.getMessage());
+          e.getMessage());
     }
   }
 
   @Override
   public Object jsonParse(JsonValue jsonObject) {
     if (jsonObject.isNumber()) {
-      return (short)jsonObject.asInt();
+      return (short) jsonObject.asInt();
     } else {
       throw new RuntimeException("Short parser: conversion error");
     }
@@ -39,7 +39,7 @@ public class ShortTraits extends SerializationTraits {
   @Override
   public List<Integer> getMetrics(Object x) {
     if (x instanceof Short) {
-      return Collections.singletonList(Math.abs((int)x));
+      return Collections.singletonList(Math.abs((int) x));
     } else {
       throw new RuntimeException("Expected Short");
     }

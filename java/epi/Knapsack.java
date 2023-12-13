@@ -1,10 +1,12 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class Knapsack {
-  @EpiUserType(ctorParams = {Integer.class, Integer.class})
+  @EpiUserType(ctorParams = { Integer.class, Integer.class })
 
   public static class Item {
     public Integer weight;
@@ -27,7 +29,8 @@ public class Knapsack {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "Knapsack.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

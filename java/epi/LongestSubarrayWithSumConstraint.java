@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class LongestSubarrayWithSumConstraint {
   @EpiTest(testDataFile = "../test_data/epi/longest_subarray_with_sum_constraint.tsv")
 
@@ -14,7 +16,8 @@ public class LongestSubarrayWithSumConstraint {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "LongestSubarrayWithSumConstraint.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

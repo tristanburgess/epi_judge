@@ -12,9 +12,10 @@ public class IsListCyclic {
     // TODO - you fill in here.
     return null;
   }
+
   @EpiTest(testDataFile = "../test_data/epi/is_list_cyclic.tsv")
   public static void HasCycleWrapper(TimedExecutor executor,
-                                     ListNode<Integer> head, int cycleIdx)
+      ListNode<Integer> head, int cycleIdx)
       throws Exception {
     int cycleLength = 0;
     if (cycleIdx != -1) {
@@ -73,7 +74,8 @@ public class IsListCyclic {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "IsListCyclic.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class LeftRightJustifyText {
   @EpiTest(testDataFile = "../test_data/epi/left_right_justify_text.tsv")
 
@@ -14,7 +16,8 @@ public class LeftRightJustifyText {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "LeftRightJustifyText.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

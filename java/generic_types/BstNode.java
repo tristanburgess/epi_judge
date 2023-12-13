@@ -5,15 +5,16 @@ import test_framework.BinaryTreeUtils;
 
 import java.util.Objects;
 
-
 public class BstNode<T> {
   public T data;
   public BstNode<T> left, right;
-  
 
-  public BstNode() {}
+  public BstNode() {
+  }
 
-  public BstNode(T data) { this.data = data; }
+  public BstNode(T data) {
+    this.data = data;
+  }
 
   public BstNode(T data, BstNode<T> left, BstNode<T> right) {
     this.data = data;
@@ -30,7 +31,8 @@ public class BstNode<T> {
       return false;
     }
 
-    BstNode that = (BstNode)o;
+    @SuppressWarnings("unchecked")
+    BstNode<T> that = (BstNode<T>) o;
 
     if (data != null ? !data.equals(that.data) : that.data != null) {
       return false;
@@ -54,6 +56,5 @@ public class BstNode<T> {
   public String toString() {
     return BinaryTreeUtils.binaryTreeToString(this);
   }
-  
-}
 
+}

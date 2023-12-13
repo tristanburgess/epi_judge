@@ -1,6 +1,8 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
+
 public class SpreadsheetEncoding {
   @EpiTest(testDataFile = "../test_data/epi/spreadsheet_encoding.tsv")
 
@@ -13,7 +15,8 @@ public class SpreadsheetEncoding {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SpreadsheetEncoding.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

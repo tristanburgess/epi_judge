@@ -1,6 +1,8 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
+
 public class SubstringMatch {
   @EpiTest(testDataFile = "../test_data/epi/substring_match.tsv")
 
@@ -15,7 +17,8 @@ public class SubstringMatch {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SubstringMatch.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

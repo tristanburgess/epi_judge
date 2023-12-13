@@ -14,15 +14,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UserTypeTraits extends SerializationTraits {
-  private EpiUserType typeInfo;
   private List<SerializationTraits> ctorParamTraits;
   private Constructor<?> ctor;
 
   public UserTypeTraits(Class<?> userType, EpiUserType userTypeInfo) {
-    this.typeInfo = userTypeInfo;
     ctorParamTraits = Arrays.stream(userTypeInfo.ctorParams())
-                          .map(TraitsFactory::getTraits)
-                          .collect(Collectors.toList());
+        .map(TraitsFactory::getTraits)
+        .collect(Collectors.toList());
 
     try {
       ctor = userType.getDeclaredConstructor(userTypeInfo.ctorParams());
@@ -66,7 +64,7 @@ public class UserTypeTraits extends SerializationTraits {
     if (a.size() != ctorParamTraits.size()) {
       throw new RuntimeException(
           String.format("Tuple parser: expected %d values, provided %d",
-                        ctorParamTraits.size(), a.size()));
+              ctorParamTraits.size(), a.size()));
     }
     Object[] params = new Object[ctorParamTraits.size()];
     for (int i = 0; i < ctorParamTraits.size(); i++) {
@@ -74,8 +72,7 @@ public class UserTypeTraits extends SerializationTraits {
     }
     try {
       return ctor.newInstance(params);
-    } catch (InstantiationException | IllegalAccessException |
-             InvocationTargetException e) {
+    } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
       throw new RuntimeException("Tuple parser: " + e.getMessage());
     }
   }

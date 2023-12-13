@@ -16,7 +16,8 @@ public class SortList {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "SortList.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -1,23 +1,28 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import test_framework.TimedExecutor;
 import java.util.ArrayList;
 import java.util.List;
+
 public class DeadlockDetection {
 
   public static class GraphVertex {
     public List<GraphVertex> edges;
 
-    public GraphVertex() { edges = new ArrayList<>(); }
+    public GraphVertex() {
+      edges = new ArrayList<>();
+    }
   }
 
   public static boolean isDeadlocked(List<GraphVertex> graph) {
     // TODO - you fill in here.
     return true;
   }
-  @EpiUserType(ctorParams = {int.class, int.class})
+
+  @EpiUserType(ctorParams = { int.class, int.class })
   public static class Edge {
     public int from;
     public int to;
@@ -30,7 +35,7 @@ public class DeadlockDetection {
 
   @EpiTest(testDataFile = "../test_data/epi/deadlock_detection.tsv")
   public static boolean isDeadlockedWrapper(TimedExecutor executor,
-                                            int numNodes, List<Edge> edges)
+      int numNodes, List<Edge> edges)
       throws Exception {
     if (numNodes <= 0) {
       throw new RuntimeException("Invalid numNodes value");
@@ -53,7 +58,8 @@ public class DeadlockDetection {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "DeadlockDetection.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -1,10 +1,12 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class DrawingSkyline {
-  @EpiUserType(ctorParams = {int.class, int.class, int.class})
+  @EpiUserType(ctorParams = { int.class, int.class, int.class })
 
   public static class Rectangle {
     public int left, right, height;
@@ -24,7 +26,7 @@ public class DrawingSkyline {
         return false;
       }
 
-      Rectangle rectangle = (Rectangle)o;
+      Rectangle rectangle = (Rectangle) o;
 
       if (left != rectangle.left) {
         return false;
@@ -52,7 +54,8 @@ public class DrawingSkyline {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "DrawingSkyline.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -1,23 +1,25 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import test_framework.RandomSequenceChecker;
-import test_framework.TestFailure;
 import test_framework.TimedExecutor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
 public class OnlineSampling {
 
   // Assumption: there are at least k elements in the stream.
   public static List<Integer> onlineRandomSample(Iterator<Integer> stream,
-                                                 int k) {
+      int k) {
     // TODO - you fill in here.
     return Collections.emptyList();
   }
+
   private static boolean onlineRandomSampleRunner(TimedExecutor executor,
-                                                  List<Integer> A, int k)
+      List<Integer> A, int k)
       throws Exception {
     List<List<Integer>> results = new ArrayList<>();
 
@@ -27,12 +29,10 @@ public class OnlineSampling {
       }
     });
 
-    int totalPossibleOutcomes =
-        RandomSequenceChecker.binomialCoefficient(A.size(), k);
+    int totalPossibleOutcomes = RandomSequenceChecker.binomialCoefficient(A.size(), k);
     Collections.sort(A);
     List<List<Integer>> combinations = new ArrayList<>();
-    for (int i = 0; i < RandomSequenceChecker.binomialCoefficient(A.size(), k);
-         ++i) {
+    for (int i = 0; i < RandomSequenceChecker.binomialCoefficient(A.size(), k); ++i) {
       combinations.add(
           RandomSequenceChecker.computeCombinationIdx(A, A.size(), k, i));
     }
@@ -47,7 +47,7 @@ public class OnlineSampling {
 
   @EpiTest(testDataFile = "../test_data/epi/online_sampling.tsv")
   public static void onlineRandomSampleWrapper(TimedExecutor executor,
-                                               List<Integer> stream, int k)
+      List<Integer> stream, int k)
       throws Exception {
     RandomSequenceChecker.runFuncWithRetries(
         () -> onlineRandomSampleRunner(executor, stream, k));
@@ -57,7 +57,8 @@ public class OnlineSampling {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "OnlineSampling.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -27,13 +27,13 @@ public class GenericTest {
    * @param commandlineArgs - command-line options
    * @param testFile        - name of the file we are running
    * @param testDataFile    - name of the file containing header and test data
-   *                          without path prefix
+   *                        without path prefix
    * @param testFunc        - method to be tested
    * @param comparator      - optional custom result comparator.
-   *                          The 1st argument is expected value,
-   *                          the 2nd is the computed result
+   *                        The 1st argument is expected value,
+   *                        the 2nd is the computed result
    * @param expectedType    - optional custom expected value type if it doesn't
-   *                          match m return type
+   *                        match m return type
    */
   private static TestResult genericTestMain(
       String[] commandlineArgs, String testFile, String testDataFile,
@@ -41,10 +41,9 @@ public class GenericTest {
       Field expectedType) {
     JsonObject configOverride = null;
     try {
-      configOverride =
-          Json.parse(new String(Files.readAllBytes(Paths.get(
-                         TestUtils.getFilePathInJudgeDir("config.json")))))
-              .asObject();
+      configOverride = Json.parse(new String(Files.readAllBytes(Paths.get(
+          TestUtils.getFilePathInJudgeDir("config.json")))))
+          .asObject();
     } catch (IOException e) {
       throw new RuntimeException("config.json file not found");
     }
@@ -58,19 +57,18 @@ public class GenericTest {
 
       Platform.setOutputOpts(config.ttyMode, config.colorMode);
 
-      GenericTestHandler testHandler =
-          new GenericTestHandler(testFunc, comparator, expectedType);
+      GenericTestHandler testHandler = new GenericTestHandler(testFunc, comparator, expectedType);
       return runTests(testHandler, config);
     } catch (RuntimeException e) {
       System.err.printf("\nCritical error(%s): %s\n", e.getClass().getName(),
-                        e.getMessage());
+          e.getMessage());
       e.printStackTrace();
       return TestResult.RUNTIME_EXCEPTION;
     }
   }
 
   private static TestResult runTests(GenericTestHandler handler,
-                                     TestConfig config) {
+      TestConfig config) {
     List<List<String>> testData = TestUtils.splitTsvFile(
         Paths.get(config.testDataDir, config.testDataFile));
     handler.parseSignature(testData.get(0));
@@ -111,15 +109,14 @@ public class GenericTest {
         throw e;
       } catch (Exception e) {
         result = TestResult.UNKNOWN_EXCEPTION;
-        testFailure =
-            new TestFailure(e.getClass().getName())
-                .withProperty(TestFailure.PropertyName.EXCEPTION_MESSAGE,
-                              e.getMessage());
+        testFailure = new TestFailure(e.getClass().getName())
+            .withProperty(TestFailure.PropertyName.EXCEPTION_MESSAGE,
+                e.getMessage());
       }
 
       TestUtilsConsole.printTestInfo(result, testNr, totalTests,
-                                     testFailure.getDescription(),
-                                     testOutput.timer);
+          testFailure.getDescription(),
+          testOutput.timer);
 
       if (result != TestResult.PASSED) {
         if (config.verbose) {
@@ -128,11 +125,11 @@ public class GenericTest {
           }
           if (!testExplanation.equals("") && !testExplanation.equals("TODO")) {
             testFailure.withProperty(TestFailure.PropertyName.EXPLANATION,
-                                     testExplanation);
+                testExplanation);
           }
 
           TestUtilsConsole.printFailedTest(config.testFuncName, handler.paramNames(), testCase,
-                                           testFailure);
+              testFailure);
         }
 
         final int testsNotPassed = testNr - testsPassed;
@@ -147,41 +144,37 @@ public class GenericTest {
     }
 
     String complexity = "";
-    
+
     System.out.println();
 
     if (!durations.isEmpty() && config.verbose) {
       TestUtilsConsole.printPostRunStats(config.testFuncName, testsPassed, totalTests, complexity,
-                                         durations);
+          durations);
     }
     return result;
   }
 
-  @SuppressWarnings("unchecked")
   private static void updateTestPassed(String testFile, int testsPassed) {
-    Path problemMappingFilePath =
-        Paths.get(TestUtils.getFilePathInJudgeDir("problem_mapping.js"));
+    Path problemMappingFilePath = Paths.get(TestUtils.getFilePathInJudgeDir("problem_mapping.js"));
     JsonValue chapterToProblemToLanguageSolutionMapping = null;
     final String JS_BEGIN_PATTERN = "run(";
     final String JS_END_PATTERN = ");";
     try {
       String jsFileStr = new String(Files.readAllBytes(problemMappingFilePath));
-      jsFileStr =
-          jsFileStr.replace(JS_BEGIN_PATTERN, "").replace(JS_END_PATTERN, "");
+      jsFileStr = jsFileStr.replace(JS_BEGIN_PATTERN, "").replace(JS_END_PATTERN, "");
       chapterToProblemToLanguageSolutionMapping = Json.parse(jsFileStr);
     } catch (IOException e) {
       throw new RuntimeException("problem_mapping.js file not found");
     }
 
     testFile = "Java: " + testFile;
-    for (Member chapter :
-         chapterToProblemToLanguageSolutionMapping.asObject()) {
+    for (Member chapter : chapterToProblemToLanguageSolutionMapping.asObject()) {
       for (Member problem : chapter.getValue().asObject()) {
         for (Member language : problem.getValue().asObject()) {
           if (testFile.equals(language.getName())) {
             language.getValue().asObject().set("passed", testsPassed);
             try (PrintWriter problemMappingFile = new PrintWriter(
-                     problemMappingFilePath.toAbsolutePath().toString())) {
+                problemMappingFilePath.toAbsolutePath().toString())) {
               problemMappingFile.print(JS_BEGIN_PATTERN);
               chapterToProblemToLanguageSolutionMapping.writeTo(
                   problemMappingFile, WriterConfig.PRETTY_PRINT);
@@ -206,12 +199,10 @@ public class GenericTest {
    * and for custom expected value type
    * (marked with {@link EpiTestExpectedType} annotation)
    */
-  @SuppressWarnings("unchecked")
   public static TestResult runFromAnnotations(String[] commandlineArgs,
-                                              String testFile,
-                                              Class testClass) {
-    BiPredicate<Object, Object> comparator =
-        findCustomComparatorByAnnotation(testClass);
+      String testFile,
+      Class<?> testClass) {
+    BiPredicate<Object, Object> comparator = findCustomComparatorByAnnotation(testClass);
 
     Field expectedType = findCustomExpectedTypeByAnnotation(testClass);
 
@@ -220,26 +211,27 @@ public class GenericTest {
       EpiTest annotation = m.getAnnotation(EpiTest.class);
       if (annotation != null) {
         result = genericTestMain(commandlineArgs, testFile,
-                                 annotation.testDataFile(), m, comparator,
-                                 expectedType);
+            annotation.testDataFile(), m, comparator,
+            expectedType);
       }
     }
     return result;
   }
 
-  @SuppressWarnings("unchecked")
   private static BiPredicate<Object, Object> findCustomComparatorByAnnotation(
-      Class testClass) {
+      Class<?> testClass) {
     for (Field f : testClass.getFields()) {
       Annotation annotation = f.getAnnotation(EpiTestComparator.class);
       if (annotation != null) {
         if (!f.getType().equals(BiPredicate.class)) {
           throw new RuntimeException(
               "EpiTestComparator type mismatch. Expected " +
-              BiPredicate.class.getName() + ", got: " + f.getType().getName());
+                  BiPredicate.class.getName() + ", got: " + f.getType().getName());
         }
         try {
-          return (BiPredicate<Object, Object>)f.get(null);
+          @SuppressWarnings("unchecked")
+          BiPredicate<Object, Object> bp = (BiPredicate<Object, Object>) f.get(null);
+          return bp;
         } catch (IllegalAccessException e) {
           throw new RuntimeException(e.getMessage());
         }
@@ -249,7 +241,7 @@ public class GenericTest {
     return null;
   }
 
-  private static Field findCustomExpectedTypeByAnnotation(Class testClass) {
+  private static Field findCustomExpectedTypeByAnnotation(Class<?> testClass) {
     for (Field f : testClass.getFields()) {
       if (f.getAnnotation(EpiTestExpectedType.class) != null) {
         return f;

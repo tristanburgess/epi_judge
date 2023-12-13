@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.Set;
+
 public class StringTransformability {
 
   @EpiTest(testDataFile = "../test_data/epi/string_transformability.tsv")
@@ -16,7 +18,8 @@ public class StringTransformability {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "StringTransformability.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

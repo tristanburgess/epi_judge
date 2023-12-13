@@ -6,11 +6,9 @@ import java.util.Set;
 import java.util.List;
 import java.util.ArrayList;
 
-
 public class ListNode<T> {
   public T data;
   public ListNode<T> next;
-  
 
   public ListNode(T data, ListNode<T> next) {
     this.data = data;
@@ -66,7 +64,7 @@ public class ListNode<T> {
       return false;
     }
 
-    ListNode<?> that = (ListNode<?>)o;
+    ListNode<?> that = (ListNode<?>) o;
 
     return equalsIterativeImpl(this, that);
   }
@@ -102,6 +100,5 @@ public class ListNode<T> {
     }
     return result;
   }
-  
-}
 
+}

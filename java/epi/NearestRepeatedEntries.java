@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class NearestRepeatedEntries {
   @EpiTest(testDataFile = "../test_data/epi/nearest_repeated_entries.tsv")
 
@@ -14,7 +16,8 @@ public class NearestRepeatedEntries {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "NearestRepeatedEntries.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

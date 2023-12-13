@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class MaxSubmatrix {
 
   @EpiTest(testDataFile = "../test_data/epi/max_submatrix.tsv")
@@ -15,7 +17,8 @@ public class MaxSubmatrix {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "MaxSubmatrix.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

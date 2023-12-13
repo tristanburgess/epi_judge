@@ -34,7 +34,7 @@ public class StringTraits extends SerializationTraits {
   @Override
   public List<Integer> getMetrics(Object x) {
     if (x instanceof String) {
-      return Collections.singletonList(((String)x).length());
+      return Collections.singletonList(((String) x).length());
     } else {
       throw new RuntimeException("Expected String");
     }

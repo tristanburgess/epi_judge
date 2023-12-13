@@ -16,7 +16,8 @@ public class RemoveDuplicatesFromSortedList {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "RemoveDuplicatesFromSortedList.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

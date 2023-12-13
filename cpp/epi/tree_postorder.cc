@@ -5,20 +5,8 @@
 using std::unique_ptr;
 using std::vector;
 
-void PostorderTraversalNaiveHelper(vector<int>& data, const unique_ptr<BinaryTreeNode<int>>& tree) {
-  if (tree == nullptr) { 
-    return;
-  }
-
-  PostorderTraversalNaiveHelper(data, tree->left);
-  PostorderTraversalNaiveHelper(data, tree->right);
-  data.emplace_back(tree->data);
-}
-
 vector<int> PostorderTraversalNaive(const unique_ptr<BinaryTreeNode<int>>& tree) {
-  vector<int> data;
-  PostorderTraversalNaiveHelper(data, tree);
-  return data;
+  return {};
 }
 
 int main(int argc, char* argv[]) {

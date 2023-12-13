@@ -18,7 +18,7 @@ public class IntegerTraits extends SerializationTraits {
       return Integer.parseInt(str);
     } catch (NumberFormatException e) {
       throw new RuntimeException("Int parser: conversion error: " +
-                                 e.getMessage());
+          e.getMessage());
     }
   }
 
@@ -39,7 +39,7 @@ public class IntegerTraits extends SerializationTraits {
   @Override
   public List<Integer> getMetrics(Object x) {
     if (x instanceof Integer) {
-      return Collections.singletonList(Math.abs((int)x));
+      return Collections.singletonList(Math.abs((int) x));
     } else {
       throw new RuntimeException("Expected Integer");
     }

@@ -11,6 +11,7 @@ import java.io.Reader;
  * methods like in this
  * example:
  * </p>
+ * 
  * <pre>
  * JsonObject object = Json.parse(string).asObject();
  * </pre>
@@ -21,6 +22,7 @@ import java.io.Reader;
  * example, the following
  * snippet will produce the JSON string <em>{"foo": 23, "bar": true}</em>:
  * </p>
+ * 
  * <pre>
  * String string = Json.object().add("foo", 23).add("bar", true).toString();
  * </pre>
@@ -29,6 +31,7 @@ import java.io.Reader;
  * <code>array()</code>
  * methods with varargs parameters:
  * </p>
+ * 
  * <pre>
  * String[] names = ...
  * JsonArray array = Json.array(names);
@@ -59,7 +62,7 @@ public final class Json {
    * value.
    *
    * @param value
-   *          the value to get a JSON representation for
+   *              the value to get a JSON representation for
    * @return a JSON value that represents the given value
    */
   public static JsonValue value(int value) {
@@ -71,7 +74,7 @@ public final class Json {
    * value.
    *
    * @param value
-   *          the value to get a JSON representation for
+   *              the value to get a JSON representation for
    * @return a JSON value that represents the given value
    */
   public static JsonValue value(long value) {
@@ -83,7 +86,7 @@ public final class Json {
    * value.
    *
    * @param value
-   *          the value to get a JSON representation for
+   *              the value to get a JSON representation for
    * @return a JSON value that represents the given value
    */
   public static JsonValue value(float value) {
@@ -99,7 +102,7 @@ public final class Json {
    * value.
    *
    * @param value
-   *          the value to get a JSON representation for
+   *              the value to get a JSON representation for
    * @return a JSON value that represents the given value
    */
   public static JsonValue value(double value) {
@@ -114,7 +117,7 @@ public final class Json {
    * Returns a JsonValue instance that represents the given string.
    *
    * @param string
-   *          the string to get a JSON representation for
+   *               the string to get a JSON representation for
    * @return a JSON value that represents the given string
    */
   public static JsonValue value(String string) {
@@ -126,10 +129,12 @@ public final class Json {
    * value.
    *
    * @param value
-   *          the value to get a JSON representation for
+   *              the value to get a JSON representation for
    * @return a JSON value that represents the given value
    */
-  public static JsonValue value(boolean value) { return value ? TRUE : FALSE; }
+  public static JsonValue value(boolean value) {
+    return value ? TRUE : FALSE;
+  }
 
   /**
    * Creates a new empty JsonArray. This is equivalent to creating a new
@@ -138,7 +143,9 @@ public final class Json {
    *
    * @return a new empty JSON array
    */
-  public static JsonArray array() { return new JsonArray(); }
+  public static JsonArray array() {
+    return new JsonArray();
+  }
 
   /**
    * Creates a new JsonArray that contains the JSON representations of the given
@@ -146,7 +153,7 @@ public final class Json {
    * values.
    *
    * @param values
-   *          the values to be included in the new JSON array
+   *               the values to be included in the new JSON array
    * @return a new JSON array that contains the given values
    */
   public static JsonArray array(int... values) {
@@ -166,7 +173,7 @@ public final class Json {
    * values.
    *
    * @param values
-   *          the values to be included in the new JSON array
+   *               the values to be included in the new JSON array
    * @return a new JSON array that contains the given values
    */
   public static JsonArray array(long... values) {
@@ -186,7 +193,7 @@ public final class Json {
    * values.
    *
    * @param values
-   *          the values to be included in the new JSON array
+   *               the values to be included in the new JSON array
    * @return a new JSON array that contains the given values
    */
   public static JsonArray array(float... values) {
@@ -206,7 +213,7 @@ public final class Json {
    * values.
    *
    * @param values
-   *          the values to be included in the new JSON array
+   *               the values to be included in the new JSON array
    * @return a new JSON array that contains the given values
    */
   public static JsonArray array(double... values) {
@@ -225,7 +232,7 @@ public final class Json {
    * <code>boolean</code> values.
    *
    * @param values
-   *          the values to be included in the new JSON array
+   *               the values to be included in the new JSON array
    * @return a new JSON array that contains the given values
    */
   public static JsonArray array(boolean... values) {
@@ -244,7 +251,7 @@ public final class Json {
    * strings.
    *
    * @param strings
-   *          the strings to be included in the new JSON array
+   *                the strings to be included in the new JSON array
    * @return a new JSON array that contains the given strings
    */
   public static JsonArray array(String... strings) {
@@ -265,7 +272,9 @@ public final class Json {
    *
    * @return a new empty JSON object
    */
-  public static JsonObject object() { return new JsonObject(); }
+  public static JsonObject object() {
+    return new JsonObject();
+  }
 
   /**
    * Parses the given input string as JSON. The input must contain a valid JSON
@@ -273,10 +282,10 @@ public final class Json {
    * padded with whitespace.
    *
    * @param string
-   *          the input string, must be valid JSON
+   *               the input string, must be valid JSON
    * @return a value that represents the parsed JSON
    * @throws ParseException
-   *           if the input is not valid JSON
+   *                        if the input is not valid JSON
    */
   public static JsonValue parse(String string) {
     if (string == null) {
@@ -298,12 +307,12 @@ public final class Json {
    * </p>
    *
    * @param reader
-   *          the reader to read the JSON value from
+   *               the reader to read the JSON value from
    * @return a value that represents the parsed JSON
    * @throws IOException
-   *           if an I/O error occurs in the reader
+   *                        if an I/O error occurs in the reader
    * @throws ParseException
-   *           if the input is not valid JSON
+   *                        if the input is not valid JSON
    */
   public static JsonValue parse(Reader reader) throws IOException {
     if (reader == null) {
@@ -374,6 +383,8 @@ public final class Json {
       object.add(name, value);
     }
 
-    JsonValue getValue() { return value; }
+    JsonValue getValue() {
+      return value;
+    }
   }
 }

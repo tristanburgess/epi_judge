@@ -19,7 +19,7 @@ public class FloatTraits extends SerializationTraits {
       return Float.parseFloat(str);
     } catch (NumberFormatException e) {
       throw new RuntimeException("Float parser: conversion error: " +
-                                 e.getMessage());
+          e.getMessage());
     }
   }
 
@@ -40,8 +40,8 @@ public class FloatTraits extends SerializationTraits {
   @Override
   public List<Integer> getMetrics(Object x) {
     if (x instanceof Float) {
-      float val = Math.abs((float)x);
-      return Collections.singletonList((int)Math.min(val, Integer.MAX_VALUE));
+      float val = Math.abs((float) x);
+      return Collections.singletonList((int) Math.min(val, Integer.MAX_VALUE));
     } else {
       throw new RuntimeException("Expected Float");
     }
@@ -50,7 +50,7 @@ public class FloatTraits extends SerializationTraits {
   @Override
   public boolean argumentsEqual(Object a, Object b) {
     if (a instanceof Float && b instanceof Float) {
-      return TestUtils.floatComparison((Float)a, (Float)b);
+      return TestUtils.floatComparison((Float) a, (Float) b);
     } else {
       throw new RuntimeException("Expected Float");
     }

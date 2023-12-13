@@ -1,10 +1,12 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.EpiUserType;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class LineThroughMostPoints {
-  @EpiUserType(ctorParams = {int.class, int.class})
+  @EpiUserType(ctorParams = { int.class, int.class })
 
   public static class Point {
     public int x, y;
@@ -26,7 +28,8 @@ public class LineThroughMostPoints {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "LineThroughMostPoints.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

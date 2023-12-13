@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class MinimumWaitingTime {
   @EpiTest(testDataFile = "../test_data/epi/minimum_waiting_time.tsv")
 
@@ -14,7 +16,8 @@ public class MinimumWaitingTime {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "MinimumWaitingTime.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

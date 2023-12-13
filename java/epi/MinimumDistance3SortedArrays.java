@@ -1,7 +1,9 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import java.util.List;
+
 public class MinimumDistance3SortedArrays {
 
   public static class ArrayData implements Comparable<ArrayData> {
@@ -25,8 +27,7 @@ public class MinimumDistance3SortedArrays {
 
   @EpiTest(testDataFile = "../test_data/epi/minimum_distance_3_sorted_arrays.tsv")
 
-  public static int
-  findMinDistanceSortedArrays(List<List<Integer>> sortedArrays) {
+  public static int findMinDistanceSortedArrays(List<List<Integer>> sortedArrays) {
     // TODO - you fill in here.
     return 0;
   }
@@ -35,7 +36,8 @@ public class MinimumDistance3SortedArrays {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "MinimumDistance3SortedArrays.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

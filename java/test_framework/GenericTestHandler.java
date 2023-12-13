@@ -12,7 +12,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.function.BiPredicate;
 import java.util.stream.Collectors;
@@ -60,7 +59,7 @@ public class GenericTestHandler {
    *                     different types for expected and result arguments.
    */
   public GenericTestHandler(Method func, BiPredicate<Object, Object> comparator,
-                            Field expectedType) {
+      Field expectedType) {
     this.func = func;
     this.comparator = comparator;
     hasExecutorHook = false;
@@ -77,11 +76,11 @@ public class GenericTestHandler {
     }
 
     paramTraits = paramTypes.stream()
-                      .map(TraitsFactory::getTraits)
-                      .collect(Collectors.toList());
+        .map(TraitsFactory::getTraits)
+        .collect(Collectors.toList());
     paramNames = Arrays.stream(func.getParameters())
-                     .map(Parameter::getName)
-                     .collect(Collectors.toList());
+        .map(Parameter::getName)
+        .collect(Collectors.toList());
     if (hasExecutorHook) {
       paramNames.remove(0);
     }
@@ -108,21 +107,21 @@ public class GenericTestHandler {
 
     for (int i = 0; i < paramTypes.size(); i++) {
       matchTypeNames(paramTraits.get(i).name(), signature.get(i),
-                     String.format("%d argument", i));
+          String.format("%d argument", i));
     }
 
     if (!customExpectedType) {
       matchTypeNames(retValueTraits.name(), signature.get(signature.size() - 1),
-                     "Return value");
+          "Return value");
     }
   }
 
   private void matchTypeNames(String expected, String fromTestData,
-                              String sourceName) {
+      String sourceName) {
     if (!expected.equals(TestUtils.filterBracketComments(fromTestData))) {
       throw new RuntimeException(
           String.format("%s type mismatch: expected %s, got %s", sourceName,
-                        expected, fromTestData));
+              expected, fromTestData));
     }
   }
 
@@ -132,10 +131,11 @@ public class GenericTestHandler {
    * with them.
    *
    * @param timeoutSeconds - number of seconds to timeout.
-   * @param testArgs - serialized arguments.
+   * @param testArgs       - serialized arguments.
    * @return array, that contains [result of comparison of expected and result,
-   * expected, result]. Two last entries are omitted in case of the void return
-   * type
+   *         expected, result]. Two last entries are omitted in case of the void
+   *         return
+   *         type
    */
   public TestOutput runTest(long timeoutSeconds, List<String> testArgs)
       throws Exception, Error {
@@ -144,7 +144,7 @@ public class GenericTestHandler {
       if (testArgs.size() != expectedParamCount) {
         throw new RuntimeException(
             String.format("Invalid argument count: expected %d, actual: %d",
-                          expectedParamCount, testArgs.size()));
+                expectedParamCount, testArgs.size()));
       }
 
       List<Object> parsed = new ArrayList<>();
@@ -164,8 +164,7 @@ public class GenericTestHandler {
       }
 
       if (!expectedIsVoid()) {
-        Object expected =
-            retValueTraits.parse(testArgs.get(testArgs.size() - 1));
+        Object expected = retValueTraits.parse(testArgs.get(testArgs.size() - 1));
         assertResultsEqual(expected, result);
       }
 
@@ -175,9 +174,9 @@ public class GenericTestHandler {
     } catch (InvocationTargetException e) {
       Throwable t = e.getCause();
       if (t instanceof Exception) {
-        throw(Exception) t;
+        throw (Exception) t;
       } else if (t instanceof Error) {
-        throw(Error) t;
+        throw (Error) t;
       } else {
         // Improbable except for intended attempts to break the code, but anyway
         throw new RuntimeException(t);
@@ -193,13 +192,11 @@ public class GenericTestHandler {
     } else if (expected == null) {
       comparisonResult = result == null;
     } else if (expected instanceof Float && result instanceof Float) {
-      comparisonResult =
-          TestUtils.floatComparison((Float)expected, (Float)result);
+      comparisonResult = TestUtils.floatComparison((Float) expected, (Float) result);
     } else if (expected instanceof Double && result instanceof Double) {
-      comparisonResult =
-          TestUtils.doubleComparison((Double)expected, (Double)result);
+      comparisonResult = TestUtils.doubleComparison((Double) expected, (Double) result);
     } else if (BinaryTreeUtils.isObjectTreeType(expected) ||
-               BinaryTreeUtils.isObjectTreeType(result)) {
+        BinaryTreeUtils.isObjectTreeType(result)) {
       BinaryTreeUtils.assertEqualBinaryTrees(expected, result);
       return;
     } else {
@@ -226,7 +223,11 @@ public class GenericTestHandler {
         .collect(Collectors.toList());
   }
 
-  public boolean expectedIsVoid() { return retValueTraits.isVoid(); }
+  public boolean expectedIsVoid() {
+    return retValueTraits.isVoid();
+  }
 
-  public List<String> paramNames() { return paramNames; }
+  public List<String> paramNames() {
+    return paramNames;
+  }
 }

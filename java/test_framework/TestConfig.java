@@ -18,7 +18,7 @@ public class TestConfig {
   public int numFailedTestsBeforeStop;
 
   public TestConfig(String testFile, String testDataFile, long timeoutSeconds,
-                    int numFailedTestsBeforeStop) {
+      int numFailedTestsBeforeStop) {
     this.testFile = testFile;
     this.testDataFile = testDataFile;
     this.verbose = true;
@@ -35,7 +35,7 @@ public class TestConfig {
   }
 
   private static String getParam(String[] commandlineArgs, int i,
-                                 String argName) {
+      String argName) {
     if (i >= commandlineArgs.length) {
       throw new RuntimeException("CL: Missing parameter for " + argName);
     }
@@ -43,8 +43,7 @@ public class TestConfig {
   }
 
   private static void printUsageAndExit() {
-    String usageString =
-        "usage: <program name> [-h] [--test-data-dir [TEST_DATA_DIR]] [--no-verbose]\n"
+    String usageString = "usage: <program name> [-h] [--test-data-dir [TEST_DATA_DIR]] [--no-verbose]\n"
         +
         "                    [--force-tty] [--no-tty] [--force-color] [--no-color]\n"
         + "\n"
@@ -66,9 +65,9 @@ public class TestConfig {
   }
 
   public static TestConfig fromCommandLine(String testFile, String testDataFile,
-                                           long timeoutSeconds,
-                                           int numFailedTestsBeforeStop,
-                                           String[] commandlineArgs) {
+      long timeoutSeconds,
+      int numFailedTestsBeforeStop,
+      String[] commandlineArgs) {
     // Set numFailedTestsBeforeStop to 0, means users want to run as many as
     // tests in one run.
     if (numFailedTestsBeforeStop == 0) {
@@ -76,13 +75,12 @@ public class TestConfig {
     }
 
     TestConfig config = new TestConfig(testFile, testDataFile, timeoutSeconds,
-                                       numFailedTestsBeforeStop);
+        numFailedTestsBeforeStop);
 
     for (int i = 0; i < commandlineArgs.length; i++) {
       switch (commandlineArgs[i]) {
         case "--test-data-dir":
-          config.testDataDir =
-              getParam(commandlineArgs, ++i, "--test-data-dir");
+          config.testDataDir = getParam(commandlineArgs, ++i, "--test-data-dir");
           break;
         case "--no-verbose":
           config.verbose = false;
@@ -108,7 +106,7 @@ public class TestConfig {
           break;
         default:
           throw new RuntimeException("CL: Unrecognized argument: " +
-                                     commandlineArgs[i]);
+              commandlineArgs[i]);
       }
     }
 

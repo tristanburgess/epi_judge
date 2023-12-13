@@ -17,7 +17,8 @@ public class DeleteKthLastFromList {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "DeleteKthLastFromList.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

@@ -38,7 +38,7 @@ public class CharacterTraits extends SerializationTraits {
   @Override
   public List<Integer> getMetrics(Object x) {
     if (x instanceof Character) {
-      return Collections.singletonList((int)(Character)x);
+      return Collections.singletonList((int) (Character) x);
     } else {
       throw new RuntimeException("Expected Character");
     }

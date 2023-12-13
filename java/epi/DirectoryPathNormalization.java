@@ -1,6 +1,8 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
+
 public class DirectoryPathNormalization {
   @EpiTest(testDataFile = "../test_data/epi/directory_path_normalization.tsv")
 
@@ -13,7 +15,8 @@ public class DirectoryPathNormalization {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "DirectoryPathNormalization.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }

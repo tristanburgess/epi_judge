@@ -4,18 +4,7 @@
 using std::string;
 
 bool IsPalindromic(const string& s) {
-  size_t begin = 0;
-  size_t end = s.length() - 1;
-
-  while (begin < end) {
-    if (s[begin] != s[end]) {
-      return false;
-    }
-    begin++;
-    end--;
-  }
-
-  return true;
+  return false;
 }
 
 int main(int argc, char* argv[]) {

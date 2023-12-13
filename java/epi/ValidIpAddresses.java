@@ -1,10 +1,12 @@
 package epi;
+
 import test_framework.EpiTest;
 import test_framework.GenericTest;
 import test_framework.EpiTestComparator;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.BiPredicate;
+
 public class ValidIpAddresses {
   @EpiTest(testDataFile = "../test_data/epi/valid_ip_addresses.tsv")
 
@@ -12,9 +14,9 @@ public class ValidIpAddresses {
     // TODO - you fill in here.
     return null;
   }
+
   @EpiTestComparator
-  public static BiPredicate<List<String>, List<String>> comp =
-      (expected, result) -> {
+  public static BiPredicate<List<String>, List<String>> comp = (expected, result) -> {
     if (result == null) {
       return false;
     }
@@ -27,7 +29,8 @@ public class ValidIpAddresses {
     System.exit(
         GenericTest
             .runFromAnnotations(args, "ValidIpAddresses.java",
-                                new Object() {}.getClass().getEnclosingClass())
+                new Object() {
+                }.getClass().getEnclosingClass())
             .ordinal());
   }
 }
